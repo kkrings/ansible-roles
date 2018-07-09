@@ -11,6 +11,7 @@
       name: "{{ ansible_user }}"
       shell: /bin/zsh
       state: present
+  become: yes
 
 - name: Install prezto
   git:
