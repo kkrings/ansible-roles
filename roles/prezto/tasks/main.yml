@@ -1,0 +1,37 @@
+---
+- name: Install z-shell and git
+  apt:
+      name: ["zsh", "git"]
+      state: latest
+      update_cache: yes
+  become: yes
+
+- name: Change shell of user to z-shell
+  user:
+      name: "{{ ansible_user }}"
+      shell: /bin/zsh
+      state: present
+
+- name: Install prezto
+  git:
+      repo: "https://github.com/sorin-ionescu/prezto.git"
+      dest: "{{ ansible_env['HOME'] }}/.zprezto"
+
+- name: Link prezto
+  file:
+      src: "{{ ansible_env['HOME'] }}/.zprezto/runcoms/{{ item }}"
+      path: "{{ ansible_env['HOME'] }}/.{{ item }}"
+      state: link
+  loop:
+      - zlogin
+      - zlogout
+      - zshenv
+
+- name: Configure prezto
+  copy:
+      src: "{{ item }}"
+      dest: "{{ ansible_env['HOME'] }}/.{{ item }}"
+  loop:
+      - zpreztorc
+      - zprofile
+      - zshrc
