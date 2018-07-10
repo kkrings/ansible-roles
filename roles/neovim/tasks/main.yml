@@ -6,28 +6,40 @@
       update_cache: yes
   become: yes
 
-- name: Install neovim with clipboard support
+- name: Install neovim together with clipboard support
   apt:
       name: ["neovim", "xclip"]
+      install_recommends: no
       state: latest
   become: yes
 
 - name: Support virtual Python environments
   apt:
       name: virtualenvwrapper
+      install_recommends: no
       state: latest
   become: yes
 
 - name: Install Python2 client
   pip:
       name: neovim
-      virtualenv: "{{ ansible_env['HOME'] }}/.virtualenvs/py2-neovim"
-      virtualenv_python: python2
       state: latest
+      virtualenv: "{{ py2env }}"
+      virtualenv_python: python2
 
 - name: Install Python3 client
   pip:
       name: neovim
-      virtualenv: "{{ ansible_env['HOME'] }}/.virtualenvs/py3-neovim"
-      virtualenv_python: python3
       state: latest
+      virtualenv: "{{ py3env }}"
+      virtualenv_python: python3
+
+- name: Create config directory
+  file:
+      path: "{{ ansible_env['HOME'] }}/.config/nvim"
+      state: directory
+
+- name: Configure neovim
+  template:
+      src: init.vim.j2
+      dest: "{{ ansible_env['HOME'] }}/.config/nvim/init.vim"

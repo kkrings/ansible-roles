@@ -1,0 +1,3 @@
+---
+py2env: "{{ ansible_env['HOME'] }}/.virtualenvs/py2-neovim"
+py3env: "{{ ansible_env['HOME'] }}/.virtualenvs/py3-neovim"
