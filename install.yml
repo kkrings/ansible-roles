@@ -2,5 +2,5 @@
 - hosts: ubuntu-vm
   remote_user: kai
   roles:
-      - prezto
       - neovim
+      - prezto
