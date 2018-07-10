@@ -2,6 +2,7 @@
 - name: Install desktop
   apt:
       name: "{{ packages }}"
+      install_recommends: no
       update_cache: yes
       state: latest
   become: yes
@@ -16,8 +17,8 @@
 
 - name: Configure desktop
   template:
-      src: "{{ item.dirname }}/{{ item.filename }}.j2"
-      dest: "{{ ansible_env['HOME'] }}/.config/{{ item.dirname }}/{{ item.filename }}"
+      src: "{{ item.dir }}/{{ item.file }}.j2"
+      dest: "{{ ansible_env['HOME'] }}/.config/{{ item.dir }}/{{ item.file }}"
   loop:
-      - { dirname: "i3", filename: "config" }
-      - { dirname: "i3status", filename: "config" }
+      - { dir: "i3", file: "config" }
+      - { dir: "i3status", file: "config" }
