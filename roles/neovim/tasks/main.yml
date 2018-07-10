@@ -6,28 +6,28 @@
       update_cache: yes
   become: yes
 
-- name: Install neovim
+- name: Install neovim with clipboard support
   apt:
+      name: ["neovim", "xclip"]
+      state: latest
+  become: yes
+
+- name: Support virtual Python environments
+  apt:
+      name: virtualenvwrapper
+      state: latest
+  become: yes
+
+- name: Install Python2 client
+  pip:
       name: neovim
+      virtualenv: "{{ ansible_env['HOME'] }}/.virtualenvs/py2-neovim"
+      virtualenv_python: python2
       state: latest
-  become: yes
 
-- name: Install pip
-  apt:
-      name: ["python-pip", "python3-pip"]
+- name: Install Python3 client
+  pip:
+      name: neovim
+      virtualenv: "{{ ansible_env['HOME'] }}/.virtualenvs/py3-neovim"
+      virtualenv_python: python3
       state: latest
-  become: yes
-
-# - name: Install Python2 client
-#   pip:
-#       name: neovim
-#       executable: pip2
-#       extra_args: --user
-#       state: latest
-#
-# - name: Install Python3 client
-#   pip:
-#       name: neovim
-#       executable: pip3
-#       extra_args: --user
-#       state: latest
