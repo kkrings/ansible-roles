@@ -3,3 +3,4 @@
   remote_user: kai
   roles:
       - prezto
+      - neovim

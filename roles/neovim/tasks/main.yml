@@ -1,0 +1,32 @@
+---
+- name: Add neovim repository
+  apt_repository:
+      repo: ppa:neovim-ppa/stable
+      state: present
+      update_cache: yes
+  become: yes
+
+- name: Install neovim
+  apt:
+      name: neovim
+      state: latest
+  become: yes
+
+- name: Install pip
+  apt:
+      name: ["python-pip", "python3-pip"]
+      state: latest
+
+# - name: Install Python2 client
+#   pip:
+#       name: neovim
+#       executable: pip2
+#       extra_args: --user
+#       state: latest
+#
+# - name: Install Python3 client
+#   pip:
+#       name: neovim
+#       executable: pip3
+#       extra_args: --user
+#       state: latest
