@@ -2,6 +2,7 @@
 - name: Install z-shell and git
   apt:
       name: ["zsh", "git"]
+      install_recommends: no
       state: latest
       update_cache: yes
   become: yes
