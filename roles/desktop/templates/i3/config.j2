@@ -123,34 +123,32 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Define colors.
-set $c_bg {{ gruvbox.dark0 }}
-set $c_bg_fr {{ gruvbox.dark1 }}
-set $c_txt {{ gruvbox.light4 }}
-set $c_txt_on {{ gruvbox.light2 }}
-set $c_txt_neg {{ gruvbox.dark0 }}
-set $c_bg_on_cl {{ gruvbox.bright_blue }}
-set $c_bg_on_ws {{ gruvbox.bright_orange }}
-set $c_bg_urgent {{ gruvbox.bright_red }}
-set $c_ind {{ gruvbox.bright_purple }}
+set $background {{ gruvbox.dark0 }}
+set $frame {{ gruvbox.dark1 }}
+set $text {{ gruvbox.light4 }}
+set $active {{ gruvbox.light2 }}
+set $client {{ gruvbox.bright_blue }}
+set $workspace {{ gruvbox.light2 }}
+set $urgent {{ gruvbox.bright_red }}
 
 # Set client colors: border, background, text, indicator, child border
-client.focused $c_bg_on_cl $c_bg_on_cl $c_txt_neg $c_ind $c_bg_on_cl
-client.focused_inactive $c_bg_fr $c_bg_fr $c_txt_on $c_bg_fr $c_bg_fr
-client.unfocused $c_bg_fr $c_bg_fr $c_txt $c_bg_fr $c_bg_fr
-client.urgent $c_bg_urgent $c_bg_urgent $c_txt_neg $c_bg_urgent $c_bg_urgent
-client.placeholder $c_bg $c_bg $c_bg $c_bg $c_bg
-client.background $c_bg
+client.focused $client $client $background $client $client
+client.focused_inactive $frame $frame $active $frame $frame
+client.unfocused $frame $frame $text $frame $frame
+client.urgent $urgent $urgent $background $urgent $urgent
+client.placeholder $background $background $background $background $background
+client.background $background
 
 # Start i3bar to display a workspace.
 bar {
     status_command i3status
     colors {
-        background $c_bg_fr
-        statusline $c_txt
-        separator $c_bg_fr
-        focused_workspace $c_bg_on_ws $c_bg_on_ws $c_txt_neg
-        active_workspace $c_bg_fr $c_bg_fr $c_txt_on
-        inactive_workspace $c_bg_fr $c_bg_fr $c_txt
-        urgent_workspace $c_bg_urgent $c_bg_urgent $c_txt_neg
+        background $frame
+        statusline $text
+        separator $frame
+        focused_workspace $workspace $workspace $background
+        active_workspace $frame $frame $active
+        inactive_workspace $frame $frame $text
+        urgent_workspace $urgent $urgent $background
     }
 }
