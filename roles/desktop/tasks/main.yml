@@ -11,15 +11,21 @@
       path: "{{ ansible_env['HOME'] }}/.config/{{ item }}"
       state: directory
   loop:
+      - fontconfig
+      - gtk-3.0
       - i3
       - i3status
       - lxterminal
 
 - name: Configure desktop
   template:
-      src: "{{ item.dir }}/{{ item.file }}.j2"
-      dest: "{{ ansible_env['HOME'] }}/.config/{{ item.dir }}/{{ item.file }}"
+      src: "{{ item }}.j2"
+      dest: "{{ ansible_env['HOME'] }}/.{{ item }}"
   loop:
-      - { dir: "i3", file: "config" }
-      - { dir: "i3status", file: "config" }
-      - { dir: "lxterminal", file: "lxterminal.conf" }
+      - config/fontconfig/fonts.conf
+      - config/gtk-3.0/settings.ini
+      - config/i3/config
+      - config/i3status/config
+      - config/lxterminal/lxterminal.conf
+      - gtkrc-2.0
+      - Xresources

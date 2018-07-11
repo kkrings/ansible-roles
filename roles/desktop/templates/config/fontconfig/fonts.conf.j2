@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+<fontconfig>
+    <match target="font">
+        <edit name="antialias" mode="assign">
+            <bool>{{ xft.antialias | lower }}</bool>
+        </edit>
+        <edit name="hinting" mode="assign">
+            <bool>{{ xft.hinting | lower }}</bool>
+        </edit>
+        <edit name="hintstyle" mode="assign">
+            <const>{{ xft.hintstyle }}</const>
+        </edit>
+        <edit name="rgba" mode="assign">
+            <const>{{ xft.rgba }}</const>
+        </edit>
+        <edit name="lcdfilter" mode="assign">
+            <const>{{ xft.lcdfilter }}</const>
+        </edit>
+    </match>
+</fontconfig>

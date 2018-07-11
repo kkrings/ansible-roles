@@ -7,9 +7,20 @@ packages:
     - lxterminal
 
 font:
+    gui: DejaVu Sans
     name: Hack
     size: 10
     style: Regular
+
+xft:
+    antialias: true
+    dpi: 150
+    hinting: true
+    hintstyle: hintslight
+    lcdfilter: lcddefault
+    rgba: rgb
+
+gtk_theme: Adwaita
 
 # gruvbox color palette
 # https://github.com/morhetz/gruvbox
