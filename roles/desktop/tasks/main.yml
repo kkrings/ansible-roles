@@ -13,6 +13,7 @@
   loop:
       - i3
       - i3status
+      - lxterminal
 
 - name: Configure desktop
   template:
@@ -21,3 +22,4 @@
   loop:
       - { dir: "i3", file: "config" }
       - { dir: "i3status", file: "config" }
+      - { dir: "lxterminal", file: "lxterminal.conf" }
