@@ -29,3 +29,16 @@
       - config/lxterminal/lxterminal.conf
       - gtkrc-2.0
       - Xresources
+
+- name: Backup original LightDM configuration
+  copy:
+      src: /etc/lightdm/lightdm-gtk-greeter.conf
+      dest: /etc/lightdm/lightdm-gtk-greeter.conf.bak
+      force: no
+  become: yes
+
+- name: Configure LightDM
+  template:
+      - src: lightdm-gtk-greeter.conf.j2
+      - dest: /etc/lightdm/lightdm-gtk-greeter.conf
+  become: yes

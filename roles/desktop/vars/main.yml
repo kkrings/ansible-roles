@@ -1,10 +1,14 @@
 ---
 packages:
+    - aptitude
+    - chromium-browser
     - fonts-hack
     - i3
     - lightdm
     - lightdm-gtk-greeter
     - lxterminal
+    - ubuntu-wallpapers
+    - xorg
 
 font:
     gui: DejaVu Sans
@@ -21,6 +25,7 @@ xft:
     rgba: rgb
 
 gtk_theme: Adwaita
+background: /usr/share/backgrounds/warty-final-ubuntu.png
 
 # gruvbox color palette
 # https://github.com/morhetz/gruvbox
