@@ -20,7 +20,7 @@ xft:
     antialias: true
     dpi: 150
     hinting: true
-    hintstyle: hintslight
+    hintstyle: slight
     lcdfilter: lcddefault
     rgba: rgb
 
