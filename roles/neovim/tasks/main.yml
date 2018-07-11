@@ -9,14 +9,12 @@
 - name: Install neovim together with clipboard support
   apt:
       name: ["neovim", "xclip"]
-      install_recommends: no
       state: latest
   become: yes
 
 - name: Support virtual Python environments
   apt:
       name: virtualenvwrapper
-      install_recommends: no
       state: latest
   become: yes
 
