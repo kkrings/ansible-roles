@@ -35,6 +35,7 @@
       src: /etc/lightdm/lightdm-gtk-greeter.conf
       dest: /etc/lightdm/lightdm-gtk-greeter.conf.bak
       force: no
+      remote_src: yes
   become: yes
 
 - name: Configure LightDM
