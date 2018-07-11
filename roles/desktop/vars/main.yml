@@ -6,6 +6,11 @@ packages:
     - lightdm-gtk-greeter
     - lxterminal
 
+font:
+    name: Hack
+    size: 10
+    style: Regular
+
 # gruvbox color palette
 # https://github.com/morhetz/gruvbox
 gruvbox:
