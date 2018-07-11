@@ -123,32 +123,32 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Define colors.
-set $background {{ gruvbox.dark0 }}
-set $frame {{ gruvbox.dark1 }}
-set $text {{ gruvbox.light4 }}
-set $active {{ gruvbox.light2 }}
-set $client {{ gruvbox.bright_blue }}
-set $workspace {{ gruvbox.light2 }}
-set $urgent {{ gruvbox.bright_red }}
+set $bg0 {{ gruvbox.dark0 }}
+set $bg1 {{ gruvbox.dark1 }}
+set $fg2 {{ gruvbox.light2 }}
+set $fg4 {{ gruvbox.light4 }}
+set $blue {{ gruvbox.bright_blue }}
+set $red {{ gruvbox.bright_red }}
+set $aqua {{ gruvbox.bright_aqua }}
 
 # Set client colors: border, background, text, indicator, child border
-client.focused $client $client $background $client $client
-client.focused_inactive $frame $frame $active $frame $frame
-client.unfocused $frame $frame $text $frame $frame
-client.urgent $urgent $urgent $background $urgent $urgent
-client.placeholder $background $background $background $background $background
-client.background $background
+client.focused $blue $blue $bg0 $aqua $blue
+client.focused_inactive $bg1 $bg1 $fg2 $bg1 $bg1
+client.unfocused $bg1 $bg1 $fg4 $bg1 $bg1
+client.urgent $red $red $bg0 $red $red
+client.placeholder $bg0 $bg0 $bg0 $bg0 $bg0
+client.background $bg0
 
 # Start i3bar to display a workspace.
 bar {
     status_command i3status
     colors {
-        background $frame
-        statusline $text
-        separator $frame
-        focused_workspace $workspace $workspace $background
-        active_workspace $frame $frame $active
-        inactive_workspace $frame $frame $text
-        urgent_workspace $urgent $urgent $background
+        background $bg1
+        statusline $fg4
+        separator $bg1
+        focused_workspace $fg2 $fg2 $bg0
+        active_workspace $bg1 $bg1 $fg2
+        inactive_workspace $bg1 $bg1 $fg4
+        urgent_workspace $red $red $bg0
     }
 }
