@@ -40,6 +40,6 @@
 
 - name: Configure LightDM
   template:
-      - src: lightdm-gtk-greeter.conf.j2
-      - dest: /etc/lightdm/lightdm-gtk-greeter.conf
+      src: lightdm-gtk-greeter.conf.j2
+      dest: /etc/lightdm/lightdm-gtk-greeter.conf
   become: yes
