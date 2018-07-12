@@ -16,4 +16,14 @@
       - { name: kai.gpg, type: private }
 
 - name: Trust GPG key pair
-  shell: gpg --import-ownertrust < /mnt/shared/ownertrust.txt
+  shell: gpg --import-ownertrust < /mnt/shared/keys/ownertrust.txt
+
+- name: Enable SSH support
+  copy:
+      src: gpg-agent.conf
+      dest: "{{ ansible_env['HOME'] }}/.gnupg/gpg-agent.conf"
+
+- name: Checkout passwords
+  git:
+      repo: "{{ passwords }}"
+      dest: "{{ ansible_env['HOME'] }}/.password-store"
