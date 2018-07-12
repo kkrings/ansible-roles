@@ -1,11 +1,4 @@
 ---
-- name: Install mosh and sshfs
-  apt:
-      name: ["mosh", "sshfs"]
-      state: latest
-      update_cache: yes
-  become: yes
-
 - name: Create config directory
   file:
       path: "{{ ansible_env['HOME'] }}/.ssh"
