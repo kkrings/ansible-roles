@@ -8,6 +8,7 @@ packages:
     - lightdm-gtk-greeter
     - lxterminal
     - mosh
+    - pinentry-gtk2
     - sshfs
     - ubuntu-wallpapers
     - xorg
