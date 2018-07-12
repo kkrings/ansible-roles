@@ -6,4 +6,4 @@
       - neovim
       - prezto
       - ssh
-      - pass
+      - gnupg
