@@ -34,9 +34,10 @@
 
 - name: Copy ssh key pair from host system
   copy:
-      dest: "{{ ansible_env['HOME'] }}/.ssh/{{ item }}"
-      src: /mnt/shared/keys/{{ item }}
+      dest: "{{ ansible_env['HOME'] }}/.ssh/{{ item.name }}"
+      src: /mnt/shared/keys/{{ item.name }}
       remote_src: yes
+      mode: "{{ item.mode }}"
   loop:
-      - id_rsa
-      - id_rsa.pub
+      - { name: id_rsa, mode: 600 }
+      - { name: id_rsa.pub, mode: 644 }
