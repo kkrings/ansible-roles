@@ -1,12 +1,19 @@
 ---
 - name: Install pass
   apt:
-      name: "pass"
+      name: pass
       state: latest
       update_cache: yes
   become: yes
 
-- name: Checkout passwords
+- name: Checkout existing password store (optional)
   git:
-      repo: "{{ passwords }}"
+      repo: "{{ password_store }}"
       dest: "{{ ansible_env['HOME'] }}/.password-store"
+  when: password_store is defined
+
+- name: Fix permissions of (empty) password store
+  file:
+      path: "{{ ansible_env['HOME'] }}/.password-store"
+      state: directory
+      mode: 0700
