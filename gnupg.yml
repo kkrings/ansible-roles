@@ -1,0 +1,8 @@
+---
+- hosts: ubuntu-vm
+  remote_user: kai
+  roles:
+      - ssh
+      - gnupg
+      - prezto
+      - neovim
