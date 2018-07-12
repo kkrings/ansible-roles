@@ -3,6 +3,7 @@
   remote_user: kai
   roles:
       - desktop
-      - ssh
       - neovim
       - prezto
+      - ssh
+      - pass
