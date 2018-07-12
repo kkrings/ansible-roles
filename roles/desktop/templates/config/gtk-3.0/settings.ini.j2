@@ -1,7 +1,7 @@
 [Settings]
-gtk-theme-name = {{ gtk_theme }}
-gtk-icon-theme-name = {{ gtk_theme }}
-gtk-font-name = {{ font.gui }} {{ font.size }}
+gtk-theme-name = {{ gtk.theme }}
+gtk-icon-theme-name = {{ gtk.theme }}
+gtk-font-name = {{ font_gui.name }} {{ font_gui.size }}
 gtk-xft-antialias = {{ xft.antialias | int }}
 gtk-xft-dpi = {{ xft.dpi * 1024 }}
 gtk-xft-hinting = {{ xft.hinting | int }}

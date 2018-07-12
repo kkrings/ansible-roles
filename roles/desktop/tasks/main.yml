@@ -30,16 +30,9 @@
       - gtkrc-2.0
       - Xresources
 
-- name: Backup original LightDM configuration
-  copy:
-      src: /etc/lightdm/lightdm-gtk-greeter.conf
-      dest: /etc/lightdm/lightdm-gtk-greeter.conf.bak
-      force: no
-      remote_src: yes
-  become: yes
-
 - name: Configure LightDM
   template:
       src: lightdm-gtk-greeter.conf.j2
       dest: /etc/lightdm/lightdm-gtk-greeter.conf
+      backup: yes
   become: yes

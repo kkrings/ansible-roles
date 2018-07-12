@@ -11,10 +11,13 @@ packages:
     - xorg
 
 font:
-    gui: DejaVu Sans
     name: Hack
     size: 10
     style: Regular
+
+font_gui:
+    name: DejaVu Sans
+    size: 10
 
 xft:
     antialias: true
@@ -24,8 +27,11 @@ xft:
     lcdfilter: lcddefault
     rgba: rgb
 
-gtk_theme: Adwaita
-background: /usr/share/backgrounds/warty-final-ubuntu.png
+gtk:
+    theme: Adwaita
+
+lightdm:
+    background: /usr/share/backgrounds/warty-final-ubuntu.png
 
 # gruvbox color palette
 # https://github.com/morhetz/gruvbox
