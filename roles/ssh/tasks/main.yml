@@ -1,0 +1,42 @@
+---
+- name: Install mosh
+  apt:
+      name: mosh
+      state: latest
+      update_cache: yes
+  become: yes
+
+- name: Create config directory
+  file:
+      path: "{{ ansible_env['HOME'] }}/.ssh"
+      state: directory
+
+- name: Configure ssh
+  copy:
+      dest: "{{ ansible_env['HOME'] }}/.ssh/config"
+      src: config
+
+- name: Mount shared folder from host system
+  mount:
+      path: /mnt/shared
+      src: Shared
+      fstype: vboxsf
+      opts: rw,uid={{ ansible_user_uid }},gid={{ ansible_user_gid }}
+      state: mounted
+      backup: yes
+  become: yes
+
+- name: Link shared folder to home directory
+  file:
+      path: "{{ ansible_env['HOME'] }}/Shared"
+      src: /mnt/shared
+      state: link
+
+- name: Copy ssh key pair from host system
+  copy:
+      dest: "{{ ansible_env['HOME'] }}/.ssh/{{ item }}"
+      src: /mnt/shared/keys/{{ item }}
+      remote_src: yes
+  loop:
+      - id_rsa
+      - id_rsa.pub
