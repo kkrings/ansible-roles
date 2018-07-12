@@ -1,7 +1,7 @@
 ---
 - name: Install pass
   apt:
-      name: ["pass", "pinentry-gtk2"]
+      name: "pass"
       state: latest
       update_cache: yes
   become: yes

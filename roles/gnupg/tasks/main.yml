@@ -1,7 +1,7 @@
 ---
-- name: Install gpnupg
+- name: Install gnupg and the GTK+ frontend for pinentry
   apt:
-      name: gpg2
+      name: ["gnupg2", "pinentry-gtk2"]
       state: latest
       update_cache: yes
   become: yes
