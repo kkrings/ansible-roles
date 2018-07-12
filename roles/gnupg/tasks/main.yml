@@ -1,0 +1,24 @@
+---
+- name: Install gpnupg
+  apt:
+      name: gpg2
+      state: latest
+      update_cache: yes
+  become: yes
+
+- name: Import GPG key pair
+  gpg_import:
+      key_file: /mnt/shared/keys/{{ item.name }}
+      key_type: "{{ item.type }}"
+      state: latest
+  loop:
+      - { name: kai_pub.gpg, type: public }
+      - { name: kai.gpg, type: private }
+
+- name: Trust GPG key pair
+  shell: gpg --import-ownertrust < /mnt/shared/keys/ownertrust.txt
+
+- name: Enable SSH support
+  copy:
+      src: gpg-agent.conf
+      dest: "{{ ansible_env['HOME'] }}/.gnupg/gpg-agent.conf"
