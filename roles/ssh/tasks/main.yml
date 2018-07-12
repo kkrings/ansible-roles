@@ -1,7 +1,7 @@
 ---
-- name: Install mosh
+- name: Install mosh and sshfs
   apt:
-      name: mosh
+      name: ["mosh", "sshfs"]
       state: latest
       update_cache: yes
   become: yes
