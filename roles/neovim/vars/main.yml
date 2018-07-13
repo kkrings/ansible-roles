@@ -1,3 +1,14 @@
 ---
-py2env: "{{ ansible_env['HOME'] }}/.virtualenvs/py2-neovim"
-py3env: "{{ ansible_env['HOME'] }}/.virtualenvs/py3-neovim"
+py2_env: ~/.virtualenvs/py2-neovim
+py3_env: ~/.virtualenvs/py3-neovim
+
+plugin_directory: ~/.local/share/nvim/plugged
+
+plugins:
+    - lervag/vimtex
+    - morhetz/gruvbox
+    - neomake/neomake
+    - scrooloose/nerdtree
+    - Shougo/deoplete.nvim
+    - tpope/vim-fugitive
+    - vim-airline/vim-airline

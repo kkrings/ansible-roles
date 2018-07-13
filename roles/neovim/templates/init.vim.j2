@@ -1,20 +1,6 @@
 " Path to Python executables
-let g:python_host_prog='{{ py2env }}/bin/python'
-let g:python3_host_prog='{{ py3env }}/bin/python'
-
-" Manage plugins.
-call plug#begin('~/.local/share/nvim/plugged')
-Plug 'morhetz/gruvbox'
-Plug 'scrooloose/nerdtree'
-Plug 'vim-airline/vim-airline'
-call plug#end()
-
-" Enable the gruvbox color scheme.
-let g:gruvbox_italics=1
-colorscheme gruvbox
-
-" The color scheme supports powerline symbols.
-let g:airline_powerline_fonts=1
+let g:python_host_prog='{{ py2_env | expanduser }}/bin/python'
+let g:python3_host_prog='{{ py3_env | expanduser }}/bin/python'
 
 set termguicolors   " Enable true color support.
 set background=dark " Enable dark background.
@@ -24,7 +10,28 @@ set smartindent     " Use smart indentation.
 set shiftwidth=4    " Set number of spaces for automatic indentation.
 set softtabstop=4   " Set number of spaces for tabs.
 set textwidth=79    " Set text width.
+set colorcolumn=80  " Mark lines longer than 80 columns.
 
 " Show tabs.
 set list
 set listchars=tab:>.,trail:_,extends:>,precedes:<
+
+" Manage plugins.
+call plug#begin('{{ plugin_directory }}')
+{% for plugin in plugins %}
+Plug '{{ plugin }}'
+{% endfor %}
+call plug#end()
+
+" Enable the gruvbox color scheme.
+let g:gruvbox_italics=1
+colorscheme gruvbox
+
+" Enable completion.
+let g:deoplete#enable_at_startup = 1
+
+" Run neovim when writing a buffer.
+call neomake#configure#automake('w')
+
+" The color scheme supports powerline symbols.
+let g:airline_powerline_fonts=1

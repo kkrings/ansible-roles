@@ -6,7 +6,7 @@
       update_cache: yes
   become: yes
 
-- name: Install neovim
+- name: Install neovim, powerline fonts, git, and virtualenvwrapper
   apt:
       name: ["neovim", "fonts-powerline", "git", "virtualenvwrapper"]
       state: latest
@@ -16,32 +16,43 @@
   pip:
       name: neovim
       state: latest
-      virtualenv: "{{ py2env }}"
+      virtualenv: "{{ py2_env }}"
       virtualenv_python: python2
 
 - name: Install Python3 client
   pip:
       name: neovim
       state: latest
-      virtualenv: "{{ py3env }}"
+      virtualenv: "{{ py3_env }}"
       virtualenv_python: python3
 
-- name: Create directory for neovim runtime files
+- name: Create directory for runtime files
   file:
-      path: "{{ ansible_env['HOME'] }}/.local/share/nvim/site"
+      path: ~/.local/share/nvim/site
       state: directory
 
 - name: Install plugin manager
   git:
       repo: https://github.com/junegunn/vim-plug.git
-      dest: "{{ ansible_env['HOME'] }}/.local/share/nvim/site/autoload"
+      dest: ~/.local/share/nvim/site/autoload
+
+- name: Create directory for plugins
+  file:
+      path: "{{ plugin_directory }}"
+      state: directory
+
+- name: Install plugins
+  git:
+      repo: https://github.com/{{ item }}.git
+      dest: "{{ plugin_directory }}/{{ item.split('/')[1] }}"
+  loop: "{{ plugins }}"
 
 - name: Create config directory
   file:
-      path: "{{ ansible_env['HOME'] }}/.config/nvim"
+      path: ~/.config/nvim
       state: directory
 
 - name: Configure neovim
   template:
       src: init.vim.j2
-      dest: "{{ ansible_env['HOME'] }}/.config/nvim/init.vim"
+      dest: ~/.config/nvim/init.vim
