@@ -1,5 +1,5 @@
 ---
-- name: Install z-shell
+- name: Install z-shell and git
   apt:
       name: ["zsh", "git"]
       state: latest
@@ -16,12 +16,12 @@
 - name: Install prezto
   git:
       repo: https://github.com/sorin-ionescu/prezto.git
-      dest: "{{ ansible_env['HOME'] }}/.zprezto"
+      dest: ~/.zprezto
 
 - name: Link prezto
   file:
-      src: "{{ ansible_env['HOME'] }}/.zprezto/runcoms/{{ item }}"
-      path: "{{ ansible_env['HOME'] }}/.{{ item }}"
+      src: ~/.zprezto/runcoms/{{ item }}
+      path: ~/.{{ item }}
       state: link
   loop:
       - zlogin
@@ -31,7 +31,7 @@
 - name: Configure prezto
   copy:
       src: "{{ item }}"
-      dest: "{{ ansible_env['HOME'] }}/.{{ item }}"
+      dest: ~/.{{ item }}
   loop:
       - zpreztorc
       - zprofile
