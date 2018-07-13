@@ -1,5 +1,5 @@
 ---
-- name: Install z-shell and git
+- name: Install z-shell
   apt:
       name: ["zsh", "git"]
       state: latest
@@ -15,7 +15,7 @@
 
 - name: Install prezto
   git:
-      repo: "https://github.com/sorin-ionescu/prezto.git"
+      repo: https://github.com/sorin-ionescu/prezto.git
       dest: "{{ ansible_env['HOME'] }}/.zprezto"
 
 - name: Link prezto
