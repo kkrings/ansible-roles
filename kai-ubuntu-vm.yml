@@ -1,7 +1,6 @@
 ---
-- name: Install and configure i3-ubuntu
-  hosts: localhost
-  connection: local
+- name: Configure my virtual i3-ubuntu machine
+  hosts: kai-ubuntu-vm
   roles:
       - desktop
       - prezto
