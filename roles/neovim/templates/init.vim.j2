@@ -16,6 +16,11 @@ set colorcolumn=80  " Mark lines longer than 80 columns.
 set list
 set listchars=tab:>.,trail:_,extends:>,precedes:<
 
+augroup makefiles
+  " Makefiles require tabs.
+  autocmd FileType cmake,make setlocal noexpandtab
+augroup END
+
 " Manage plugins.
 call plug#begin('{{ plugin_directory }}')
 {% for plugin in plugins %}
