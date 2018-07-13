@@ -1,0 +1,27 @@
+---
+- name: Install git, git-svn, svn, and gnupg
+  apt:
+      name: ["git", "git-svn", "subversion", "gnupg"]
+      state: latest
+      update_cache: yes
+  become: yes
+
+- name: Configure git (optional)
+  git_config:
+      name: "{{ item.key }}"
+      value: "{{ item.value }}"
+      scope: global
+  loop: "{{ git_config }}"
+
+- name: Create config directory for svn
+  file:
+      path: ~/.subversion
+      state: directory
+
+- name: Configure svn
+  template:
+      src: "{{ item }}.j2"
+      dest: ~/.subversion/{{ item }}
+  loop:
+      - config
+      - servers

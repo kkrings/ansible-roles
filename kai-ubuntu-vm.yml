@@ -7,3 +7,4 @@
       - neovim
       - ssh
       - pass
+      - vcs
