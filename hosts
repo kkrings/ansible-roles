@@ -1,2 +1,2 @@
-[ubuntu-vm]
+[kai-ubuntu-vm]
 localhost ansible_connection=local
