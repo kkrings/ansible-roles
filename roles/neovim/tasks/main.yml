@@ -6,15 +6,9 @@
       update_cache: yes
   become: yes
 
-- name: Install neovim together with clipboard support
+- name: Install neovim
   apt:
-      name: ["neovim", "xclip"]
-      state: latest
-  become: yes
-
-- name: Support virtual Python environments
-  apt:
-      name: virtualenvwrapper
+      name: ["neovim", "fonts-powerline", "git", "virtualenvwrapper"]
       state: latest
   become: yes
 
@@ -31,6 +25,16 @@
       state: latest
       virtualenv: "{{ py3env }}"
       virtualenv_python: python3
+
+- name: Create directory for neovim runtime files
+  file:
+      path: "{{ ansible_env['HOME'] }}/.local/share/nvim/site"
+      state: directory
+
+- name: Install plugin manager
+  git:
+      repo: https://github.com/junegunn/vim-plug.git
+      dest: "{{ ansible_env['HOME'] }}/.local/share/nvim/site/autoload"
 
 - name: Create config directory
   file:
