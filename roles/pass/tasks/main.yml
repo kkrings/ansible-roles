@@ -9,11 +9,16 @@
 - name: Checkout existing password store (optional)
   git:
       repo: "{{ password_store }}"
-      dest: "{{ ansible_env['HOME'] }}/.password-store"
+      dest: ~/.password-store
+      accept_hostkey: yes
   when: password_store is defined
 
 - name: Fix permissions of (empty) password store
   file:
-      path: "{{ ansible_env['HOME'] }}/.password-store"
+      path: ~/.password-store
       state: directory
       mode: 0700
+
+- name: Add browserpass tasks (optional)
+  include_tasks: browserpass.yml
+  when: install_browserpass

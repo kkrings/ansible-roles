@@ -1,0 +1,21 @@
+---
+- name: Install chromium and zip
+  apt:
+      name: ["chromium-browser", "zip"]
+      state: latest
+      update_cache: yes
+  become: yes
+
+- name: Create install directory
+  file:
+      path: ~/.local/browserpass
+      state: directory
+
+- name: Download browserpass
+  unarchive:
+      src: https://github.com/browserpass/browserpass/releases/download/2.0.21/browserpass-linux64.zip
+      remote_src: yes
+      dest: ~/.local/browserpass
+
+- name: Install browserpass
+  command: ~/.local/browserpass/install.sh chromium
