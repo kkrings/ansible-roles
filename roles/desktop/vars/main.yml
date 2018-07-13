@@ -1,15 +1,12 @@
 ---
 packages:
-    - aptitude
     - chromium-browser
     - fonts-hack
     - i3
     - lightdm
     - lightdm-gtk-greeter
     - lxterminal
-    - mosh
     - pinentry-gtk2
-    - sshfs
     - ubuntu-wallpapers
     - xorg
 
