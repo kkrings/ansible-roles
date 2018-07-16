@@ -1,0 +1,4 @@
+---
+- name: Include mount point tasks (optional)
+  include_tasks: mounts.yml
+  when: mount_points | length > 0

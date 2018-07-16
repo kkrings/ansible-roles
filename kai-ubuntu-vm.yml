@@ -2,6 +2,7 @@
 - name: Configure my virtual i3-ubuntu machine
   hosts: kai-ubuntu-vm
   roles:
+      - mounts
       - desktop
       - prezto
       - neovim

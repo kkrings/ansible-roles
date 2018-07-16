@@ -1,0 +1,22 @@
+---
+- name: Create mount points
+  file:
+      path: "{{ item.path }}"
+      owner: "{{ item.owner | default(None) }}"
+      group: "{{ item.group | default(None) }}"
+      state: directory
+  loop: "{{ mount_points }}"
+  become: yes
+
+- name: Add mount points to /etc/fstab
+  mount:
+      backup: yes
+      path: "{{ item.path }}"
+      src: "{{ item.src }}"
+      fstype: "{{ item.fstype }}"
+      opts: "{{ item.opts }}"
+      dump: "{{ item.dump | default(0) }}"
+      passno: "{{ item.passno | default(0) }}"
+      state: present
+  loop: "{{ mount_points }}"
+  become: yes
