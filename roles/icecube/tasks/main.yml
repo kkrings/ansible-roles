@@ -22,8 +22,8 @@
 
 - name: Install IPython kernel
   shell: |
-      workon py2-std
-      python -m ipykernel --user --name py2-std --disply-name "Python 2 (py2-std)" 
+      . ~/.virtualenvs/py2-std/bin/activate
+      python -m ipykernel install --user --name py2-std --display-name "Python 2 (py2-std)" 
       deactivate
   args:
       creates: ~/.local/share/jupyter/kernels/py2-std
