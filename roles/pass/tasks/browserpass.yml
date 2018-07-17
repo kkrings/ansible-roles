@@ -19,3 +19,5 @@
 
 - name: Install browserpass
   command: ~/.local/browserpass/install.sh chromium
+  args:
+      creates: ~/.config/chromium/NativeMessagingHosts
