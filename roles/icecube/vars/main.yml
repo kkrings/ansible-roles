@@ -1,0 +1,50 @@
+---
+packages:
+    - build-essential
+    - ccache
+    - cmake
+    - doxygen
+    - freeglut3-dev
+    - gdb
+    - graphviz
+    - jupyter
+    - jupyter-qtconsole
+    - libarchive-dev
+    - libboost-all-dev
+    - libcdk5-dev
+    - libcfitsio-dev
+    - liberfa-dev
+    - libgsl-dev
+    - libhdf5-dev
+    - libhealpix-cxx-dev
+    - liblog4cpp5-dev
+    - libopenblas-dev
+    - libpython-dev
+    - libsprng2-dev
+    - libstarlink-pal-dev
+    - libsuitesparse-dev
+    - libxml2-dev
+    - libzmq3-dev
+    - libzstd-dev
+    - python-pyqt5
+    - python-pyqt5.qtsvg
+    - qt5-default
+    - subversion
+    - virtualenvwrapper
+    - zlib1g-dev
+
+python_modules:
+    - astropy
+    - configparser
+    - coverage
+    - flake8
+    - ipykernel
+    - ipython
+    - matplotlib
+    - numexpr
+    - numpy
+    - requests
+    - scipy
+    - Sphinx
+    - sphinx_rtd_theme
+    - tables

@@ -1,0 +1,29 @@
+- name: Install system packages
+  apt:
+      name: "{{ packages }}"
+      state: latest
+      update_cache: yes
+  become: yes
+
+- name: Install Python modules inside virtual environment
+  pip:
+      name: "{{ python_modules }}"
+      state: latest
+      virtualenv: ~/.virtualenvs/py2-std
+      virtualenv_python: python2
+      virtualenv_site_packages: yes
+
+- name: Install healpy 1.11.0 inside the virtual environment
+  pip:
+      name: healpy
+      state: present
+      version: 1.11.0
+      virtualenv: ~/.virtualenvs/py2-std
+
+- name: Install IPython kernel
+  shell: |
+      workon py2-std
+      python -m ipykernel --user --name py2-std --disply-name "Python 2 (py2-std)" 
+      deactivate
+  args:
+      creates: ~/.local/share/jupyter/kernels/py2-std
