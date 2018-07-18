@@ -12,3 +12,4 @@ plugins:
     - Shougo/deoplete.nvim
     - tpope/vim-fugitive
     - vim-airline/vim-airline
+    - zchee/deoplete-jedi
