@@ -19,8 +19,8 @@
       state: directory
 
 - name: Configure svn
-  template:
-      src: "{{ item }}.j2"
+  copy:
+      src: "{{ item }}"
       dest: ~/.subversion/{{ item }}
   loop:
       - config
