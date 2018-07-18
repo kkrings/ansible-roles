@@ -28,6 +28,7 @@ packages:
     - libzstd-dev
     - python-pyqt5
     - python-pyqt5.qtsvg
+    - python-qtconsole
     - qt5-default
     - subversion
     - virtualenvwrapper
