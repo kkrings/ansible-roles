@@ -21,7 +21,7 @@
 
 - name: Install Python3 client
   pip:
-      name: neovim
+      name: ["neovim", "neovim-remote"]
       state: latest
       virtualenv: "{{ py3_env }}"
       virtualenv_python: python3

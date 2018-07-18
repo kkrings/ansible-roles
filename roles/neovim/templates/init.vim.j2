@@ -32,11 +32,14 @@ call plug#end()
 let g:gruvbox_italics=1
 colorscheme gruvbox
 
-" Enable completion.
-let g:deoplete#enable_at_startup = 1
+" The color scheme supports powerline symbols.
+let g:airline_powerline_fonts=1
 
 " Run neovim when writing a buffer.
 call neomake#configure#automake('w')
 
-" The color scheme supports powerline symbols.
-let g:airline_powerline_fonts=1
+" Workaround for the missing `--remote` option.
+let g:vimtex_compiler_progname='nvr'
+
+" Enable completion.
+let g:deoplete#enable_at_startup = 1
