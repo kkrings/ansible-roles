@@ -10,6 +10,7 @@ packages:
     - ubuntu-drivers-common
     - ubuntu-wallpapers
     - xorg
+    - zathura
 
 font:
     name: Hack
