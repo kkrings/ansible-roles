@@ -41,5 +41,14 @@ call neomake#configure#automake('w')
 " Workaround for the missing `--remote` option.
 let g:vimtex_compiler_progname='nvr'
 
+" PDF viewer
+let g:vimtex_view_method='zathura'
+
 " Enable completion.
 let g:deoplete#enable_at_startup = 1
+
+if !exists('g:deoplete#omni#input_patterns')
+  let g:deoplete#omni#input_patterns = {}
+endif
+
+let g:deoplete#omni#input_patterns.tex = g:vimtex#re#deoplete

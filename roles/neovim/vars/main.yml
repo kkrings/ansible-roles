@@ -1,4 +1,12 @@
 ---
+packages:
+    - neovim
+    - fonts-powerline
+    - git
+    - virtualenvwrapper
+    - zathura
+    - xdotool
+
 py2_env: ~/.virtualenvs/py2-neovim
 py3_env: ~/.virtualenvs/py3-neovim
 

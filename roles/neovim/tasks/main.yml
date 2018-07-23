@@ -6,9 +6,9 @@
       update_cache: yes
   become: yes
 
-- name: Install neovim, powerline fonts, git, and virtualenvwrapper
+- name: Install neovim and additional packages
   apt:
-      name: ["neovim", "fonts-powerline", "git", "virtualenvwrapper"]
+      name: "{{ packages }}" 
       state: latest
   become: yes
 
