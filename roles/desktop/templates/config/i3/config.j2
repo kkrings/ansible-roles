@@ -3,6 +3,15 @@ set $mod Mod1
 
 font pango:{{ font.name }} {{ font.style }} {{ font.size }}
 
+# Define colors.
+set $bg0 {{ gruvbox.dark0 }}
+set $bg1 {{ gruvbox.dark1 }}
+set $fg2 {{ gruvbox.light2 }}
+set $fg4 {{ gruvbox.light4 }}
+set $blue {{ gruvbox.bright_blue }}
+set $red {{ gruvbox.bright_red }}
+set $aqua {{ gruvbox.bright_aqua }}
+
 # Use Mouse+$mod to drag floating windows to their wanted position.
 floating_modifier $mod
 
@@ -13,7 +22,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
 
 # Start dmenu.
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -i -fn {{ font.name | lower }}:size={{ font.size }} -nb $bg1 -nf $fg4 -sb $fg2 -sf $bg0"
 
 # Change focus.
 bindsym $mod+j focus left
@@ -121,15 +130,6 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
-
-# Define colors.
-set $bg0 {{ gruvbox.dark0 }}
-set $bg1 {{ gruvbox.dark1 }}
-set $fg2 {{ gruvbox.light2 }}
-set $fg4 {{ gruvbox.light4 }}
-set $blue {{ gruvbox.bright_blue }}
-set $red {{ gruvbox.bright_red }}
-set $aqua {{ gruvbox.bright_aqua }}
 
 # Set client colors: border, background, text, indicator, child border
 client.focused $blue $blue $bg0 $aqua $blue
