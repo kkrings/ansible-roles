@@ -4,6 +4,8 @@ packages:
     - ccache
     - cmake
     - doxygen
+    - fonts-cmu
+    - fonts-liberation
     - freeglut3-dev
     - gdb
     - graphviz
@@ -44,8 +46,10 @@ python_modules:
     - matplotlib
     - numexpr
     - numpy
+    - PyMySQL
     - requests
     - scipy
     - Sphinx
     - sphinx_rtd_theme
     - tables
+    - https://github.com/kkrings/icelab/zipball/master
