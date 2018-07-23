@@ -1,0 +1,11 @@
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
+# Define aliases.
+{% if aliases %}
+{% for name in aliases %}
+alias {{ name }}={{ aliases[name] }}
+{% endfor %}
+{% endif %}

@@ -30,9 +30,13 @@
 
 - name: Configure prezto
   copy:
-      src: "{{ item }}"
+      src: zpreztorc
+      dest: ~/.zpreztorc
+
+- name: Configure prezto
+  template:
+      src: "{{ item }}.j2"
       dest: ~/.{{ item }}
   loop:
-      - zpreztorc
       - zprofile
       - zshrc

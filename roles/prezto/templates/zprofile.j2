@@ -5,3 +5,10 @@ fi
 
 export EDITOR='vim'
 export VISUAL='vim'
+
+# Additional environment variables
+{% if env_variables %}
+{% for name in env_variables %}
+export {{ name | upper }}={{ env_variables[name] }}
+{% endfor %}
+{% endif %}
