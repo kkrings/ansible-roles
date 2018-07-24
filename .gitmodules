@@ -1,3 +1,0 @@
-[submodule "roles/gnupg/library"]
-	path = roles/gnupg/library
-	url = https://github.com/tnt/ansible-gpg-import-module.git
