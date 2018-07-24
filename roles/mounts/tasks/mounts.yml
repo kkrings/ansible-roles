@@ -7,6 +7,7 @@
       state: directory
   loop: "{{ mount_points }}"
   become: yes
+  tags: sudo
 
 - name: Add mount points to /etc/fstab
   mount:
@@ -20,3 +21,4 @@
       state: present
   loop: "{{ mount_points }}"
   become: yes
+  tags: sudo

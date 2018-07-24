@@ -4,6 +4,7 @@
       state: latest
       update_cache: yes
   become: yes
+  tags: sudo
 
 - name: Install Python modules inside virtual environment
   pip:

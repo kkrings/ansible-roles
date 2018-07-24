@@ -5,12 +5,14 @@
       state: present
       update_cache: yes
   become: yes
+  tags: sudo
 
 - name: Install neovim and additional packages
   apt:
       name: "{{ packages }}" 
       state: latest
   become: yes
+  tags: sudo
 
 - name: Install Python2 client
   pip:

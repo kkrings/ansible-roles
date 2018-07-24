@@ -5,6 +5,7 @@
       state: latest
       update_cache: yes
   become: yes
+  tags: sudo
 
 - name: Change shell of user to z-shell
   user:
@@ -12,6 +13,7 @@
       shell: /bin/zsh
       state: present
   become: yes
+  tags: sudo
 
 - name: Install prezto
   git:

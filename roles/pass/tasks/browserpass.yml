@@ -5,6 +5,7 @@
       state: latest
       update_cache: yes
   become: yes
+  tags: sudo
 
 - name: Create install directory
   file:

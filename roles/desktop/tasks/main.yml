@@ -5,6 +5,7 @@
       update_cache: yes
       state: latest
   become: yes
+  tags: sudo
 
 - name: Create config directories
   file:
@@ -38,3 +39,4 @@
       dest: /etc/lightdm/lightdm-gtk-greeter.conf
       backup: yes
   become: yes
+  tags: sudo
