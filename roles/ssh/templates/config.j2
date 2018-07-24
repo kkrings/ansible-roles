@@ -1,0 +1,7 @@
+# SSH configuration file
+{% for host in ssh_config %}
+Host {{ host.name }}
+{% for key in host if key != "name" %}
+    {{ key }} {{ host[key] }}
+{% endfor %}
+{% endfor %}

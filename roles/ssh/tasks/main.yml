@@ -6,10 +6,10 @@
       mode: 0700
 
 - name: Configure ssh (optional)
-  copy:
+  template:
       dest: ~/.ssh/config
-      src: "{{ ssh_config_file }}"
-  when: ssh_config_file is defined
+      src: config.j2
+  when: ssh_config is defined
 
 - name: Install mosh and sshfs
   apt:

@@ -1,0 +1,32 @@
+---
+aliases:
+    i3shell: '"/opt/local/icecube/combo/stable/build_release/env-shell.sh"'
+
+env_variables:
+    I3_TESTDATA: '"$HOME/Shared/host/data/i3-test-data"'
+    DATAPATH: '"$HOME/Shared/host/data"'
+    MPLSAVEFIG: '"$HOME/Shared/host/plots"'
+
+git_config:
+    - key: user.name
+      value: Kai Krings
+    - key: user.email
+      value: kai.krings88@gmx.net
+
+mount_points:
+    - path: /home/kai/Shared/host
+      src: Shared
+      fstype: vboxsf
+      opts: rw,uid=1000,gid=1000
+      owner: kai
+      group: kai
+    - path: /home/kai/Shared/tuphecp-yoshi
+      src: "sshfs#kkrings@tuphecp-yoshi.e12.ph.tum.de:"
+      fstype: fuse
+      opts: user,noauto,idmap=user,uid=1000,gid=1000
+      owner: kai
+      group: kai
+
+password_store: "{{ vault_password_store }}"
+
+ssh_config: "{{ vault_ssh_config }}"
