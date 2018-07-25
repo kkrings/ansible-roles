@@ -20,9 +20,11 @@ Adwaita theme and the DejaVu Sans font are used for GTK+ applications.
 Prerequisites
 -------------
 
-I recommend the installation of Ansible inside its own virtual Python
-environment::
+I recommend the installation of the latest Ansible version inside its own
+virtual Python environment via the ``virtualenvwrapper`` script::
 
+    sudo aptitude install virtualenvwrapper
+    source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
     mkvirtualenv --python=/usr/bin/python3 -i ansible py3-ansible
 
 .. External links
