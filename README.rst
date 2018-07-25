@@ -21,11 +21,21 @@ Prerequisites
 -------------
 
 I recommend the installation of the latest Ansible version inside its own
-virtual Python environment via the ``virtualenvwrapper`` script::
+virtual Python environment via the virtualenvwrapper_ script::
 
     sudo aptitude install virtualenvwrapper
     source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
     mkvirtualenv --python=/usr/bin/python3 -i ansible py3-ansible
+
+Installation
+------------
+
+From inside the ``py3-ansible`` environment, the entire desktop is installed
+and configured via::
+
+    git clone https://github.com/kkrings/i3-ubuntu.git
+    cd i3-ubuntu
+    ansible-playbook -i hosts --ask-become-pass --vault-id @prompt kai-ubuntu-vm.yml
 
 .. External links
 .. _Ansible:
@@ -54,3 +64,6 @@ virtual Python environment via the ``virtualenvwrapper`` script::
 
 .. _Hack:
     https://sourcefoundry.org/hack/
+
+.. _virtualenvwrapper:
+    http://virtualenvwrapper.readthedocs.io/en/latest/
