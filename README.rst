@@ -18,11 +18,15 @@ The shell is configured based on the Prezto_ configuration framework. Whenever
 possible, the gruvbox_ dark color scheme and the Hack_ font are used. The
 Adwaita theme and the DejaVu Sans font are used for GTK+ applications.
 
-Prerequisites
--------------
+Installation
+------------
 
-I recommend the installation of the latest Ansible version inside its own
-virtual Python environment via the virtualenvwrapper_ script::
+Here, I exemplary show how I install the entire desktop environment on my
+virtual machine starting from a freshly installed minimal Ubuntu 18.04.
+
+First, Ansible has to be installed. I recommend the installation of the latest
+Ansible version inside its own virtual Python environment via the
+virtualenvwrapper_ script::
 
     sudo aptitude install virtualenvwrapper
     source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
@@ -31,18 +35,14 @@ virtual Python environment via the virtualenvwrapper_ script::
 Note that ``aptitude`` is not installed by default, either install it
 via ``apt-get`` or simply use ``apt-get`` directly.
 
-Installation
-------------
+From inside the ``py3-ansible`` environment, the entire desktop is installed
+and configured via::
 
-Here, I exemplary show how I install the desktop environment in my virtual
-machine starting from a freshly installed minimal Ubuntu 18.04. From inside
-the ``py3-ansible`` environment, the entire desktop is installed and configured
-via::
-
+    sudo aptitude install git
     git clone https://github.com/kkrings/i3-ubuntu.git
     ansible-playbook -i i3-ubuntu/hosts --ask-become-pass --vault-id @prompt i3-ubuntu/kai-ubuntu-vm.yml
 
-After a reboot, you should end up in a graphical LightDM session.
+After a reboot, I end up in a graphical LightDM session.
 
 .. External links
 .. _Ansible:
