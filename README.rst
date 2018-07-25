@@ -1,22 +1,29 @@
 i3-ubuntu
 =========
 
-This repository contains a collection of `Ansible`_ roles for configuring my
-personal `Ubuntu` virtual machine. Starting point is a `Ubuntu 18.04` `minimal
-iso image`_. A custom desktop environment is installed:
+This repository contains a collection of Ansible_ roles for configuring my
+personal Ubuntu virtual machine. Starting point is a Ubuntu 18.04 `minimal iso
+image`_. A custom desktop environment is installed:
 
-* Window manager: `i3`_
-* Display manager: `LigthDM`
-* Terminal emulator: `LXTerminal`
-* Shell: `Zsh`
-* Editor: `Neovim`_
-* Web browser: `Chromium`_
-* Document viewer: `zathura`_
+* Window manager: i3_
+* Display manager: LigthDM
+* Terminal emulator: LXTerminal
+* Shell: Zsh
+* Editor: Neovim_
+* Web browser: Chromium_
+* Document viewer: zathura_
 
-The shell is configured based on the `Prezto`_ configuration framework.
-Whenever possible, the `gruvbox`_ dark color scheme and the `Hack`_ font are
-used. The `Adwaita` theme and the `DejaVu Sans` font are used for `GTK+`
-applications.
+The shell is configured based on the Prezto_ configuration framework. Whenever
+possible, the gruvbox_ dark color scheme and the Hack_ font are used. The
+Adwaita theme and the DejaVu Sans font are used for GTK+ applications.
+
+Prerequisites
+-------------
+
+I recommend the installation of Ansible inside its own virtual Python
+environment::
+
+    mkvirtualenv --python=/usr/bin/python3 -i ansible py3-ansible
 
 .. External links
 .. _Ansible:
