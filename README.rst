@@ -12,6 +12,7 @@ image`_. A custom desktop environment is installed:
 * Editor: Neovim_
 * Web browser: Chromium_
 * Document viewer: zathura_
+* Password manager: pass_
 
 The shell is configured based on the Prezto_ configuration framework. Whenever
 possible, the gruvbox_ dark color scheme and the Hack_ font are used. The
@@ -20,7 +21,6 @@ Adwaita theme and the DejaVu Sans font are used for GTK+ applications.
 Prerequisites
 -------------
 
-After the installation of the minimal Ubuntu 18.04, you should end up in Bash.
 I recommend the installation of the latest Ansible version inside its own
 virtual Python environment via the virtualenvwrapper_ script::
 
@@ -34,13 +34,15 @@ via ``apt-get`` or simply use ``apt-get`` directly.
 Installation
 ------------
 
-From inside the ``py3-ansible`` environment, the entire desktop is installed
-and configured via::
+Here, I exemplary show how I install the desktop environment in my virtual
+machine starting from a freshly installed minimal Ubuntu 18.04. From inside
+the ``py3-ansible`` environment, the entire desktop is installed and configured
+via::
 
     git clone https://github.com/kkrings/i3-ubuntu.git
     ansible-playbook -i i3-ubuntu/hosts --ask-become-pass --vault-id @prompt i3-ubuntu/kai-ubuntu-vm.yml
 
-After a reboot, you should end up in a LightDM session.
+After a reboot, you should end up in a graphical LightDM session.
 
 .. External links
 .. _Ansible:
@@ -60,6 +62,9 @@ After a reboot, you should end up in a LightDM session.
 
 .. _Neovim:
     https://neovim.io/
+
+.. _pass:
+    https://www.passwordstore.org/
 
 .. _Prezto:
     https://github.com/sorin-ionescu/prezto/
