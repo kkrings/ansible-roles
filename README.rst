@@ -5,16 +5,18 @@ This repository contains a collection of `Ansible`_ roles for configuring my
 personal `Ubuntu` virtual machine. Starting point is a `Ubuntu 18.04` `minimal
 iso image`_. A custom desktop environment is installed:
 
-    * Window manager: `i3`_
-    * Display manager: `LigthDM`
-    * Terminal emulator: `LXTerminal`
-    * Web browser: `Chromium`_
-    * Document viewer: `zathura`_
+* Window manager: `i3`_
+* Display manager: `LigthDM`
+* Terminal emulator: `LXTerminal`
+* Shell: `Zsh`
+* Editor: `Neovim`_
+* Web browser: `Chromium`_
+* Document viewer: `zathura`_
 
-The `Z shell` (`Zsh`), together with the `Prezto`_ configuration framework
-for `Zsh`, and `Neovim`_ are configured as the user's default shell and editor,
-respectively. Whenever possible the `gruvbox`_ dark color scheme is used.
-The `Adwaita` theme is used for `GTK+` applications.
+The shell is configured based on the `Prezto`_ configuration framework.
+Whenever possible, the `gruvbox`_ dark color scheme and the `Hack`_ font are
+used. The `Adwaita` theme and the `DejaVu Sans` font are used for `GTK+`
+applications.
 
 .. External links
 .. _Ansible:
@@ -40,3 +42,6 @@ The `Adwaita` theme is used for `GTK+` applications.
 
 .. _gruvbox:
     https://github.com/morhetz/gruvbox/
+
+.. _Hack:
+    https://sourcefoundry.org/hack/
