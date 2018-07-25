@@ -20,12 +20,16 @@ Adwaita theme and the DejaVu Sans font are used for GTK+ applications.
 Prerequisites
 -------------
 
+After the installation of the minimal Ubuntu 18.04, you should end up in Bash.
 I recommend the installation of the latest Ansible version inside its own
 virtual Python environment via the virtualenvwrapper_ script::
 
     sudo aptitude install virtualenvwrapper
     source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
     mkvirtualenv --python=/usr/bin/python3 -i ansible py3-ansible
+
+Note that ``aptitude`` is not installed by default, either install it
+via ``apt-get`` or simply use ``apt-get`` directly.
 
 Installation
 ------------
@@ -34,8 +38,9 @@ From inside the ``py3-ansible`` environment, the entire desktop is installed
 and configured via::
 
     git clone https://github.com/kkrings/i3-ubuntu.git
-    cd i3-ubuntu
-    ansible-playbook -i hosts --ask-become-pass --vault-id @prompt kai-ubuntu-vm.yml
+    ansible-playbook -i i3-ubuntu/hosts --ask-become-pass --vault-id @prompt i3-ubuntu/kai-ubuntu-vm.yml
+
+After a reboot, you should end up in a LightDM session.
 
 .. External links
 .. _Ansible:
