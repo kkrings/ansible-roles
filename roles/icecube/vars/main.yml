@@ -4,8 +4,6 @@ packages:
     - ccache
     - cmake
     - doxygen
-    - fonts-cmu
-    - fonts-liberation
     - freeglut3-dev
     - gdb
     - graphviz
@@ -35,6 +33,13 @@ packages:
     - subversion
     - virtualenvwrapper
     - zlib1g-dev
+    # Fonts used for Matplotlib
+    - fonts-cmu
+    - fonts-liberation
+    # ROOT 6.14.00 dependencies
+    - libfreetype6-dev
+    - liblz4-dev
+    - liblzma-dev
 
 python_modules:
     - astropy
