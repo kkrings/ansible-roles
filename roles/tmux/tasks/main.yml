@@ -1,0 +1,23 @@
+---
+- name: Install tmux and git
+  apt:
+      name: ["tmux", "git"]
+      state: latest
+      update_cache: yes
+  become: yes
+  tags: sudo
+
+- name: Create plugin directory
+  file:
+      path: ~/.tmux/plugins
+      state: directory
+
+- name: Install tmux-sensible plugin
+  git:
+      repo: https://github.com/tmux-plugins/tmux-sensible.git
+      dest: ~/.tmux/plugins/tmux-sensible
+
+- name: Configure tmux
+  copy:
+      src: tmux.conf
+      dest: ~/.tmux.conf
