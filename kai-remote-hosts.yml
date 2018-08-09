@@ -1,0 +1,7 @@
+---
+- name: Configure my remote hosts
+  hosts: kai-remote-hosts
+  roles:
+      - pip
+      - prezto
+      - tmux

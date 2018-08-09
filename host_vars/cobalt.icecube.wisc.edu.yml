@@ -1,0 +1,3 @@
+---
+env_variables:
+    X509_USER_PROXY: '"$HOME/tmp/X509_up`id -u $USER`"'
