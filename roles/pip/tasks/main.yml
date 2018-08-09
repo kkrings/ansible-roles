@@ -1,0 +1,10 @@
+---
+- name: Create pip config directory
+  file:
+      path: ~/.config/pip
+      state: directory
+
+- name: Configure pip
+  copy:
+      src: pip.conf
+      dest: ~/.config/pip/pip.conf
