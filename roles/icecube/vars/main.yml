@@ -9,6 +9,7 @@ packages:
     - graphviz
     - jupyter
     - jupyter-qtconsole
+    - lcov
     - libarchive-dev
     - libboost-all-dev
     - libcdk5-dev
