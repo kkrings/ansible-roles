@@ -35,6 +35,7 @@ zstyle ':prezto:load' pmodule \
   'git' \
   'python' \
   'rsync' \
+  'ssh' \
   'gpg'
 
 # Set the key mapping style to 'vi'.
@@ -66,6 +67,13 @@ zstyle ':prezto:module:prompt' pwd-length 'short'
 
 # Automatically initialize virtualenvwrapper if pre-requisites are met.
 zstyle ':prezto:module:python:virtualenv' initialize 'yes'
+
+#
+# SSH
+#
+
+# Set the SSH identities to load into the agent.
+zstyle ':prezto:module:ssh:load' identities 'id_rsa' 'id_rsa2' 'id_github'
 
 #
 # Syntax Highlighting
