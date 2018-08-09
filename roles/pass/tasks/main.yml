@@ -20,6 +20,6 @@
       state: directory
       mode: 0700
 
-- name: Include browserpass tasks (optional)
+- name: Include browserpass tasks
   include_tasks: browserpass.yml
-  when: install_browserpass
+  tags: browserpass
