@@ -1,6 +1,6 @@
 ---
 aliases:
-    i3shell: '"/opt/local/icecube/combo/stable/build_release/env-shell.sh"'
+    i3shell: '"/opt/local/icecube/combo/build_debug/env-shell.sh"'
 
 env_variables:
     I3_TESTDATA: '"$HOME/Shared/host/data/i3-test-data"'
