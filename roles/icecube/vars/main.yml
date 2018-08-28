@@ -55,6 +55,7 @@ python_modules:
     - PyMySQL
     - requests
     - scipy
+    - shapely[vectorized]
     - Sphinx
     - sphinx_rtd_theme
     - tables
