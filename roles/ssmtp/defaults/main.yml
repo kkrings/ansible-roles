@@ -1,0 +1,5 @@
+---
+ssmtp:
+    root: postmaster
+    mailhub: mail
+    hostname: "{{ ansible_hostname }}"

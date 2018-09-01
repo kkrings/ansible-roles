@@ -1,0 +1,19 @@
+---
+- name: Install mailutils and ssmtp
+  apt:
+      name: ["mailutils", "ssmtp"]
+      update_cache: yes
+      state: latest
+  become: yes
+  tags: sudo
+
+- name: Configure ssmtp
+  template:
+      src: "ssmtp.conf.j2"
+      dest: /etc/ssmtp/ssmtp.conf
+      owner: root
+      group: mail
+      mode: 0640
+      backup: yes
+  become: yes
+  tags: sudo
