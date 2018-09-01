@@ -7,11 +7,7 @@ env_variables:
     DATAPATH: '"$HOME/Shared/host/data"'
     MPLSAVEFIG: '"$HOME/Shared/host/plots"'
 
-git_config:
-    - key: user.name
-      value: Kai Krings
-    - key: user.email
-      value: kai.krings88@gmx.net
+git_config: "{{ vault_git_config }}"
 
 mount_points:
     - path: /home/kai/Shared/host
