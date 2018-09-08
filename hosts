@@ -1,6 +1,9 @@
 [kai-ubuntu-vm]
 localhost ansible_connection=local
 
+[kai-raspberrypi]
+kai-home-new.fritz.box
+
 [kai-remote-hosts]
 kasu.ddns.net
 cobalt.icecube.wisc.edu

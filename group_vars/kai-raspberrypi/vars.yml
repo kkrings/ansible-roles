@@ -1,0 +1,6 @@
+---
+create_groups:
+    dialout: 16
+    kasu: 20
+
+create_users: "{{ vault_create_users }}"
