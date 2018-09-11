@@ -1,0 +1,24 @@
+---
+- name: Create users
+  user:
+      name: "{{ item.name }}"
+      append: "{{ item.append | default('yes') }}"
+      group : "{{ item.group | default(None) }}"
+      groups: "{{ item.groups | default(None) }}"
+      password: "{{ item.password | default(None) }}"
+      shell: "{{ item.shell | default(None) }}"
+      uid: "{{ item.uid | default(None) }}"
+      state: present
+  loop: "{{ create_users }}"
+  become: yes
+  tags: sudo
+
+- name: Add SSH keys for users
+  authorized_key:
+      user: "{{ item.name }}"
+      key: "{{ item.key }}"
+      state: present
+  loop: "{{ create_users }}"
+  when: "'key' is in item"
+  become: yes
+  tags: sudo

@@ -1,0 +1,9 @@
+---
+- name: Create groups
+  group:
+      name: "{{ item.key }}"
+      gid: "{{ item.value }}"
+      state: present
+  loop: "{{ create_groups | dict2items }}"
+  become: yes
+  tags: sudo
