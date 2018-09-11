@@ -24,7 +24,7 @@ kai-ubuntu-vm
 
 Starting point is a Ubuntu 18.04 `minimal iso image`_. My custom desktop
 environment is installed and configured from inside the ``py3-ansible``
-environment configured via::
+environment via::
 
     ansible-playbook -i i3-ubuntu/hosts --ask-become-pass --vault-id @prompt i3-ubuntu/kai-ubuntu-vm.yml
 
