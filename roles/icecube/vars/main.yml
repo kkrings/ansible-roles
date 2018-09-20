@@ -60,3 +60,4 @@ python_modules:
     - sphinx_rtd_theme
     - tables
     - https://github.com/kkrings/icelab/zipball/master
+    - https://github.com/kkrings/pydag/zipball/master
