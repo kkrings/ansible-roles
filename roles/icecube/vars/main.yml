@@ -48,6 +48,7 @@ python_modules:
     - configparser
     - coverage
     - flake8
+    - healpy
     - ipykernel
     - ipython
     - matplotlib

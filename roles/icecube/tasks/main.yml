@@ -14,13 +14,6 @@
       virtualenv_python: python2
       virtualenv_site_packages: yes
 
-- name: Install healpy 1.11.0 inside the virtual environment
-  pip:
-      name: healpy
-      state: present
-      version: 1.11.0
-      virtualenv: ~/.virtualenvs/py2-std
-
 - name: Install IPython kernel
   shell: |
       . ~/.virtualenvs/py2-std/bin/activate
