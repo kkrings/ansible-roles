@@ -1,7 +1,7 @@
 ---
-- name: Install git, git-svn, svn, and gnupg
+- name: Install git, git-lfs, git-svn, svn, and gnupg
   apt:
-      name: ["git", "git-svn", "subversion", "gnupg"]
+      name: ["git", "git-lfs", "git-svn", "subversion", "gnupg"]
       state: latest
       update_cache: yes
   become: yes
