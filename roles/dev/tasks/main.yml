@@ -21,3 +21,18 @@
       deactivate
   args:
       creates: ~/.local/share/jupyter/kernels/py2-std
+
+- name: Create Matplotlib config directory
+  file:
+      path: ~/.config/matplotlib/stylelib
+      state: directory
+
+- name: Configure Matplotlib
+  copy:
+      src: "{{ item }}"
+      dest: ~/.config/{{ item }}
+  loop:
+      - matplotlib/matplotlibrc
+      - matplotlib/stylelib/seaborn-set3.mplstyle
+      - matplotlib/stylelib/latex-phd-thesis.mplstyle
+      - matplotlib/stylelib/keynote-icecube.mplstyle
