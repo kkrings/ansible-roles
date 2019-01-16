@@ -3,6 +3,7 @@ packages:
     - build-essential
     - ccache
     - cmake
+    - cppcheck
     - doxygen
     - freeglut3-dev
     - gdb
