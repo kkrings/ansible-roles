@@ -17,18 +17,30 @@ virtualenvwrapper_ script::
 Now, the project is installed via::
 
     sudo aptitude install git
-    git clone https://github.com/kkrings/ansible-roles.git
+    git clone https://github.com/kkrings/ansible-roles.git roles
 
-kai-ubuntu-vm
--------------
+Example: Ubuntu with custom desktop environment
+-----------------------------------------------
 
-Starting point is a Ubuntu 18.04 `minimal iso image`_. My custom desktop
-environment is installed and configured from inside the ``py3-ansible``
+Starting point is a Ubuntu 18.04 `minimal iso image`_. An exemplary Ansible
+playbook, `desktop.yml` for installing my custom desktop environment looks
+like::
+
+    ---
+    - name: Install my custom desktop environment
+      hosts: `put a hostname here`
+       roles:
+           - desktop
+           - prezto
+           - neovim
+           - pass
+
+The environment is installed and configured from inside the ``py3-ansible``
 environment via::
 
-    ansible-playbook -i ansible-roles/hosts --ask-become-pass --vault-id @prompt ansible-roles/kai-ubuntu-vm.yml
+    ansible-playbook -i `path to hosts file` --ask-become-pass --vault-id @prompt desktop.yml
 
-After a reboot, I end up in a graphical LightDM session.
+After a reboot, you should end up in a graphical LightDM session.
 
 The custom desktop environment consists of:
 
