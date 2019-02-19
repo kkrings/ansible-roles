@@ -23,7 +23,7 @@ Example: Ubuntu with custom desktop environment
 -----------------------------------------------
 
 Starting point is a Ubuntu 18.04 `minimal iso image`_. An exemplary Ansible
-playbook, `desktop.yml` for installing my custom desktop environment looks
+playbook, `desktop.yml`, for installing my custom desktop environment looks
 like::
 
     ---
