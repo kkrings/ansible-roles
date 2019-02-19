@@ -1,7 +1,0 @@
----
-- name: Configure my Raspberry Pi
-  hosts: kai-raspberrypi
-  remote_user: pi
-  roles:
-      - users
-      - ssmtp
