@@ -1,7 +1,7 @@
 ---
-- name: Install pass
+- name: Install pass and oathtool
   apt:
-      name: pass
+      name: ["pass", "oathtool"]
       state: latest
       update_cache: yes
   become: yes
