@@ -44,7 +44,7 @@ packages:
     - liblz4-dev
     - liblzma-dev
 
-python_modules:
+python2_modules:
     - astropy
     - breathe
     - configparser
@@ -65,3 +65,9 @@ python_modules:
     - tables
     - https://github.com/kkrings/icelab/zipball/master
     - https://github.com/kkrings/pydag/zipball/master
+
+python3_modules:
+    - matplotlib
+    - numpy
+    - scipy
+    - tables
