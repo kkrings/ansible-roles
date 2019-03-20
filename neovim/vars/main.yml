@@ -21,3 +21,4 @@ plugins:
     - tpope/vim-fugitive
     - vim-airline/vim-airline
     - zchee/deoplete-jedi
+    - HerringtonDarkholme/yats.vim
