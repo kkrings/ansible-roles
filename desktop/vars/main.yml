@@ -33,7 +33,7 @@ gtk:
     theme: Adwaita
 
 lightdm:
-    background: /usr/share/backgrounds/warty-final-ubuntu.png
+    background: "{{ wallpaper }}"
 
 # gruvbox color palette
 # https://github.com/morhetz/gruvbox
