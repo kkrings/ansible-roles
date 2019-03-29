@@ -1,0 +1,18 @@
+- name: Install Python modules inside virtual environment {{ pyenv.name }}
+  pip:
+      name: "{{ pyenv.modules }}"
+      state: latest
+      virtualenv: ~/.virtualenvs/{{ pyenv.name }}
+      virtualenv_python: "{{ pyenv.version }}"
+      virtualenv_site_packages: "{{ pyenv.site_packages | default('no') }}"
+
+- name: Install IPython kernel {{ pyenv.name }} (optional)
+  shell: |
+      . ~/.virtualenvs/{{ pyenv.name }}/bin/activate
+      python -m ipykernel install --user \
+          --name "{{ pyenv.name }}" \
+          --display-name "{{ pyenv.longname }}"
+      deactivate
+  args:
+      creates: ~/.local/share/jupyter/kernels/{{ pyenv.name }}
+  when: "'kernel' in pyenv and pyenv.kernel"

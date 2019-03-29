@@ -6,37 +6,11 @@
   become: yes
   tags: sudo
 
-- name: Install Python2 modules inside virtual environment
-  pip:
-      name: "{{ python2_modules }}"
-      state: latest
-      virtualenv: ~/.virtualenvs/py2-std
-      virtualenv_python: python2
-      virtualenv_site_packages: yes
-
-- name: Install IPython kernel
-  shell: |
-      . ~/.virtualenvs/py2-std/bin/activate
-      python -m ipykernel install --user --name py2-std --display-name "Python 2 (py2-std)"
-      deactivate
-  args:
-      creates: ~/.local/share/jupyter/kernels/py2-std
-
-- name: Install Python3 modules inside virtual environment
-  pip:
-      name: "{{ python3_modules }}"
-      state: latest
-      virtualenv: ~/.virtualenvs/py3-std
-      virtualenv_python: python3
-      virtualenv_site_packages: yes
-
-- name: Install IPython kernel
-  shell: |
-      . ~/.virtualenvs/py3-std/bin/activate
-      python -m ipykernel install --user --name py3-std --display-name "Python 3 (py3-std)"
-      deactivate
-  args:
-      creates: ~/.local/share/jupyter/kernels/py3-std
+- name: Install virtual Python environments
+  include_tasks: pyenv.yml
+  loop: "{{ pyenvs }}"
+  loop_control:
+      loop_var: pyenv
 
 - name: Create Matplotlib config directory
   file:

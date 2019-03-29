@@ -44,30 +44,40 @@ packages:
     - liblz4-dev
     - liblzma-dev
 
-python2_modules:
-    - astropy
-    - breathe
-    - configparser
-    - coverage
-    - flake8
-    - healpy
-    - ipykernel
-    - ipython
-    - matplotlib
-    - numexpr
-    - numpy
-    - PyMySQL
-    - requests
-    - scipy
-    - shapely[vectorized]
-    - Sphinx
-    - sphinx_rtd_theme
-    - tables
-    - https://github.com/kkrings/icelab/zipball/master
-    - https://github.com/kkrings/pydag/zipball/master
-
-python3_modules:
-    - matplotlib
-    - numpy
-    - scipy
-    - tables
+pyenvs:
+    - name: py2-std
+      longname: "Python 2 (py2-std)"
+      version: python2
+      site_packages: yes
+      kernel: yes
+      modules:
+          - astropy
+          - breathe
+          - configparser
+          - coverage
+          - flake8
+          - healpy
+          - ipykernel
+          - ipython
+          - matplotlib
+          - numexpr
+          - numpy
+          - PyMySQL
+          - requests
+          - scipy
+          - shapely[vectorized]
+          - Sphinx
+          - sphinx_rtd_theme
+          - tables
+          - https://github.com/kkrings/icelab/zipball/master
+          - https://github.com/kkrings/pydag/zipball/master
+    - name: py3-std
+      longname: "Python 3 (py3-std)"
+      version: python3
+      site_packages: yes
+      kernel: no
+      modules:
+          - matplotlib
+          - numpy
+          - scipy
+          - tables
