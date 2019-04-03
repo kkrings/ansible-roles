@@ -26,3 +26,9 @@
       - matplotlib/stylelib/seaborn-set3.mplstyle
       - matplotlib/stylelib/latex-phd-thesis.mplstyle
       - matplotlib/stylelib/keynote-icecube.mplstyle
+
+- name: Install virtual Node.js environments
+  include_tasks: nodeenv.yml
+  loop: "{{ nodeenvs }}"
+  loop_control:
+      loop_var: nodeenv

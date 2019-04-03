@@ -84,3 +84,9 @@ pyenvs:
           - numpy
           - scipy
           - tables
+
+nodeenvs:
+    - name: node-angular
+      version: 10.15.3
+      modules:
+          - "@angular/cli"
