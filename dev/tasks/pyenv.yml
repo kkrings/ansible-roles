@@ -1,4 +1,4 @@
-- name: "{{ pyenv.name }} Install Python modules"
+- name: "{{ pyenv.name }} : Install Python modules"
   pip:
       name: "{{ pyenv.modules }}"
       state: latest
@@ -6,7 +6,7 @@
       virtualenv_python: "{{ pyenv.version }}"
       virtualenv_site_packages: "{{ pyenv.site_packages | default('no') }}"
 
-- name: "{{ pyenv.name }} Install IPython kernel (optional)"
+- name: "{{ pyenv.name }} : Install IPython kernel (optional)"
   shell: |
       . ~/.virtualenvs/{{ pyenv.name }}/bin/activate
       python -m ipykernel install --user \
