@@ -20,6 +20,7 @@ packages:
     - libhdf5-dev
     - libhealpix-cxx-dev
     - liblog4cpp5-dev
+    - libnlopt-dev
     - libopenblas-dev
     - libpython-dev
     - libsprng2-dev
