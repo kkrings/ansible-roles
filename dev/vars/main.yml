@@ -32,6 +32,7 @@ packages:
     - python-pyqt5.qtsvg
     - python-qtconsole
     - qt5-default
+    - singularity-container
     - subversion
     - valgrind
     - virtualenvwrapper
