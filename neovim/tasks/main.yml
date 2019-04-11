@@ -9,7 +9,7 @@
 
 - name: Install neovim and additional packages
   apt:
-      name: "{{ packages }}" 
+      name: "{{ packages }}"
       state: latest
   become: yes
   tags: sudo
