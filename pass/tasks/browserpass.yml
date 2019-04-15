@@ -1,7 +1,7 @@
 ---
-- name: Install chromium and zip
+- name: Install chromium
   apt:
-      name: ["chromium-browser", "zip"]
+      name: "chromium-browser"
       state: latest
       update_cache: yes
   become: yes
@@ -9,16 +9,35 @@
 
 - name: Create install directory
   file:
-      path: ~/.local/browserpass
+      path: "{{ browserpass.prefix }}"
       state: directory
 
 - name: Download browserpass
   unarchive:
-      src: https://github.com/browserpass/browserpass/releases/download/2.0.21/browserpass-linux64.zip
+      src: "{{ browserpass.url }}/{{ browserpass.version }}/browserpass-linux64-{{ browserpass.version }}.tar.gz"
       remote_src: yes
-      dest: ~/.local/browserpass
+      dest: "{{ browserpass.prefix }}"
+      creates: "{{ browserpass.prefix }}/browserpass-linux64-{{ browserpass.version }}"
 
 - name: Install browserpass
-  command: ~/.local/browserpass/install.sh chromium
+  shell: |
+      make \
+          BIN=browserpass-linux64 \
+          PREFIX={{ browserpass.prefix | expanduser }} \
+          configure
+      make \
+          BIN=browserpass-linux64 \
+          PREFIX={{ browserpass.prefix | expanduser }} \
+          install
   args:
-      creates: ~/.config/chromium/NativeMessagingHosts
+      chdir: "{{ browserpass.prefix }}/browserpass-linux64-{{ browserpass.version }}"
+      creates: "{{ browserpass.prefix }}/bin/browserpass-linux64"
+
+- name: Configure browserpass for chromium
+  shell: |
+      make \
+          PREFIX={{ browserpass.prefix | expanduser }} \
+          hosts-chromium-user
+  args:
+      chdir: "{{ browserpass.prefix }}/lib/browserpass"
+      creates: "~/.config/chromium/NativeMessagingHosts/com.github.browserpass.native.json"
