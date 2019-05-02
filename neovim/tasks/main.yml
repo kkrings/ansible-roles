@@ -16,17 +16,17 @@
 
 - name: Install Python2 client
   pip:
-      name: neovim
+      name: pynvim
       state: latest
       virtualenv: "{{ py2_env }}"
-      virtualenv_python: python2
+      virtualenv_python: /usr/bin/python2
 
 - name: Install Python3 client
   pip:
-      name: ["neovim", "neovim-remote"]
+      name: ["pynvim", "neovim-remote"]
       state: latest
       virtualenv: "{{ py3_env }}"
-      virtualenv_python: python3
+      virtualenv_python: /usr/bin/python3
 
 - name: Create directory for runtime files
   file:

@@ -3,7 +3,7 @@
       name: nodeenv
       state: latest
       virtualenv: ~/.virtualenvs/{{ nodeenv.name }}
-      virtualenv_python: python3
+      virtualenv_python: /usr/bin/python3
 
 - name: "{{ nodeenv.name }} : Install Node.js {{ nodeenv.version }}"
   shell: |
