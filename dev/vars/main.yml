@@ -22,16 +22,16 @@ packages:
     - liblog4cpp5-dev
     - libnlopt-dev
     - libopenblas-dev
-    - libpython-dev
+    - libpython3-dev
     - libsprng2-dev
     - libstarlink-pal-dev
     - libsuitesparse-dev
     - libxml2-dev
     - libzmq3-dev
     - libzstd-dev
-    - python-pyqt5
-    - python-pyqt5.qtsvg
-    - python-qtconsole
+    - python3-pyqt5
+    - python3-pyqt5.qtsvg
+    - python3-qtconsole
     - qt5-default
     - singularity-container
     - subversion
@@ -47,48 +47,33 @@ packages:
     - liblzma-dev
 
 pyenvs:
-    - name: py2-std
-      longname: "Python 2 (py2-std)"
-      version: python2
+    - name: py3-std
+      longname: "Python 3 (py3-std)"
+      version: /usr/bin/python3
       site_packages: yes
       kernel: yes
       modules:
           - astropy
           - breathe
-          - configparser
           - coverage
           - flake8
           - healpy
-          - ipykernel
           - ipython
           - matplotlib
-          - numexpr
           - numpy
-          - PyMySQL
+          - pip
+          - pymysql
           - requests
           - scipy
-          - shapely[vectorized]
+          - setuptools
           - Sphinx
           - sphinx_rtd_theme
           - tables
-          - https://github.com/kkrings/icelab/zipball/master
-          - https://github.com/kkrings/pydag/zipball/master
-    - name: py3-std
-      longname: "Python 3 (py3-std)"
-      version: python3
-      site_packages: yes
-      kernel: yes
-      modules:
-          - coverage
-          - flake8
-          - ipython
-          - matplotlib
-          - numpy
-          - scipy
-          - tables
+          - virtualenvwrapper
+          - wheel
 
 nodeenvs:
-    - name: node-angular
+    - name: py3-node
       version: 10.15.3
       modules:
           - "@angular/cli"
