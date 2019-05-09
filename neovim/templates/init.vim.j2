@@ -76,3 +76,8 @@ let g:vimtex_compiler_progname='nvr'
 
 " PDF viewer
 let g:vimtex_view_method='zathura'
+
+" Disable some ALE linters.
+let g:ale_linters = {
+  \ 'cpp': ['clangd'],
+  \ }
