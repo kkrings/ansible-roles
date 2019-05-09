@@ -28,6 +28,17 @@
       virtualenv: "{{ py3_env }}"
       virtualenv_python: /usr/bin/python3
 
+- name: Create directory for nvr executable
+  file:
+      path: ~/.local/bin
+      state: directory
+
+- name: Link nvr executable
+  file:
+      path: ~/.local/bin/nvr
+      src: "{{ py3_env }}/bin/nvr"
+      state: link
+
 - name: Create directory for runtime files
   file:
       path: ~/.local/share/nvim/site
