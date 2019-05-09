@@ -39,20 +39,30 @@ colorscheme gruvbox
 " The color scheme supports powerline symbols.
 let g:airline_powerline_fonts=1
 
-" Run neovim when writing a buffer.
-call neomake#configure#automake('w')
+" Enable completion for all buffers.
+autocmd BufEnter * call ncm2#enable_for_buffer()
+set completeopt=noinsert,menuone,noselect
+
+" Language server: python
+if executable('pyls')
+  au User lsp_setup call lsp#register_server({
+    \ 'name': 'pyls',
+    \ 'cmd': {server_info->['pyls']},
+    \ 'whitelist': ['python'],
+    \ })
+endif
+
+" Language server: clangd
+if executable('clangd')
+  au User lsp_setup call lsp#register_server({
+    \ 'name': 'clangd',
+    \ 'cmd': {server_info->['clangd']},
+    \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
+    \ })
+endif
 
 " Workaround for the missing `--remote` option.
 let g:vimtex_compiler_progname='nvr'
 
 " PDF viewer
 let g:vimtex_view_method='zathura'
-
-" Enable completion.
-let g:deoplete#enable_at_startup=1
-
-if !exists('g:deoplete#omni#input_patterns')
-  let g:deoplete#omni#input_patterns={}
-endif
-
-let g:deoplete#omni#input_patterns.tex=g:vimtex#re#deoplete

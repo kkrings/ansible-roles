@@ -1,6 +1,5 @@
 ---
 packages:
-    - clang
     - neovim
     - fonts-powerline
     - git
@@ -14,14 +13,24 @@ py3_env: ~/.virtualenvs/py3-neovim
 plugin_directory: ~/.local/share/nvim/plugged
 
 plugins:
-    - HerringtonDarkholme/yats.vim
-    - lervag/vimtex
+    # Color scheme
     - morhetz/gruvbox
-    - neomake/neomake
+    # File browser
     - scrooloose/nerdtree
-    - Shougo/deoplete.nvim
-    - Shougo/neoinclude.vim
-    - tpope/vim-fugitive
-    - tweekmonster/deoplete-clang2
+    # Status line
     - vim-airline/vim-airline
-    - zchee/deoplete-jedi
+    # Completion manager
+    - ncm2/ncm2
+    - roxma/nvim-yarp
+    - ncm2/ncm2-bufword
+    - ncm2/ncm2-path
+    # Language server protocol
+    - prabirshrestha/async.vim
+    - prabirshrestha/vim-lsp
+    - ncm2/ncm2-vim-lsp
+    # LaTex
+    - lervag/vimtex
+    # Git
+    - tpope/vim-fugitive
+    # Typescipt syntax highlighting
+    - HerringtonDarkholme/yats.vim
