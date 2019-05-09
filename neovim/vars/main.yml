@@ -28,6 +28,8 @@ plugins:
     - prabirshrestha/async.vim
     - prabirshrestha/vim-lsp
     - ncm2/ncm2-vim-lsp
+    # Syntax checker
+    - w0rp/ale
     # LaTex
     - lervag/vimtex
     # Git
