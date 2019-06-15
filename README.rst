@@ -54,8 +54,10 @@ The custom desktop environment consists of:
 * Password manager: pass_
 
 The shell is configured based on the Prezto_ configuration framework. Whenever
-possible, the gruvbox_ dark color scheme and the Hack_ font are used. The
-Adwaita theme and the DejaVu Sans font are used for GTK+ applications.
+possible, the gruvbox_ dark color scheme and the Hack_ font are used for
+applications in the terminal. The Numix theme and the DejaVu Sans font are used
+for GTK+ applications. The i3_ window manager is styled by using colors from
+the Numix theme.
 
 .. External links
 .. _Ansible:

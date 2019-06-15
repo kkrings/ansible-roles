@@ -6,6 +6,8 @@ packages:
     - lightdm
     - lightdm-gtk-greeter
     - lxterminal
+    - numix-icon-theme
+    - numix-gtk-theme
     - pinentry-gtk2
     - ubuntu-drivers-common
     - ubuntu-wallpapers
@@ -30,7 +32,7 @@ xft:
     rgba: rgb
 
 gtk:
-    theme: Adwaita
+    theme: Numix
 
 lightdm:
     background: "{{ wallpaper }}"
@@ -74,3 +76,19 @@ gruvbox:
     faded_purple: "#8f3f71"
     faded_aqua: "#427b58"
     faded_orange: "#af3a03"
+
+# colors from Numix GTK theme
+numix:
+    bg: "#dedede"
+    fg: "#555555"
+    dark_bg: "#444444"
+    dark_fg: "#eeeeee"
+    selected_bg: "#f0544c"
+    selected_fg: "#ffffff"
+    info_bg: "#03a9f4"
+    info_fg: "#ffffff"
+    warning_bg: "#ef6c00"
+    warning_fg: "#ffffff"
+    # custom darker colors
+    darker_bg: "#282828"
+    darker_fg: "#8e8e8e"

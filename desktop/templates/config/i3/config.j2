@@ -4,13 +4,18 @@ set $mod Mod1
 font pango:{{ font.name }} {{ font.style }} {{ font.size }}
 
 # Define colors.
-set $bg0 {{ gruvbox.dark0 }}
-set $bg1 {{ gruvbox.dark1 }}
-set $fg2 {{ gruvbox.light2 }}
-set $fg4 {{ gruvbox.light4 }}
-set $blue {{ gruvbox.bright_blue }}
+set $numix_bg {{ numix.bg }}
+set $numix_fg {{ numix.fg }}
+set $numix_dark_bg {{ numix.dark_bg }}
+set $numix_dark_fg {{ numix.dark_fg }}
+set $numix_selected_bg {{ numix.selected_bg }}
+set $numix_selected_fg {{ numix.selected_fg }}
+set $numix_info_bg {{ numix.info_bg }}
+set $numix_info_fg {{ numix.info_fg }}
+set $numix_darker_bg {{ numix.darker_bg }}
+set $numix_darker_fg {{ numix.darker_fg }}
+
 set $red {{ gruvbox.bright_red }}
-set $aqua {{ gruvbox.bright_aqua }}
 
 # Use Mouse+$mod to drag floating windows to their wanted position.
 floating_modifier $mod
@@ -22,7 +27,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
 
 # Start dmenu.
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -i -fn {{ font.name | lower }}:size={{ font.size }} -nb $bg1 -nf $fg4 -sb $fg2 -sf $bg0"
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -i -fn {{ font.name | lower }}:size={{ font.size }} -nb $numix_dark_bg -nf $numix_dark_fg -sb $numix_selected_bg -sf $numix_selected_fg"
 
 # Change focus.
 bindsym $mod+j focus left
@@ -132,23 +137,25 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Set client colors: border, background, text, indicator, child border
-client.focused $blue $blue $bg0 $aqua $blue
-client.focused_inactive $bg1 $bg1 $fg2 $bg1 $bg1
-client.unfocused $bg1 $bg1 $fg4 $bg1 $bg1
-client.urgent $red $red $bg0 $red $red
-client.placeholder $bg0 $bg0 $bg0 $bg0 $bg0
-client.background $bg0
+client.focused $numix_dark_bg $numix_dark_bg $numix_dark_fg $numix_selected_bg $numix_dark_bg
+client.focused_inactive $numix_darker_bg $numix_darker_bg $numix_darker_fg $numix_darker_bg $numix_darker_bg
+client.unfocused $numix_darker_bg $numix_darker_bg $numix_darker_fg $numix_darker_bg $numix_darker_bg
+client.urgent $numix_info_bg $numix_info_bg $numix_info_fg $numix_info_bg $numix_info_bg
+client.placeholder $numix_dark_bg $ $numix_dark_bg $numix_dark_bg $numix_dark_bg
+client.background $numix_dark_bg
 
 # Start i3bar to display a workspace.
 bar {
     status_command i3status
     colors {
-        background $bg1
-        statusline $fg4
-        separator $bg1
-        focused_workspace $fg2 $fg2 $bg0
-        active_workspace $bg1 $bg1 $fg2
-        inactive_workspace $bg1 $bg1 $fg4
-        urgent_workspace $red $red $bg0
+        background $numix_dark_bg
+        statusline $numix_dark_fg
+        separator $numix_dark_bg
+
+        # Set workspace colors: border, background, text
+        focused_workspace $numix_bg $numix_bg $numix_fg
+        active_workspace $numix_bg $numix_bg $numix_fg
+        inactive_workspace $numix_dark_bg $numix_dark_bg $numix_dark_fg
+        urgent_workspace $numix_info_bg $numix_info_bg $numix_info_fg
     }
 }
