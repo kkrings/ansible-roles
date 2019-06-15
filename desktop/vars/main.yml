@@ -9,6 +9,7 @@ packages:
     - numix-icon-theme
     - numix-gtk-theme
     - pinentry-gtk2
+    - py3status
     - ubuntu-drivers-common
     - ubuntu-wallpapers
     - xorg
