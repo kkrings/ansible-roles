@@ -15,7 +15,7 @@
       - fontconfig
       - gtk-3.0
       - i3
-      - i3status
+      - py3status
       - lxterminal
       - zathura
 
@@ -27,7 +27,7 @@
       - config/fontconfig/fonts.conf
       - config/gtk-3.0/settings.ini
       - config/i3/config
-      - config/i3status/config
+      - config/py3status/config
       - config/lxterminal/lxterminal.conf
       - config/zathura/zathurarc
       - gtkrc-2.0
