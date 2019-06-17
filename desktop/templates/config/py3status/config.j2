@@ -1,24 +1,32 @@
 # py3status configuration file
 order += "online_status"
+order += "volume_status"
 order += "battery_level"
 order += "time"
 order += "static_string exit"
 
 general {
-    color_bad = "{{ numix.darker_fg }}"
+    color_bad = "{{ numix.error_bg }}"
+    color_degraded = "{{ numix.warning_bg }}"
     color_good = "{{ numix.dark_fg }}"
 }
 
 online_status {
+    color_off = "{{ numix.darker_fg }}"
     icon_off = ""
     icon_on = ""
     url = "https://www.startpage.com/"
 }
 
+volume_status {
+    color_muted = "{{ numix.dark_fg }}"
+    format = "{percentage}% "
+    format_muted = ""
+}
+
 battery_level {
     blocks = ""
     charging_character = ""
-    color_bad = "{{ numix.warning_bg }}"
     color_charging = "{{ numix.dark_fg }}"
     format = "{percent}% {icon}"
 }

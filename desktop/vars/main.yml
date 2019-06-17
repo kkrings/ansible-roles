@@ -90,6 +90,8 @@ numix:
     info_fg: "#ffffff"
     warning_bg: "#ef6c00"
     warning_fg: "#ffffff"
+    error_bg: "#f44336"
+    error_fg: "#ffffff"
     # custom darker colors
     darker_bg: "#282828"
     darker_fg: "#8e8e8e"
