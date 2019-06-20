@@ -1,6 +1,7 @@
 ---
 packages:
     - chromium-browser
+    - fonts-font-awesome
     - fonts-hack
     - i3
     - lightdm
@@ -26,7 +27,7 @@ font_gui:
 
 xft:
     antialias: true
-    dpi: 150
+    dpi: 120
     hinting: true
     hintstyle: slight
     lcdfilter: lcddefault
