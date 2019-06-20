@@ -1,8 +1,11 @@
 ---
 packages:
+    - build-essential
     - neovim
     - fonts-powerline
     - git
+    - python-dev
+    - python3-dev
     - virtualenvwrapper
     - zathura
     - xdotool
