@@ -1,3 +1,12 @@
 ---
 # path to default background image
-wallpaper: /usr/share/backgrounds/warty-final-ubuntu.png
+desktop_wallpaper: /usr/share/backgrounds/unix121_wallpapers_000.png
+
+# default font size
+desktop_font_size: 10
+
+# default DPI valu
+desktop_dpi_vaue: 120
+
+# default i3 mod key
+desktop_mod_key: Mod4

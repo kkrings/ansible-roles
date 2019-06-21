@@ -18,16 +18,16 @@ packages:
 
 font:
     name: Hack
-    size: 10
+    size: "{{ desktop_font_size }}"
     style: Regular
 
 font_gui:
     name: DejaVu Sans
-    size: 10
+    size: "{{ desktop_font_size }}"
 
 xft:
     antialias: true
-    dpi: 120
+    dpi: "{{ desktop_dpi_value }}"
     hinting: true
     hintstyle: slight
     lcdfilter: lcddefault
@@ -37,7 +37,7 @@ gtk:
     theme: Numix
 
 lightdm:
-    background: "{{ wallpaper }}"
+    background: "{{ desktop_wallpaper }}"
 
 # gruvbox color palette
 # https://github.com/morhetz/gruvbox
