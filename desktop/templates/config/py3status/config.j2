@@ -1,6 +1,6 @@
 # py3status configuration file
-order += "online_status"
 order += "diskdata"
+order += "online_status"
 order += "volume_status"
 order += "battery_level"
 order += "time"
@@ -12,15 +12,15 @@ general {
     color_good = "{{ numix.dark_fg }}"
 }
 
+diskdata {
+    format = "{used_percent}% "
+}
+
 online_status {
     color_off = "{{ numix.darker_fg }}"
     icon_off = ""
     icon_on = ""
     url = "https://www.startpage.com/"
-}
-
-diskdata {
-    format = "{used_percent}% "
 }
 
 volume_status {
