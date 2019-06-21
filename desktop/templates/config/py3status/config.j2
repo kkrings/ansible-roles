@@ -1,5 +1,6 @@
 # py3status configuration file
 order += "online_status"
+order += "diskdata"
 order += "volume_status"
 order += "battery_level"
 order += "time"
@@ -16,6 +17,10 @@ online_status {
     icon_off = ""
     icon_on = ""
     url = "https://www.startpage.com/"
+}
+
+diskdata {
+    format = "{used_percent}% "
 }
 
 volume_status {
