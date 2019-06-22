@@ -159,3 +159,7 @@ bar {
         urgent_workspace $numix_info_bg $numix_info_bg $numix_info_fg
     }
 }
+
+bindsym XF86AudioRaiseVolume exec amixer -q -D default -c 0 sset Master 5%+
+bindsym XF86AudioLowerVolume exec amixer -q -D default -c 0 sset Master 5%-
+bindsym XF86AudioMute exec amixer -q -D default -c 0 sset Master toggle
