@@ -1,8 +1,9 @@
 # py3status configuration file
 order += "diskdata"
-order += "online_status"
+order += "backlight"
 order += "volume_status"
 order += "battery_level"
+order += "online_status"
 order += "time"
 order += "static_string exit"
 
@@ -10,6 +11,19 @@ general {
     color_bad = "{{ numix.error_bg }}"
     color_degraded = "{{ numix.warning_bg }}"
     color_good = "{{ numix.dark_fg }}"
+}
+
+backlight {
+    brightness_delta = 10
+    command = "light"
+    format = "{level}% "
+}
+
+battery_level {
+    blocks = ""
+    charging_character = ""
+    color_charging = "{{ numix.dark_fg }}"
+    format = "{percent}% {icon}"
 }
 
 diskdata {
@@ -24,17 +38,10 @@ online_status {
 }
 
 volume_status {
-    cache_timeout = 1
     color_muted = "{{ numix.dark_fg }}"
     format = "{percentage}% "
     format_muted = ""
-}
-
-battery_level {
-    blocks = ""
-    charging_character = ""
-    color_charging = "{{ numix.dark_fg }}"
-    format = "{percent}% {icon}"
+    thresholds = [(0, "good")]
 }
 
 static_string exit {
