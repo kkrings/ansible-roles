@@ -10,7 +10,7 @@ packages:
     - numix-icon-theme
     - numix-gtk-theme
     - pinentry-gtk2
-    - py3status
+    - python-stdeb
     - ubuntu-drivers-common
     - ubuntu-wallpapers
     - xorg
