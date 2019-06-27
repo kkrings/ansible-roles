@@ -145,8 +145,10 @@ client.placeholder $numix_dark_bg $ $numix_dark_bg $numix_dark_bg $numix_dark_bg
 client.background $numix_dark_bg
 
 # Start i3bar to display a workspace.
+set $py3status {{ py3_env }}/bin/py3status
+
 bar {
-    status_command py3status -c ~/.config/py3status/config
+    status_command $py3status -c ~/.config/py3status/config
     colors {
         background $numix_dark_bg
         statusline $numix_dark_fg
@@ -160,11 +162,13 @@ bar {
     }
 }
 
+set $py3cmd {{ py3_env }}/bin/py3-cmd
+
 # Control volume.
-bindsym XF86AudioRaiseVolume exec "amixer -q sset Master 5%+ unmute; py3-cmd refresh volume_status"
-bindsym XF86AudioLowerVolume exec "amixer -q sset Master 5%- unmute; py3-cmd refresh volume_status"
-bindsym XF86AudioMute exec "amixer -q sset Master toggle; py3-cmd refresh volume_status"
+bindsym XF86AudioRaiseVolume exec "amixer -q sset Master 5%+ unmute; $py3cmd refresh volume_status"
+bindsym XF86AudioLowerVolume exec "amixer -q sset Master 5%- unmute; $py3cmd refresh volume_status"
+bindsym XF86AudioMute exec "amixer -q sset Master toggle; $py3cmd refresh volume_status"
 
 # Control screen brightness.
-bindsym XF86MonBrightnessUp exec "light -A 10; py3-cmd refresh backlight"
-bindsym XF86MonBrightnessDown exec "light -U 10; py3-cmd refresh backlight"
+bindsym XF86MonBrightnessUp exec "light -A 10; $py3cmd refresh backlight"
+bindsym XF86MonBrightnessDown exec "light -U 10; $py3cmd refresh backlight"

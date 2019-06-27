@@ -7,18 +7,12 @@
   become: yes
   tags: sudo
 
-- name: Install light
-  apt:
-      deb: https://github.com/haikarainen/light/releases/download/v1.2/light_1.2_amd64.deb
-      state: present
-  become: yes
-
 - name: Install py3status
-  shell: |
-      pypi-install py3status --release 3.19
-  args:
-      creates: /usr/bin/py3status
-  become: yes
+  pip:
+      name: py3status
+      state: latest
+      virtualenv: "{{ py3_env }}"
+      virtualenv_python: /usr/bin/python3
 
 - name: Create config directories
   file:

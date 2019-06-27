@@ -10,11 +10,13 @@ packages:
     - numix-icon-theme
     - numix-gtk-theme
     - pinentry-gtk2
-    - python-stdeb
     - ubuntu-drivers-common
     - ubuntu-wallpapers
+    - virtualenvwrapper
     - xorg
     - zathura
+
+py3_env: ~/.virtualenvs/py3-i3wm
 
 font:
     name: Hack
