@@ -11,6 +11,8 @@
       name: "{{ ansible_user }}"
       groups: ["video"]
       append: yes
+  become: yes
+  tags: sudo
 
 - name: Add udev rules
   copy:
