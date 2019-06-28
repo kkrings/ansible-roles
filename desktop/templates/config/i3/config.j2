@@ -15,8 +15,6 @@ set $numix_info_fg {{ numix.info_fg }}
 set $numix_darker_bg {{ numix.darker_bg }}
 set $numix_darker_fg {{ numix.darker_fg }}
 
-set $red {{ gruvbox.bright_red }}
-
 # Use Mouse+$mod to drag floating windows to their wanted position.
 floating_modifier $mod
 
@@ -108,7 +106,9 @@ bindsym $mod+Shift+c reload
 # Restart i3 inplace.
 bindsym $mod+Shift+r restart
 # Exit i3.
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Do you really want to exit i3?' -b 'Yes' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "i3-msg exit"
+# Lock screen.
+bindsym $mod+Shift+x exec i3lock -c {{ numix.dark_bg[1:] }}
 
 # Resize window.
 mode "resize" {
@@ -137,11 +137,41 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Set client colors: border, background, text, indicator, child border
-client.focused $numix_dark_bg $numix_dark_bg $numix_dark_fg $numix_dark_bg $numix_dark_bg
-client.focused_inactive $numix_dark_bg $numix_dark_bg $numix_darker_fg $numix_dark_bg $numix_dark_bg
-client.unfocused $numix_dark_bg $numix_dark_bg $numix_darker_fg $numix_dark_bg $numix_dark_bg
-client.urgent $numix_info_bg $numix_info_bg $numix_info_fg $numix_info_bg $numix_info_bg
-client.placeholder $numix_dark_bg $ $numix_dark_bg $numix_dark_bg $numix_dark_bg
+client.focused \
+    $numix_dark_bg \
+    $numix_dark_bg \
+    $numix_dark_fg \
+    $numix_dark_bg \
+    $numix_dark_bg
+
+client.focused_inactive \
+    $numix_dark_bg \
+    $numix_dark_bg \
+    $numix_darker_fg \
+    $numix_dark_bg \
+    $numix_dark_bg
+
+client.unfocused \
+    $numix_dark_bg \
+    $numix_dark_bg \
+    $numix_darker_fg \
+    $numix_dark_bg \
+    $numix_dark_bg
+
+client.urgent \
+    $numix_info_bg \
+    $numix_info_bg \
+    $numix_info_fg \
+    $numix_info_bg \
+    $numix_info_bg
+
+client.placeholder \
+    $numix_dark_bg \
+    $numix_dark_bg \
+    $numix_dark_bg \
+    $numix_dark_bg \
+    $numix_dark_bg
+
 client.background $numix_dark_bg
 
 # Start i3bar to display a workspace.
@@ -165,10 +195,15 @@ bar {
 set $py3cmd {{ py3_env }}/bin/py3-cmd
 
 # Control volume.
-bindsym XF86AudioRaiseVolume exec "amixer -q sset Master 5%+ unmute; $py3cmd refresh volume_status"
-bindsym XF86AudioLowerVolume exec "amixer -q sset Master 5%- unmute; $py3cmd refresh volume_status"
-bindsym XF86AudioMute exec "amixer -q sset Master toggle; $py3cmd refresh volume_status"
+bindsym XF86AudioRaiseVolume exec \
+    "amixer -q sset Master 5%+ unmute; $py3cmd refresh volume_status"
+bindsym XF86AudioLowerVolume exec \
+    "amixer -q sset Master 5%- unmute; $py3cmd refresh volume_status"
+bindsym XF86AudioMute exec \
+    "amixer -q sset Master toggle; $py3cmd refresh volume_status"
 
 # Control screen brightness.
-bindsym XF86MonBrightnessUp exec "light -A 10; $py3cmd refresh backlight"
-bindsym XF86MonBrightnessDown exec "light -U 10; $py3cmd refresh backlight"
+bindsym XF86MonBrightnessUp exec \
+    "light -A 10; $py3cmd refresh backlight"
+bindsym XF86MonBrightnessDown exec \
+    "light -U 10; $py3cmd refresh backlight"
