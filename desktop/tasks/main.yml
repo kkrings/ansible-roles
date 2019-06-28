@@ -45,6 +45,7 @@
       url: https://raw.githubusercontent.com/unix121/i3wm-themer/master/src/wallpapers/000.png
       dest: /usr/share/backgrounds/unix121_wallpapers_000.png
   become: yes
+  tags: sudo
 
 - name: Configure LightDM
   template:
