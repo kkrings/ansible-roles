@@ -12,8 +12,8 @@ set $numix_selected_bg {{ numix.selected_bg }}
 set $numix_selected_fg {{ numix.selected_fg }}
 set $numix_info_bg {{ numix.info_bg }}
 set $numix_info_fg {{ numix.info_fg }}
-set $numix_darker_bg {{ numix.darker_bg }}
-set $numix_darker_fg {{ numix.darker_fg }}
+set $numix_dark_bg_darker {{ numix.dark_bg_darker }}
+set $numix_dark_fg_darker {{ numix.dark_fg_darker }}
 
 # Use Mouse+$mod to drag floating windows to their wanted position.
 floating_modifier $mod
@@ -141,20 +141,20 @@ client.focused \
     $numix_dark_bg \
     $numix_dark_bg \
     $numix_dark_fg \
-    $numix_selected_bg \
+    $numix_dark_bg \
     $numix_dark_bg
 
 client.focused_inactive \
     $numix_dark_bg \
     $numix_dark_bg \
-    $numix_darker_fg \
+    $numix_dark_fg_darker \
     $numix_dark_bg \
     $numix_dark_bg
 
 client.unfocused \
     $numix_dark_bg \
     $numix_dark_bg \
-    $numix_darker_fg \
+    $numix_dark_fg_darker \
     $numix_dark_bg \
     $numix_dark_bg
 
@@ -185,8 +185,8 @@ bar {
         separator $numix_dark_bg
 
         # Set workspace colors: border, background, text
-        focused_workspace $numix_selected_bg $numix_bg $numix_fg
-        active_workspace $numix_bg $numix_bg $numix_fg
+        focused_workspace $numix_bg $numix_bg $numix_fg
+        active_workspace $numix_dark_fg_darker $numix_dark_fg_darker $numix_fg
         inactive_workspace $numix_dark_bg $numix_dark_bg $numix_dark_fg
         urgent_workspace $numix_info_bg $numix_info_bg $numix_info_fg
     }

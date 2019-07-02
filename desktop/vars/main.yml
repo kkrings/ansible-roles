@@ -96,5 +96,5 @@ numix:
     error_bg: "#f44336"
     error_fg: "#ffffff"
     # custom darker colors
-    darker_bg: "#282828"
-    darker_fg: "#8e8e8e"
+    dark_bg_darker: "#282828"
+    dark_fg_darker: "#8e8e8e"
