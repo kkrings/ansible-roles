@@ -54,3 +54,14 @@
       backup: yes
   become: yes
   tags: sudo
+
+- name: Install snap packages (optional)
+  snap:
+      name: "{{ item.name }}"
+      channel: "{{ item.channel | default('stable') }}"
+      classic: "{{ item.classic | default(no) }}"
+      state: present
+  loop: "{{ desktop_snap_packages }}"
+  when: desktop_snap_packages | length > 0
+  become: yes
+  tags: sudo
