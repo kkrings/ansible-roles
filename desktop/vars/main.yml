@@ -1,6 +1,7 @@
 ---
 packages:
     - chromium-browser
+    - feh
     - fonts-font-awesome
     - fonts-hack
     - i3
