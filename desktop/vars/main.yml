@@ -1,10 +1,12 @@
 ---
 packages:
-    - chromium-browser
+    - google-chrome-stable
     - feh
     - fonts-dejavu
     - fonts-font-awesome
     - fonts-hack
+    - fonts-noto
+    - fonts-noto-color-emoji
     - i3
     - lightdm
     - lightdm-gtk-greeter

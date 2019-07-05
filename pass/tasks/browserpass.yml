@@ -1,12 +1,4 @@
 ---
-- name: Install chromium
-  apt:
-      name: "chromium-browser"
-      state: latest
-      update_cache: yes
-  become: yes
-  tags: sudo
-
 - name: Create install directory
   file:
       path: "{{ browserpass.prefix }}"
@@ -33,11 +25,11 @@
       chdir: "{{ browserpass.prefix }}/browserpass-linux64-{{ browserpass.version }}"
       creates: "{{ browserpass.prefix }}/bin/browserpass-linux64"
 
-- name: Configure browserpass for chromium
+- name: Configure browserpass for chrome
   shell: |
       make \
           PREFIX={{ browserpass.prefix | expanduser }} \
-          hosts-chromium-user
+          hosts-chrome-user
   args:
       chdir: "{{ browserpass.prefix }}/lib/browserpass"
-      creates: "~/.config/chromium/NativeMessagingHosts/com.github.browserpass.native.json"
+      creates: "~/.config/google-chrome/NativeMessagingHosts/com.github.browserpass.native.json"
