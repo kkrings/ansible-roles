@@ -2,6 +2,7 @@
 packages:
     - chromium-browser
     - feh
+    - fonts-dejavu
     - fonts-font-awesome
     - fonts-hack
     - i3
