@@ -11,5 +11,8 @@ desktop_dpi_vaue: 120
 # default i3 mod key
 desktop_mod_key: Mod4
 
+# no additional deb packages are installed by default
+desktop_deb_packages: [ ]
+
 # no snap packages are installed by default
 desktop_snap_packages: [ ]

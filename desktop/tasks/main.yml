@@ -71,6 +71,15 @@
   become: yes
   tags: sudo
 
+- name: Install deb packages (optional)
+  apt:
+      name: "{{ desktop_deb_packages }}"
+      update_cache: yes
+      state: latest
+  when: desktop_deb_packages | length > 0
+  become: yes
+  tags: sudo
+
 - name: Install snap packages (optional)
   snap:
       name: "{{ item.name }}"
