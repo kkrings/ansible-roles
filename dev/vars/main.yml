@@ -30,6 +30,9 @@ packages:
     - libxml2-dev
     - libzmq3-dev
     - libzstd-dev
+    - python-pyqt5
+    - python-pyqt5.qtsvg
+    - python-qtconsole
     - python3-pyqt5
     - python3-pyqt5.qtsvg
     - python3-qtconsole
@@ -48,6 +51,28 @@ packages:
     - liblzma-dev
 
 pyenvs:
+    - name: py2-std
+      longname: "Python 2 (py2-std)"
+      version: /usr/bin/python
+      site_packages: yes
+      kernel: yes
+      modules:
+          - astropy
+          - breathe==4.13.0
+          - coverage
+          - flake8
+          - healpy
+          - ipython
+          - matplotlib
+          - numpy
+          - pip
+          - pymysql
+          - python-language-server
+          - scipy
+          - setuptools
+          - Sphinx==1.8.5
+          - tables
+          - wheel
     - name: py3-std
       longname: "Python 3 (py3-std)"
       version: /usr/bin/python3
@@ -64,7 +89,6 @@ pyenvs:
           - numpy
           - pip
           - pyls-mypy
-          - pymysql
           - python-language-server
           - requests
           - scipy
@@ -72,7 +96,6 @@ pyenvs:
           - Sphinx
           - sphinx_rtd_theme
           - tables
-          - virtualenvwrapper
           - wheel
 
 nodeenvs:
