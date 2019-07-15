@@ -38,7 +38,9 @@ online_status {
 }
 
 volume_status {
+    command = "pactl"
     color_muted = "{{ numix.dark_fg }}"
+    device = 0
     format = "{percentage}% "
     format_muted = ""
     thresholds = [(0, "good")]
