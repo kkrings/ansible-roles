@@ -97,6 +97,7 @@ pyenvs:
           - Sphinx
           - sphinx_rtd_theme
           - tables
+          - twine
           - wheel
 
 nodeenvs:
