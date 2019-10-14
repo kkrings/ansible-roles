@@ -84,7 +84,7 @@ pyenvs:
           - coverage
           - flake8
           - healpy
-          - jedi==0.14.1
+          - jedi==0.15.1
           - ipython
           - matplotlib
           - numpy
