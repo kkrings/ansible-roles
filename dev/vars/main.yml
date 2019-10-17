@@ -58,7 +58,7 @@ pyenvs:
       kernel: yes
       modules:
           - astropy
-          - breathe==4.13.0
+          - breathe==4.12.0
           - coverage
           - flake8
           - healpy
@@ -71,7 +71,7 @@ pyenvs:
           - scipy
           - setuptools
           - Sphinx==1.8.5
-          - tables
+          - tables==3.5.2
           - wheel
     - name: py3-std
       longname: "Python 3 (py3-std)"
