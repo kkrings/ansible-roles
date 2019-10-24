@@ -190,6 +190,9 @@ bar {
         inactive_workspace $numix_dark_bg $numix_dark_bg $numix_dark_fg
         urgent_workspace $numix_info_bg $numix_info_bg $numix_info_fg
     }
+{% if disable_tray_output %}
+    tray_output none
+{% endif %}
 }
 
 set $py3cmd {{ py3_env }}/bin/py3-cmd

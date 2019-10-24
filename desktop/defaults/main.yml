@@ -16,3 +16,6 @@ desktop_deb_packages: [ ]
 
 # no snap packages are installed by default
 desktop_snap_packages: [ ]
+
+# disable tray output for icons
+disable_tray_output: False
