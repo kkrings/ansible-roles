@@ -1,4 +1,4 @@
-# Style sheet for Keynote presentations using the IceCube theme.
+# Style sheet for presentations.
 axes.labelsize : 16.0
 axes.titlesize : 16.0
 figure.figsize : 9.52, 6.11
