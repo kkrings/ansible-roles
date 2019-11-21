@@ -102,7 +102,7 @@ pyenvs:
 
 nodeenvs:
     - name: py3-node
-      version: 10.15.3
+      version: 12.13.1
       modules:
           - "typescript"
           - "typescript-language-server"
