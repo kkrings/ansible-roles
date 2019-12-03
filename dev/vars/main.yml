@@ -76,7 +76,6 @@ pyenvs:
     - name: py3-std
       longname: "Python 3 (py3-std)"
       version: /usr/bin/python3
-      site_packages: yes
       kernel: yes
       modules:
           - astropy
@@ -85,6 +84,7 @@ pyenvs:
           - flake8
           - healpy
           - jedi==0.15.1
+          - ipykernel
           - ipython
           - matplotlib
           - numpy
