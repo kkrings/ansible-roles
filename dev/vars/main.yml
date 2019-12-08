@@ -107,3 +107,4 @@ nodeenvs:
           - "typescript"
           - "typescript-language-server"
           - "@angular/cli"
+          - "json-server"
