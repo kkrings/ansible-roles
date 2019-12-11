@@ -106,5 +106,6 @@ nodeenvs:
       modules:
           - "typescript"
           - "typescript-language-server"
+          - "standard"
           - "@angular/cli"
           - "json-server"
