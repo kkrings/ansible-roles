@@ -104,8 +104,8 @@ nodeenvs:
     - name: py3-node
       version: 12.13.1
       modules:
+          - "eslint"
+          - "eslint-config-google"
+          - "jsdoc"
           - "typescript"
           - "typescript-language-server"
-          - "standard"
-          - "@angular/cli"
-          - "json-server"
