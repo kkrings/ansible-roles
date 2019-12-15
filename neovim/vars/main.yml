@@ -31,10 +31,6 @@ plugins:
     - prabirshrestha/async.vim
     - prabirshrestha/vim-lsp
     - ncm2/ncm2-vim-lsp
-    # Language servers
-    - ryanolsonx/vim-lsp-python
-    - ryanolsonx/vim-lsp-javascript
-    - ryanolsonx/vim-lsp-typescript
     # Syntax checker
     - w0rp/ale
     # LaTex
