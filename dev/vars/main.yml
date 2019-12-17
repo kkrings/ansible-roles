@@ -30,6 +30,7 @@ packages:
     - libxml2-dev
     - libzmq3-dev
     - libzstd-dev
+    - mongodb-org
     - python-pyqt5
     - python-pyqt5.qtsvg
     - python-qtconsole
@@ -109,3 +110,4 @@ nodeenvs:
           - "jsdoc"
           - "typescript"
           - "typescript-language-server"
+          - "express-generator"
