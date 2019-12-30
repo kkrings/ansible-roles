@@ -84,7 +84,7 @@
   snap:
       name: "{{ item.name }}"
       channel: "{{ item.channel | default('stable') }}"
-      classic: "{{ item.classic | default(no) }}"
+      classic: "{{ item.classic | default('no') }}"
       state: present
   loop: "{{ desktop_snap_packages }}"
   when: desktop_snap_packages | length > 0
