@@ -1,0 +1,33 @@
+---
+- name: "browserpass : Ubuntu : Create install directory"
+  file:
+      path: "{{ prefix }}"
+      state: directory
+
+- name: "browserpass : Ubuntu: Download browserpass"
+  unarchive:
+      src: "{{ url }}/{{ version }}/browserpass-linux64-{{ version }}.tar.gz"
+      remote_src: yes
+      dest: "{{ prefix }}"
+      creates: "{{ prefix }}/browserpass-linux64-{{ version }}"
+
+- name: "browserpass : Ubuntu : Install browserpass"
+  shell: |
+      make \
+          BIN=browserpass-linux64 \
+          PREFIX={{ prefix | expanduser }} \
+          configure
+      make \
+          BIN=browserpass-linux64 \
+          PREFIX={{ prefix | expanduser }} \
+          install
+  args:
+      chdir: "{{ prefix }}/browserpass-linux64-{{ version }}"
+      creates: "{{ prefix }}/bin/browserpass-linux64"
+
+- name: "pass : browserpass : Ubuntu : Include config tasks"
+  include_tasks: config.yml
+  vars:
+      os: Ubuntu
+      dest: "{{ dest }}"
+      prefix: "{{ prefix }}"

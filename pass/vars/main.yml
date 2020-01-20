@@ -1,5 +1,10 @@
 ---
 browserpass:
-    prefix: ~/.local/browserpass/
+    dest:
+        macos: ~/Library/Application Support/Google/Chrome/NativeMessagingHosts
+        ubuntu: ~/.config/google-chrome/NativeMessagingHosts
+    prefix:
+        macos: /usr/local/opt/browserpass
+        ubuntu: ~/.local/browserpass
     url: https://github.com/browserpass/browserpass-native/releases/download
     version: 3.0.6

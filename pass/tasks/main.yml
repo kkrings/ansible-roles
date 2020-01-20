@@ -1,11 +1,19 @@
 ---
-- name: Install pass and oathtool
+- name: "Ubuntu : Install pass"
   apt:
-      name: ["pass", "oathtool"]
+      name: pass
       state: latest
       update_cache: yes
+  when: ansible_distribution == "Ubuntu"
   become: yes
   tags: sudo
+
+- name: "macOS : Install pass"
+  homebrew:
+      name: pass
+      state: latest
+      update_homebrew: yes
+  when: ansible_distribution == "MacOSX"
 
 - name: Checkout existing password store (optional)
   git:
@@ -20,6 +28,20 @@
       state: directory
       mode: 0700
 
-- name: Include browserpass tasks
-  include_tasks: browserpass.yml
+- name: "pass : browserpass : Ubuntu : Include browserpass tasks"
+  include_tasks: browserpass/ubuntu.yml
+  vars:
+      dest: "{{ browserpass.dest.ubuntu }}"
+      prefix: "{{ browserpass.prefix.ubuntu }}"
+      url: "{{ browserpass.url }}"
+      version: "{{ browserpass.version }}"
+  when: ansible_distribution == "Ubuntu"
+  tags: browserpass
+
+- name: "pass : browserpass : macOS : Include browserpass tasks"
+  include_tasks: browserpass/macos.yml
+  vars:
+      dest: "{{ browserpass.dest.macos }}"
+      prefix: "{{ browserpass.prefix.macos }}"
+  when: ansible_distribution == "MacOSX"
   tags: browserpass
