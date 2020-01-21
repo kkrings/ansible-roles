@@ -1,11 +1,19 @@
 ---
-- name: Install git, git-lfs, git-svn, svn, and gnupg
+- name: "Ubuntu : Install git and git-lfs"
   apt:
-      name: ["git", "git-lfs", "git-svn", "subversion", "gnupg"]
+      name: ["git", "git-lfs"]
       state: latest
       update_cache: yes
+  when: ansible_distribution == "Ubuntu"
   become: yes
   tags: sudo
+
+- name: "macOS : Install git and git-lfs"
+  homebrew:
+      name: ["git", "git-lfs"]
+      state: latest
+      update_homebrew: yes
+  when: ansible_distribution == "MacOSX"
 
 - name: Configure git (optional)
   git_config:
@@ -13,16 +21,3 @@
       value: "{{ item.value }}"
       scope: global
   loop: "{{ git_config }}"
-
-- name: Create config directory for svn
-  file:
-      path: ~/.subversion
-      state: directory
-
-- name: Configure svn
-  copy:
-      src: "{{ item }}"
-      dest: ~/.subversion/{{ item }}
-  loop:
-      - config
-      - servers
