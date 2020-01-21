@@ -1,0 +1,21 @@
+---
+- name: Install svn, and gnupg
+  apt:
+      name: ["subversion", "gnupg"]
+      state: latest
+      update_cache: yes
+  become: yes
+  tags: sudo
+
+- name: Create config directory for svn
+  file:
+      path: ~/.subversion
+      state: directory
+
+- name: Configure svn
+  copy:
+      src: "{{ item }}"
+      dest: ~/.subversion/{{ item }}
+  loop:
+      - config
+      - servers
