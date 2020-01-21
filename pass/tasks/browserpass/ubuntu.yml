@@ -21,7 +21,7 @@
       chdir: "{{ prefix }}/browserpass-linux64-{{ version }}"
       target: configure
       params:
-          PREFIX: "{{ prefix }}"
+          PREFIX: "{{ prefix | expanduser }}"
           BIN: browserpass-linux64
   when: not binary.stat.exists
 
@@ -30,7 +30,7 @@
       chdir: "{{ prefix }}/browserpass-linux64-{{ version }}"
       target: install
       params:
-          PREFIX: "{{ prefix }}"
+          PREFIX: "{{ prefix | expanduser }}"
           BIN: browserpass-linux64
   when: not binary.stat.exists
 

@@ -9,5 +9,5 @@
       chdir: "{{ prefix }}/lib/browserpass"
       target: hosts-chrome-user
       params:
-          PREFIX: "{{ prefix }}"
+          PREFIX: "{{ prefix | expanduser }}"
   when: not config.stat.exists
