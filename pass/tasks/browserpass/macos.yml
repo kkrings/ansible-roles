@@ -1,10 +1,10 @@
 ---
-- name: "browserpass : macOS : Add homebrew tap"
+- name: "pass : browserpass : macOS : Add homebrew tap"
   homebrew_tap:
       name: amar1729/formulae
       state: present
 
-- name: "browserpass : macOS : Install"
+- name: "pass : browserpass : macOS : Install browserpass"
   homebrew:
       name: browserpass
       state: latest

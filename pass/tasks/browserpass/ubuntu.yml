@@ -1,33 +1,40 @@
 ---
-- name: "browserpass : Ubuntu : Create install directory"
+- name: "pass : browserpass : Ubuntu : Create install directory"
   file:
       path: "{{ prefix }}"
       state: directory
 
-- name: "browserpass : Ubuntu: Download browserpass"
+- name: "pass : browserpass : Ubuntu: Download browserpass"
   unarchive:
       src: "{{ url }}/{{ version }}/browserpass-linux64-{{ version }}.tar.gz"
       remote_src: yes
       dest: "{{ prefix }}"
       creates: "{{ prefix }}/browserpass-linux64-{{ version }}"
 
-- name: "browserpass : Ubuntu : Install browserpass"
-  shell: |
-      make \
-          BIN=browserpass-linux64 \
-          PREFIX={{ prefix | expanduser }} \
-          configure
-      make \
-          BIN=browserpass-linux64 \
-          PREFIX={{ prefix | expanduser }} \
-          install
-  args:
+- name: "pass : browserpass : Ubuntu : Check for existing installation"
+  stat:
+      path: "{{ prefix }}/bin/browserpass-linux64"
+  register: binary
+
+- name: "pass : browserpass : Ubuntu : Configure installation"
+  make:
       chdir: "{{ prefix }}/browserpass-linux64-{{ version }}"
-      creates: "{{ prefix }}/bin/browserpass-linux64"
+      target: configure
+      params:
+          PREFIX: "{{ prefix }}"
+          BIN: browserpass-linux64
+  when: not binary.stat.exists
+
+- name: "pass : browserpass : Ubuntu : Install browserpass"
+  make:
+      chdir: "{{ prefix }}/browserpass-linux64-{{ version }}"
+      target: install
+      params:
+          PREFIX: "{{ prefix }}"
+          BIN: browserpass-linux64
+  when: not binary.stat.exists
 
 - name: "pass : browserpass : Ubuntu : Include config tasks"
   include_tasks: config.yml
   vars:
       os: Ubuntu
-      dest: "{{ dest }}"
-      prefix: "{{ prefix }}"

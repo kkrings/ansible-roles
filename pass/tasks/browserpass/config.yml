@@ -1,9 +1,13 @@
 ---
-- name: "pass : browserpass : {{ os }} : Configure browserpass for chrome"
-  shell: |
-      make \
-          PREFIX={{ prefix | expanduser }} \
-          hosts-chrome-user
-  args:
+- name: "pass : browserpass : {{ os }} : Check for existing configuration"
+  stat:
+      path: "{{ dest }}/com.github.browserpass.native.json"
+  register: config
+
+- name: "pass : browserpass : {{ os }} : Configure browserpass"
+  make:
       chdir: "{{ prefix }}/lib/browserpass"
-      creates: "{{ dest }}/com.github.browserpass.native.json"
+      target: hosts-chrome-user
+      params:
+          PREFIX: "{{ prefix }}"
+  when: not config.stat.exists

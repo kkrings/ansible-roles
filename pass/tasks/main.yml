@@ -28,7 +28,7 @@
       state: directory
       mode: 0700
 
-- name: "pass : browserpass : Ubuntu : Include browserpass tasks"
+- name: "Ubuntu : Include browserpass tasks"
   include_tasks: browserpass/ubuntu.yml
   vars:
       dest: "{{ browserpass.dest.ubuntu }}"
@@ -38,7 +38,7 @@
   when: ansible_distribution == "Ubuntu"
   tags: browserpass
 
-- name: "pass : browserpass : macOS : Include browserpass tasks"
+- name: "macOS : Include browserpass tasks"
   include_tasks: browserpass/macos.yml
   vars:
       dest: "{{ browserpass.dest.macos }}"
