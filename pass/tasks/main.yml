@@ -8,11 +8,17 @@
   become: yes
   tags: sudo
 
-- name: "macOS : Install pass"
+- name: "macOS : Install pass and pinentry-mac"
   homebrew:
-      name: pass
+      name: ["pass", "pinentry-mac"]
       state: latest
       update_homebrew: yes
+  when: ansible_distribution == "MacOSX"
+
+- name: "macOS : Configure gpg to use pinentry-mac"
+  copy:
+      src: gpg-agent.conf
+      dest: ~/.gnupg/gpg-agent.conf
   when: ansible_distribution == "MacOSX"
 
 - name: Checkout existing password store (optional)
