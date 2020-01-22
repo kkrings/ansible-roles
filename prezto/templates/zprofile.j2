@@ -2,31 +2,40 @@
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/runcoms/zprofile" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/runcoms/zprofile"
 fi
-{% if ansible_distribution == "MacOSX" %}
-
-if [[ -z $LC_ALL ]]; then
-  export LC_ALL='en_US.UTF-8'
-fi
-{% endif %}
 
 export EDITOR='{{ zprofile_editor }}'
 export VISUAL='{{ zprofile_editor }}'
-{% if zprofile_paths %}
 
+# Add more directories to path variable (optional).
+{% if zprofile_path %}
 path=(
-  {% for path in zprofile_paths %}
+  {% for path in zprofile_path %}
   path
   {% endfor %}
   $path
 )
 {% endif %}
 
-# export MANPATH="/opt/local/share/man:$MANPATH"
-# export LD_LIBRARY_PATH="/opt/local/lib:$LD_LIBRARY_PATH"
+# Configure path to man pages (optional).
+{% if zprofile_manpath %}
+export MANPATH="{{ zprofile_manpath | join(':') }}:$MANPATH"
+{% endif %}
 
-# Additional environment variables
-{% if zprofile_envs %}
-{% for name in zprofile_envs %}
-export {{ name | upper }}={{ zprofile_envs[name] }}
+# Set LD_LIBRARY_PATH (optional).
+{% if zprofile_ld_library_path %}
+export LD_LIBRARY_PATH="{{ zprofile_ld_library_path | join(':') }}:$LD_LIBRARY_PATH"
+{% endif %}
+
+# Set LC_ALL variable on macOS (optional).
+{% if ansible_distribution == "MacOSX" %}
+if [[ -z $LC_ALL ]]; then
+  export LC_ALL='en_US.UTF-8'
+fi
+{% endif %}
+
+# Add more environment variables (optional).
+{% if zprofile_env %}
+{% for name in zprofile_env %}
+export {{ name | upper }}={{ zprofile_env[name] }}
 {% endfor %}
 {% endif %}

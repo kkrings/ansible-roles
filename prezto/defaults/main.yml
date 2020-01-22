@@ -2,10 +2,16 @@
 zprofile_editor: vi
 
 # Sequence of paths to binary files
-zprofile_paths: []
+zprofile_path: []
+
+# Sequence of paths to man pages
+zprofile_manpath: []
+
+# Sequence of paths to libraries
+zprofile_ld_library_path: []
 
 # Mapping of environment variable names to values
-zprofile_envs: {}
+zprofile_env: {}
 
 # Mapping of alias names to values
 zshrc_aliases: {}
