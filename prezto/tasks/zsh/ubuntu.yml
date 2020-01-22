@@ -1,0 +1,16 @@
+---
+- name: "prezto : Ubuntu : Install z-shell and git"
+  apt:
+      name: ["zsh", "git"]
+      state: latest
+      update_cache: yes
+  become: yes
+  tags: sudo
+
+- name: "prezto : Ubuntu : Change user's shell to z-shell"
+  user:
+      name: "{{ ansible_user }}"
+      shell: /bin/zsh
+      state: present
+  become: yes
+  tags: sudo

@@ -36,10 +36,15 @@ zstyle ':prezto:load' pmodule \
   'python' \
   'rsync' \
   'ssh' \
+{% if ansible_distribution == "MacOSX" %}
+  'gpg' \
+  'osx'
+{% else %}
   'gpg'
+{% endif %}
 
 # Set the key mapping style to 'vi'.
-zstyle ':prezto:module:editor' key-bindings 'vi'
+zstyle ':prezto:module:editor' key-bindings '{{ prezto_key_bindings }}'
 
 # Auto convert .... to ../..
 zstyle ':prezto:module:editor' dot-expansion 'yes'
@@ -56,7 +61,7 @@ zstyle ':prezto:module:git:status:ignore' submodules 'all'
 #
 
 # Set the prompt theme to load.
-zstyle ':prezto:module:prompt' theme 'sorin'
+zstyle ':prezto:module:prompt' theme '{{ prezto_theme }}'
 
 # Set the working directory prompt display length.
 zstyle ':prezto:module:prompt' pwd-length 'short'
@@ -73,7 +78,14 @@ zstyle ':prezto:module:python:virtualenv' initialize 'yes'
 #
 
 # Set the SSH identities to load into the agent.
-zstyle ':prezto:module:ssh:load' identities 'id_rsa' 'id_rsa2' 'id_github'
+zstyle ':prezto:module:ssh:load' identities \
+{% for key in prezto_ssh %}
+{% if loop.last %}
+  '{{ key }}'
+{% else %}
+  '{{ key }}' \
+{% endif %}
+{% endfor %}
 
 #
 # Syntax Highlighting

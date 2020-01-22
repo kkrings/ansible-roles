@@ -1,0 +1,14 @@
+---
+- name: "prezto : macOS : Install z-shell and git"
+  homebrew:
+      name: ["zsh", "git"]
+      state: latest
+      update_homebrew: yes
+
+- name: "prezto : macOS : Change user's shell to z-shell"
+  user:
+      name: "{{ ansible_user }}"
+      shell: /usr/local/bin/zsh
+      state: present
+  become: yes
+  tags: sudo

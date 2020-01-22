@@ -1,19 +1,11 @@
 ---
-- name: Install z-shell and git
-  apt:
-      name: ["zsh", "git"]
-      state: latest
-      update_cache: yes
-  become: yes
-  tags: sudo
+- name: "Ubuntu : Include z-shell tasks"
+  include_tasks: zsh/ubuntu.yml
+  when: ansible_distribution == "Ubuntu"
 
-- name: Change shell of user to z-shell
-  user:
-      name: "{{ ansible_user }}"
-      shell: /bin/zsh
-      state: present
-  become: yes
-  tags: sudo
+- name: "macOS : Include z-shell tasks"
+  include_tasks: zsh/macos.yml
+  when: ansible_distribution == "MacOSX"
 
 - name: Install prezto
   git:
@@ -31,14 +23,10 @@
       - zshenv
 
 - name: Configure prezto
-  copy:
-      src: zpreztorc
-      dest: ~/.zpreztorc
-
-- name: Configure prezto
   template:
       src: "{{ item }}.j2"
       dest: ~/.{{ item }}
   loop:
+      - zpreztorc
       - zprofile
       - zshrc

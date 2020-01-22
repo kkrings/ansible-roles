@@ -2,23 +2,31 @@
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/runcoms/zprofile" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/runcoms/zprofile"
 fi
+{% if ansible_distribution == "MacOSX" %}
 
-export EDITOR='vim'
-export VISUAL='vim'
+if [[ -z $LC_ALL ]]; then
+  export LC_ALL='en_US.UTF-8'
+fi
+{% endif %}
+
+export EDITOR='{{ zprofile_editor }}'
+export VISUAL='{{ zprofile_editor }}'
+{% if zprofile_paths %}
 
 path=(
-  /opt/local/{bin,sbin}
-  /usr/lib/llvm-7/bin
-  $HOME/.local/bin
+  {% for path in zprofile_paths %}
+  path
+  {% endfor %}
   $path
 )
+{% endif %}
 
-export MANPATH="/opt/local/share/man:$MANPATH"
-export LD_LIBRARY_PATH="/opt/local/lib:$LD_LIBRARY_PATH"
+# export MANPATH="/opt/local/share/man:$MANPATH"
+# export LD_LIBRARY_PATH="/opt/local/lib:$LD_LIBRARY_PATH"
 
 # Additional environment variables
-{% if env_variables %}
-{% for name in env_variables %}
-export {{ name | upper }}={{ env_variables[name] }}
+{% if zprofile_envs %}
+{% for name in zprofile_envs %}
+export {{ name | upper }}={{ zprofile_envs[name] }}
 {% endfor %}
 {% endif %}

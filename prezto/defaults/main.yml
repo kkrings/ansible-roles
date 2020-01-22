@@ -1,5 +1,23 @@
+# Editor
+zprofile_editor: vi
+
+# Sequence of paths to binary files
+zprofile_paths: []
+
 # Mapping of environment variable names to values
-env_variables: {}
+zprofile_envs: {}
 
 # Mapping of alias names to values
-aliases: {}
+zshrc_aliases: {}
+
+# Prezto key bindings
+prezto_key_bindings: vi
+
+# Prezto theme
+prezto_theme: sorin
+
+# Sequence of ssh keys, which should be loaded
+prezto_ssh:
+    - id_rsa
+    - id_rsa2
+    - id_github
