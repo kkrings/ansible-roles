@@ -10,12 +10,3 @@
       dest: ~/.ssh/config
       src: config.j2
   when: ssh_config is defined
-
-- name: "Ubuntu : Install mosh and sshfs"
-  apt:
-      name: ["mosh", "sshfs"]
-      state: latest
-      update_cache: yes
-  when: ansible_distribution == "Ubuntu"
-  become: yes
-  tags: sudo
