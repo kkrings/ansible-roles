@@ -10,7 +10,7 @@ export VISUAL='{{ zprofile_editor }}'
 {% if zprofile_path %}
 path=(
   {% for path in zprofile_path %}
-  path
+  {{ path }}
   {% endfor %}
   $path
 )
