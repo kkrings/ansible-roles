@@ -101,7 +101,9 @@ endif
 let g:vimtex_compiler_progname='nvr'
 
 " PDF viewer
-let g:vimtex_view_method='zathura'
+{% if vimtex_view_method is defined %}
+let g:vimtex_view_method='{{ vimtex_view_method }}'
+{% endif %}
 
 " Disable some ALE linters.
 let g:ale_linters = {

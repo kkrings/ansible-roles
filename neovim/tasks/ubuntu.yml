@@ -1,0 +1,21 @@
+---
+- name: "neovim : Ubuntu : Add neovim repository"
+  apt_repository:
+      repo: ppa:neovim-ppa/stable
+      state: present
+      update_cache: yes
+  become: yes
+  tags: sudo
+
+- name: "neovim : Ubuntu : Install neovim and additional packages"
+  apt:
+      name: "{{ apt_packages }}"
+      state: latest
+  become: yes
+  tags: sudo
+
+- name: "neovim : Ubuntu : Include client tasks"
+  include_tasks: client.yml
+  vars:
+      py2_path: "{{ py2_path_ubuntu }}"
+      py3_path: "{{ py3_path_ubuntu }}"

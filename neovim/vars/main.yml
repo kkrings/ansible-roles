@@ -1,5 +1,5 @@
 ---
-packages:
+apt_packages:
     - build-essential
     - neovim
     - fonts-powerline
@@ -9,6 +9,17 @@ packages:
     - virtualenvwrapper
     - zathura
     - xdotool
+
+homebrew_packages:
+    - neovim
+    - git
+    - python
+
+py2_path_ubuntu: /usr/bin/python
+py3_path_ubuntu: /usr/bin/python3
+
+py2_path_macos: /usr/bin/python
+py3_path_macos: /usr/local/bin/python3
 
 py2_env: ~/.virtualenvs/py2-neovim
 py3_env: ~/.virtualenvs/py3-neovim

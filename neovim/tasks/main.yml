@@ -1,32 +1,11 @@
 ---
-- name: Add neovim repository
-  apt_repository:
-      repo: ppa:neovim-ppa/stable
-      state: present
-      update_cache: yes
-  become: yes
-  tags: sudo
+- name: "Ubuntu : Include install tasks"
+  include_tasks: ubuntu.yml
+  when: ansible_distribution == "Ubuntu"
 
-- name: Install neovim and additional packages
-  apt:
-      name: "{{ packages }}"
-      state: latest
-  become: yes
-  tags: sudo
-
-- name: Install Python2 client
-  pip:
-      name: pynvim
-      state: latest
-      virtualenv: "{{ py2_env }}"
-      virtualenv_python: /usr/bin/python2
-
-- name: Install Python3 client
-  pip:
-      name: ["pynvim", "neovim-remote"]
-      state: latest
-      virtualenv: "{{ py3_env }}"
-      virtualenv_python: /usr/bin/python3
+- name: "macOS : Include install tasks"
+  include_tasks: macos.yml
+  when: ansible_distribution == "MacOSX"
 
 - name: Create directory for nvr executable
   file:

@@ -1,0 +1,18 @@
+---
+- name: "neovim : macOS : Install neovim and additional packages"
+  homebrew:
+      name: "{{ homebrew_packages }}"
+      state: latest
+      update_homebrew: yes
+
+- name: "neovim : macOS: Install virtualenvwrapper"
+  pip:
+      name: "virtualenvwrapper"
+      state: latest
+      executable: /usr/local/bin/pip3
+
+- name: "neovim : macOS : Include client tasks"
+  include_tasks: client.yml
+  vars:
+      py2_path: "{{ py2_path_macos }}"
+      py3_path: "{{ py3_path_macos }}"
