@@ -102,7 +102,13 @@ let g:vimtex_compiler_progname='nvr'
 
 " PDF viewer
 {% if vimtex_view_method is defined %}
+{% if vimtex_view_method == "Preview" %}
+let g:vimtex_view_method='general'
+let g:vimtex_view_general_viewer='open'
+let g:vimtex_view_general_options='-a Preview'
+{% else %}
 let g:vimtex_view_method='{{ vimtex_view_method }}'
+{% endif %}
 {% endif %}
 
 " Disable some ALE linters.
