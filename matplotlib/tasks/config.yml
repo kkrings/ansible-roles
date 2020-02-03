@@ -1,0 +1,15 @@
+---
+- name: "matplotlib : {{ os }} : Create Matplotlib config directory"
+  file:
+      path: "{{ config_dir }}/stylelib"
+      state: directory
+
+- name: "matplotlib : {{ os }} : Configure Matplotlib"
+  copy:
+      src: "{{ item }}"
+      dest: "{{ config_dir }}/{{ item }}"
+  loop:
+      - matplotlibrc
+      - stylelib/seaborn-set3.mplstyle
+      - stylelib/latex-phd-thesis.mplstyle
+      - stylelib/presentation.mplstyle

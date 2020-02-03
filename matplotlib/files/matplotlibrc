@@ -1,0 +1,11 @@
+axes.spines.right : False
+axes.spines.top : False
+backend : agg
+backend_fallback : True
+figure.dpi : 75
+font.serif : CMU Serif
+pgf.texsystem : pdflatex
+pgf.rcfonts : False
+ps.papersize : A4
+savefig.dpi : 100
+timezone : Europe/Berlin

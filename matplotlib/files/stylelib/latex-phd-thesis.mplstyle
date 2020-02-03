@@ -1,0 +1,9 @@
+# Style sheet for PhD thesis
+# The figure width corresponds to 98% of the LaTeX document's text width.
+figure.autolayout : False
+figure.dpi : 100
+figure.figsize : 5, 3
+font.family : serif
+savefig.dpi : 1200
+savefig.format : pdf
+text.usetex : True

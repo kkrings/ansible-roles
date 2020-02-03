@@ -1,0 +1,6 @@
+---
+- name: Include macOS tasks
+  include_tasks: config.yml
+  vars:
+      os: macOS
+      config_dir: "{{ config_dir_macos }}"

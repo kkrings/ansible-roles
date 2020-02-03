@@ -1,0 +1,20 @@
+---
+- name: "python : macOS : Install homebrew packages"
+  homebrew:
+      name: "{{ homebrew_packages }}"
+      state: latest
+      update_homebrew: yes
+
+- name: "python : macOS : Install Python packages"
+  pip:
+      name: "{{ python_packages }}"
+      state: latest
+      executable: /usr/local/bin/pip3
+
+- name: "python : macOS: Install virtual Python environments"
+  include_tasks: pyenv.yml
+  loop: "{{ pyenvs }}"
+  loop_control:
+      loop_var: pyenv
+  vars:
+      path_jupyter_kernels: "{{ path_jupyter_kernels_macos }}"

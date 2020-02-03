@@ -1,0 +1,9 @@
+# Style sheet for presentations.
+axes.labelsize : 16.0
+axes.titlesize : 16.0
+figure.figsize : 9.52, 6.11
+font.size : 16.0
+legend.fontsize : 16.0
+savefig.dpi : 600
+xtick.labelsize : 16.0
+ytick.labelsize : 16.0
