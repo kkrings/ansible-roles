@@ -1,0 +1,20 @@
+---
+- name: "node : macOS : Install Python"
+  homebrew:
+      name: python
+      state: latest
+      update_homebrew: yes
+
+- name: "node : macOS : Install virtualenvwrapper"
+  pip:
+      name: virtualenvwrapper
+      state: latest
+      executable: /usr/local/bin/pip3
+
+- name: "node : macOS : Install virtual Node.js environments"
+  include_tasks: nodeenv.yml
+  loop: "{{ nodeenvs }}"
+  loop_control:
+      loop_var: nodeenv
+  vars:
+      py_path: "{{ py_path_macos }}"

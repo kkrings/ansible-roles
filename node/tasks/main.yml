@@ -1,0 +1,4 @@
+---
+- name: "Include macOS tasks"
+  include_tasks: macos.yml
+  when: ansible_distribution == "MacOSX"
