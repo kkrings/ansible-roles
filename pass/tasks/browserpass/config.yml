@@ -1,7 +1,7 @@
 ---
 - name: "pass : browserpass : {{ pass_browserpass_os }} : Check for existing configuration"
   stat:
-      path: "{{ pass_browserpass_os_dest }}/com.github.browserpass.native.json"
+      path: "{{ pass_browserpass_dest }}/com.github.browserpass.native.json"
   register: config
 
 - name: "pass : browserpass : {{ pass_browserpass_os }} : Configure browserpass"
