@@ -1,2 +1,2 @@
 ---
-kernel_module: intel_backlight
+backlight_kernel_module: intel_backlight
