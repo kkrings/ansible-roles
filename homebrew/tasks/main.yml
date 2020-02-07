@@ -1,0 +1,13 @@
+---
+- name: "Add homebrew taps"
+  homebrew_tap:
+      name: "{{ homebrew_taps }}"
+      state: present
+  when: homebrew_taps | length > 0
+
+- name: "Install homebrew packages"
+  homebrew:
+      name: "{{ homebrew_packages }}"
+      state: latest
+      update_homebrew: yes
+  when: homebrew_packages | length > 0
