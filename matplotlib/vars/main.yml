@@ -1,2 +1,2 @@
 ---
-config_dir_macos: ~/.matplotlib
+matplotlib_config_dir_macos: ~/.matplotlib

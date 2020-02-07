@@ -1,5 +1,5 @@
 ---
-browserpass:
+pass_browserpass:
     dest:
         macos: ~/Library/Application Support/Google/Chrome/NativeMessagingHosts
         ubuntu: ~/.config/google-chrome/NativeMessagingHosts

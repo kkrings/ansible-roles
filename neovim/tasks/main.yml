@@ -15,7 +15,7 @@
 - name: Link nvr executable
   file:
       path: ~/.local/bin/nvr
-      src: "{{ py3_env }}/bin/nvr"
+      src: "{{ neovim_py3_env }}/bin/nvr"
       state: link
 
 - name: Create directory for runtime files
@@ -30,14 +30,14 @@
 
 - name: Create directory for plugins
   file:
-      path: "{{ plugin_directory }}"
+      path: "{{ neovim_plugin_directory }}"
       state: directory
 
 - name: Install plugins
   git:
       repo: https://github.com/{{ item }}.git
-      dest: "{{ plugin_directory }}/{{ item.split('/')[1] }}"
-  loop: "{{ plugins }}"
+      dest: "{{ neovim_plugin_directory }}/{{ item.split('/')[1] }}"
+  loop: "{{ neovim_plugins }}"
 
 - name: Create config directory
   file:

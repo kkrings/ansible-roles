@@ -1,18 +1,18 @@
-- name: "{{ pyenv.name }} : Install Python modules"
+- name: "{{ python_env.name }} : Install Python modules"
   pip:
-      name: "{{ pyenv.modules }}"
+      name: "{{ python_env.modules }}"
       state: latest
-      virtualenv: ~/.virtualenvs/{{ pyenv.name }}
-      virtualenv_python: "{{ pyenv.version }}"
-      virtualenv_site_packages: "{{ pyenv.site_packages | default('no') }}"
+      virtualenv: ~/.virtualenvs/{{ python_env.name }}
+      virtualenv_python: "{{ python_env.version }}"
+      virtualenv_site_packages: "{{ python_env.site_packages | default('no') }}"
 
-- name: "{{ pyenv.name }} : Install IPython kernel (optional)"
+- name: "{{ python_env.name }} : Install IPython kernel (optional)"
   shell: |
-      . ~/.virtualenvs/{{ pyenv.name }}/bin/activate
+      . ~/.virtualenvs/{{ python_env.name }}/bin/activate
       python -m ipykernel install --user \
-          --name "{{ pyenv.name }}" \
-          --display-name "{{ pyenv.longname }}"
+          --name "{{ python_env.name }}" \
+          --display-name "{{ python_env.longname }}"
       deactivate
   args:
-      creates: "{{ path_jupyter_kernels }}/{{ pyenv.name }}"
-  when: "'kernel' in pyenv and pyenv.kernel"
+      creates: "{{ python_path_jupyter_kernels }}/{{ python_env.name }}"
+  when: "'kernel' in python_env and python_env.kernel"

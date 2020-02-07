@@ -1,7 +1,7 @@
 ---
 - name: "neovim : macOS : Install neovim and additional packages"
   homebrew:
-      name: "{{ homebrew_packages }}"
+      name: "{{ neovim_homebrew_packages }}"
       state: latest
       update_homebrew: yes
 
@@ -14,5 +14,5 @@
 - name: "neovim : macOS : Include client tasks"
   include_tasks: client.yml
   vars:
-      py2_path: "{{ py2_path_macos }}"
-      py3_path: "{{ py3_path_macos }}"
+      neovim_py2_path: "{{ neovim_py2_path_macos }}"
+      neovim_py3_path: "{{ neovim_py3_path_macos }}"

@@ -3,12 +3,12 @@
   pip:
       name: pynvim
       state: latest
-      virtualenv: "{{ py2_env }}"
-      virtualenv_python: "{{ py2_path }}"
+      virtualenv: "{{ neovim_py2_env }}"
+      virtualenv_python: "{{ neovim_py2_path }}"
 
 - name: "neovim : Install Python3 client"
   pip:
       name: ["pynvim", "neovim-remote"]
       state: latest
-      virtualenv: "{{ py3_env }}"
-      virtualenv_python: "{{ py3_path }}"
+      virtualenv: "{{ neovim_py3_env }}"
+      virtualenv_python: "{{ neovim_py3_path }}"

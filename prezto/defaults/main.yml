@@ -1,20 +1,20 @@
 # Editor
-zprofile_editor: vi
+prezto_zprofile_editor: vi
 
 # Sequence of paths to binary files
-zprofile_path: []
+prezto_zprofile_path: []
 
 # Sequence of paths to man pages
-zprofile_manpath: []
+prezto_zprofile_manpath: []
 
 # Sequence of paths to libraries
-zprofile_ld_library_path: []
+prezto_zprofile_ld_library_path: []
 
 # Mapping of environment variable names to values
-zprofile_env: {}
+prezto_zprofile_env: {}
 
 # Mapping of alias names to values
-zshrc_aliases: {}
+prezto_zshrc_aliases: {}
 
 # Prezto key bindings
 prezto_key_bindings: vi

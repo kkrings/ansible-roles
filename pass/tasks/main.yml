@@ -23,10 +23,10 @@
 
 - name: Checkout existing password store (optional)
   git:
-      repo: "{{ password_store }}"
+      repo: "{{ pass_password_store }}"
       dest: ~/.password-store
       accept_hostkey: yes
-  when: password_store is defined
+  when: pass_password_store is defined
 
 - name: Fix permissions of (empty) password store
   file:
@@ -37,17 +37,17 @@
 - name: "Ubuntu : Include browserpass tasks"
   include_tasks: browserpass/ubuntu.yml
   vars:
-      dest: "{{ browserpass.dest.ubuntu }}"
-      prefix: "{{ browserpass.prefix.ubuntu }}"
-      url: "{{ browserpass.url }}"
-      version: "{{ browserpass.version }}"
+      pass_browserpass_dest: "{{ pass_browserpass.dest.ubuntu }}"
+      pass_browserpass_prefix: "{{ pass_browserpass.prefix.ubuntu }}"
+      pass_browserpass_url: "{{ pass_browserpass.url }}"
+      pass_browserpass_version: "{{ pass_browserpass.version }}"
   when: ansible_distribution == "Ubuntu"
   tags: browserpass
 
 - name: "macOS : Include browserpass tasks"
   include_tasks: browserpass/macos.yml
   vars:
-      dest: "{{ browserpass.dest.macos }}"
-      prefix: "{{ browserpass.prefix.macos }}"
+      pass_browserpass_dest: "{{ pass_browserpass.dest.macos }}"
+      pass_borwserpass_prefix: "{{ pass_browserpass.prefix.macos }}"
   when: ansible_distribution == "MacOSX"
   tags: browserpass

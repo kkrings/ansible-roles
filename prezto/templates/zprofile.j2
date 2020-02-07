@@ -3,13 +3,13 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/runcoms/zprofile" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/runcoms/zprofile"
 fi
 
-export EDITOR='{{ zprofile_editor }}'
-export VISUAL='{{ zprofile_editor }}'
+export EDITOR='{{ prezto_zprofile_editor }}'
+export VISUAL='{{ prezto_zprofile_editor }}'
 
 # Add more directories to path variable (optional).
-{% if zprofile_path %}
+{% if prezto_zprofile_path %}
 path=(
-  {% for path in zprofile_path %}
+  {% for path in prezto_zprofile_path %}
   {{ path }}
   {% endfor %}
   $path
@@ -17,13 +17,13 @@ path=(
 {% endif %}
 
 # Configure path to man pages (optional).
-{% if zprofile_manpath %}
-export MANPATH="{{ zprofile_manpath | join(':') }}:$MANPATH"
+{% if prezto_zprofile_manpath %}
+export MANPATH="{{ prezto_zprofile_manpath | join(':') }}:$MANPATH"
 {% endif %}
 
 # Set LD_LIBRARY_PATH (optional).
-{% if zprofile_ld_library_path %}
-export LD_LIBRARY_PATH="{{ zprofile_ld_library_path | join(':') }}:$LD_LIBRARY_PATH"
+{% if prezto_zprofile_ld_library_path %}
+export LD_LIBRARY_PATH="{{ prezto_zprofile_ld_library_path | join(':') }}:$LD_LIBRARY_PATH"
 {% endif %}
 
 # Set LC_ALL variable on macOS (optional).
@@ -34,8 +34,8 @@ fi
 {% endif %}
 
 # Add more environment variables (optional).
-{% if zprofile_env %}
-{% for name in zprofile_env %}
-export {{ name | upper }}={{ zprofile_env[name] }}
+{% if prezto_zprofile_env %}
+{% for name in prezto_zprofile_env %}
+export {{ name | upper }}={{ prezto_zprofile_env[name] }}
 {% endfor %}
 {% endif %}

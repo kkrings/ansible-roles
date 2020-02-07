@@ -1,28 +1,28 @@
-- name: "node : {{ nodeenv.name }} : Install nodeenv"
+- name: "node : {{ node_env.name }} : Install nodeenv"
   pip:
       name: nodeenv
       state: latest
-      virtualenv: ~/.virtualenvs/{{ nodeenv.name }}
-      virtualenv_python: "{{ py_path }}"
+      virtualenv: ~/.virtualenvs/{{ node_env.name }}
+      virtualenv_python: "{{ node_py_path }}"
 
-- name: "node : {{ nodeenv.name }} : Install Node.js {{ nodeenv.version }}"
+- name: "node : {{ node_env.name }} : Install Node.js {{ node_env.version }}"
   shell: |
-      . ~/.virtualenvs/{{ nodeenv.name }}/bin/activate
-      nodeenv -p -n {{ nodeenv.version }}
+      . ~/.virtualenvs/{{ node_env.name }}/bin/activate
+      nodeenv -p -n {{ node_env.version }}
       deactivate
   args:
-      creates: ~/.virtualenvs/{{ nodeenv.name }}/bin/node
+      creates: ~/.virtualenvs/{{ node_env.name }}/bin/node
 
-- name: "node : {{ nodeenv.name }} : Add npm wrapper"
+- name: "node : {{ node_env.name }} : Add npm wrapper"
   template:
       src: npm.sh.j2
-      dest: ~/.virtualenvs/{{ nodeenv.name }}/bin/npm.sh
+      dest: ~/.virtualenvs/{{ node_env.name }}/bin/npm.sh
       mode: 0775
 
-- name: "node : {{ nodeenv.name }} : Install Node.js modules"
+- name: "node : {{ node_env.name }} : Install Node.js modules"
   npm:
-      executable: ~/.virtualenvs/{{ nodeenv.name }}/bin/npm.sh
+      executable: ~/.virtualenvs/{{ node_env.name }}/bin/npm.sh
       name: "{{ item }}"
       global: yes
       state: latest
-  loop: "{{ nodeenv.modules }}"
+  loop: "{{ node_env.modules }}"

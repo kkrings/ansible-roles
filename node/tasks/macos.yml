@@ -13,8 +13,8 @@
 
 - name: "node : macOS : Install virtual Node.js environments"
   include_tasks: nodeenv.yml
-  loop: "{{ nodeenvs }}"
+  loop: "{{ node_envs }}"
   loop_control:
-      loop_var: nodeenv
+      loop_var: node_env
   vars:
-      py_path: "{{ py_path_macos }}"
+      node_py_path: "{{ node_py_path_macos }}"

@@ -1,5 +1,5 @@
 ---
-apt_packages:
+neovim_deb_packages:
     - build-essential
     - neovim
     - fonts-powerline
@@ -10,23 +10,23 @@ apt_packages:
     - zathura
     - xdotool
 
-homebrew_packages:
+neovim_homebrew_packages:
     - neovim
     - git
     - python
 
-py2_path_ubuntu: /usr/bin/python
-py3_path_ubuntu: /usr/bin/python3
+neovim_py2_path_ubuntu: /usr/bin/python
+neovim_py3_path_ubuntu: /usr/bin/python3
 
-py2_path_macos: /usr/bin/python
-py3_path_macos: /usr/local/bin/python3
+neovim_py2_path_macos: /usr/bin/python
+neovim_py3_path_macos: /usr/local/bin/python3
 
-py2_env: ~/.virtualenvs/py2-neovim
-py3_env: ~/.virtualenvs/py3-neovim
+neovim_py2_env: ~/.virtualenvs/py2-neovim
+neovim_py3_env: ~/.virtualenvs/py3-neovim
 
-plugin_directory: ~/.local/share/nvim/plugged
+neovim_plugin_directory: ~/.local/share/nvim/plugged
 
-plugins:
+neovim_plugins:
     # Color scheme
     - morhetz/gruvbox
     # File browser

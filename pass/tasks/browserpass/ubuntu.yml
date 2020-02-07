@@ -1,36 +1,36 @@
 ---
 - name: "pass : browserpass : Ubuntu : Create install directory"
   file:
-      path: "{{ prefix }}"
+      path: "{{ pass_browserpass_prefix }}"
       state: directory
 
 - name: "pass : browserpass : Ubuntu: Download browserpass"
   unarchive:
-      src: "{{ url }}/{{ version }}/browserpass-linux64-{{ version }}.tar.gz"
+      src: "{{ pass_browserpass_url }}/{{ pass_browserpass_version }}/browserpass-linux64-{{ pass_browserpass_version }}.tar.gz"
       remote_src: yes
-      dest: "{{ prefix }}"
-      creates: "{{ prefix }}/browserpass-linux64-{{ version }}"
+      dest: "{{ pass_browserpass_prefix }}"
+      creates: "{{ pass_browserpass_prefix }}/browserpass-linux64-{{ pass_browserpass_version }}"
 
 - name: "pass : browserpass : Ubuntu : Check for existing installation"
   stat:
-      path: "{{ prefix }}/bin/browserpass-linux64"
+      path: "{{ pass_browserpass_prefix }}/bin/browserpass-linux64"
   register: binary
 
 - name: "pass : browserpass : Ubuntu : Configure installation"
   make:
-      chdir: "{{ prefix }}/browserpass-linux64-{{ version }}"
+      chdir: "{{ pass_browserpass_prefix }}/browserpass-linux64-{{ pass_browserpass_version }}"
       target: configure
       params:
-          PREFIX: "{{ prefix | expanduser }}"
+          PREFIX: "{{ pass_browserpass_prefix | expanduser }}"
           BIN: browserpass-linux64
   when: not binary.stat.exists
 
 - name: "pass : browserpass : Ubuntu : Install browserpass"
   make:
-      chdir: "{{ prefix }}/browserpass-linux64-{{ version }}"
+      chdir: "{{ pass_browserpass_prefix }}/browserpass-linux64-{{ pass_browserpass_version }}"
       target: install
       params:
-          PREFIX: "{{ prefix | expanduser }}"
+          PREFIX: "{{ pass_browserpass_prefix | expanduser }}"
           BIN: browserpass-linux64
   when: not binary.stat.exists
 

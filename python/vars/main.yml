@@ -1,9 +1,9 @@
 ---
-homebrew_packages:
+python_homebrew_packages:
     - python
 
 python_packages:
     - jupyter
     - virtualenvwrapper
 
-path_jupyter_kernels_macos: ~/Library/Jupyter/kernels
+python_path_jupyter_kernels_macos: ~/Library/Jupyter/kernels
