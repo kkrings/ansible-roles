@@ -9,7 +9,7 @@
 
 - name: "prezto : Ubuntu : Change user's shell to z-shell"
   user:
-      name: "{{ ansible_user }}"
+      name: "{{ ansible_user_id }}"
       shell: /bin/zsh
       state: present
   become: yes
