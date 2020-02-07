@@ -1,8 +1,8 @@
-gtk-theme-name = "{{ gtk.theme }}"
-gtk-icon-theme-name = "{{ gtk.theme }}"
-gtk-font-name = "{{ font_gui.name }} {{ font_gui.size}}"
-gtk-xft-antialias = {{ xft.antialias | int }}
-gtk-xft-dpi = {{ xft.dpi * 1024 }}
-gtk-xft-hinting = {{ xft.hinting | int }}
-gtk-xft-hintstyle = "hint{{ xft.hintstyle }}"
-gtk-xft-rgba = "{{ xft.rgba }}"
+gtk-theme-name = "{{ desktop_gtk.theme }}"
+gtk-icon-theme-name = "{{ desktop_gtk.theme }}"
+gtk-font-name = "{{ desktop_font_gui.name }} {{ desktop_font_gui.size}}"
+gtk-xft-antialias = {{ desktop_xft.antialias | int }}
+gtk-xft-dpi = {{ desktop_xft.dpi * 1024 }}
+gtk-xft-hinting = {{ desktop_xft.hinting | int }}
+gtk-xft-hintstyle = "hint{{ desktop_xft.hintstyle }}"
+gtk-xft-rgba = "{{ desktop_xft.rgba }}"

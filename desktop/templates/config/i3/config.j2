@@ -1,19 +1,19 @@
 # i3 config file (v4)
 set $mod {{ desktop_mod_key }}
 
-font pango:{{ font.name }} {{ font.style }} {{ font.size }}
+font pango:{{ desktop_font.name }} {{ desktop_font.style }} {{ desktop_font.size }}
 
 # Define colors.
-set $numix_bg {{ numix.bg }}
-set $numix_fg {{ numix.fg }}
-set $numix_dark_bg {{ numix.dark_bg }}
-set $numix_dark_fg {{ numix.dark_fg }}
-set $numix_selected_bg {{ numix.selected_bg }}
-set $numix_selected_fg {{ numix.selected_fg }}
-set $numix_info_bg {{ numix.info_bg }}
-set $numix_info_fg {{ numix.info_fg }}
-set $numix_dark_bg_darker {{ numix.dark_bg_darker }}
-set $numix_dark_fg_darker {{ numix.dark_fg_darker }}
+set $numix_bg {{ desktop_numix.bg }}
+set $numix_fg {{ desktop_numix.fg }}
+set $numix_dark_bg {{ desktop_numix.dark_bg }}
+set $numix_dark_fg {{ desktop_numix.dark_fg }}
+set $numix_selected_bg {{ desktop_numix.selected_bg }}
+set $numix_selected_fg {{ desktop_numix.selected_fg }}
+set $numix_info_bg {{ desktop_numix.info_bg }}
+set $numix_info_fg {{ desktop_numix.info_fg }}
+set $numix_dark_bg_darker {{ desktop_numix.dark_bg_darker }}
+set $numix_dark_fg_darker {{ desktop_numix.dark_fg_darker }}
 
 # Use Mouse+$mod to drag floating windows to their wanted position.
 floating_modifier $mod
@@ -25,7 +25,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
 
 # Start dmenu.
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -i -fn {{ font.name | lower }}:size={{ font.size }} -nb $numix_dark_bg -nf $numix_dark_fg -sb $numix_selected_bg -sf $numix_selected_fg"
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -i -fn {{ desktop_font.name | lower }}:size={{ desktop_font.size }} -nb $numix_dark_bg -nf $numix_dark_fg -sb $numix_selected_bg -sf $numix_selected_fg"
 
 # Change focus.
 bindsym $mod+j focus left
@@ -108,7 +108,7 @@ bindsym $mod+Shift+r restart
 # Exit i3.
 bindsym $mod+Shift+e exec "i3-msg exit"
 # Lock screen.
-bindsym $mod+Shift+x exec i3lock -c {{ numix.dark_bg[1:] }}
+bindsym $mod+Shift+x exec i3lock -c {{ desktop_numix.dark_bg[1:] }}
 
 # Resize window.
 mode "resize" {
@@ -175,7 +175,7 @@ client.placeholder \
 client.background $numix_dark_bg
 
 # Start i3bar to display a workspace.
-set $py3status {{ py3_env }}/bin/py3status
+set $py3status {{ desktop_py3status_env }}/bin/py3status
 
 bar {
     status_command $py3status -c ~/.config/py3status/config
@@ -190,12 +190,12 @@ bar {
         inactive_workspace $numix_dark_bg $numix_dark_bg $numix_dark_fg
         urgent_workspace $numix_info_bg $numix_info_bg $numix_info_fg
     }
-{% if disable_tray_output %}
+{% if desktop_disable_tray_output %}
     tray_output none
 {% endif %}
 }
 
-set $py3cmd {{ py3_env }}/bin/py3-cmd
+set $py3cmd {{ desktop_py3status_env }}/bin/py3-cmd
 
 # Control volume.
 bindsym XF86AudioRaiseVolume exec \

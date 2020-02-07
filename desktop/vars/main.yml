@@ -1,5 +1,5 @@
 ---
-packages:
+desktop_deb_packages:
     - google-chrome-stable
     - feh
     - fonts-dejavu
@@ -21,18 +21,18 @@ packages:
     - xorg
     - zathura
 
-py3_env: ~/.virtualenvs/py3-i3wm
+desktop_py3status_env: ~/.virtualenvs/py3-i3wm
 
-font:
+desktop_font:
     name: Hack
     size: "{{ desktop_font_size }}"
     style: Regular
 
-font_gui:
+desktop_font_gui:
     name: DejaVu Sans
     size: "{{ desktop_font_size }}"
 
-xft:
+desktop_xft:
     antialias: true
     dpi: "{{ desktop_dpi_value }}"
     hinting: true
@@ -40,15 +40,15 @@ xft:
     lcdfilter: lcddefault
     rgba: rgb
 
-gtk:
+desktop_gtk:
     theme: Numix
 
-lightdm:
+desktop_lightdm:
     background: "{{ desktop_wallpaper }}"
 
 # gruvbox color palette
 # https://github.com/morhetz/gruvbox
-gruvbox:
+desktop_gruvbox:
     dark0_hard: "#1d2021"
     dark0: "#282828"
     dark0_soft: "#32302f"
@@ -87,7 +87,7 @@ gruvbox:
     faded_orange: "#af3a03"
 
 # colors from Numix GTK theme
-numix:
+desktop_numix:
     bg: "#dedede"
     fg: "#555555"
     dark_bg: "#444444"

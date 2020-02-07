@@ -12,10 +12,10 @@ desktop_dpi_vaue: 120
 desktop_mod_key: Mod4
 
 # no additional deb packages are installed by default
-desktop_deb_packages: [ ]
+desktop_deb_packages_optional: []
 
 # no snap packages are installed by default
-desktop_snap_packages: [ ]
+desktop_snap_packages: []
 
 # disable tray output for icons
 disable_tray_output: False

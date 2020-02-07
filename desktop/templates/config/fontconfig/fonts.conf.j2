@@ -3,19 +3,19 @@
 <fontconfig>
     <match target="font">
         <edit name="antialias" mode="assign">
-            <bool>{{ xft.antialias | lower }}</bool>
+            <bool>{{ desktop_xft.antialias | lower }}</bool>
         </edit>
         <edit name="hinting" mode="assign">
-            <bool>{{ xft.hinting | lower }}</bool>
+            <bool>{{ desktop_xft.hinting | lower }}</bool>
         </edit>
         <edit name="hintstyle" mode="assign">
-            <const>hint{{ xft.hintstyle }}</const>
+            <const>hint{{ desktop_xft.hintstyle }}</const>
         </edit>
         <edit name="rgba" mode="assign">
-            <const>{{ xft.rgba }}</const>
+            <const>{{ desktop_xft.rgba }}</const>
         </edit>
         <edit name="lcdfilter" mode="assign">
-            <const>{{ xft.lcdfilter }}</const>
+            <const>{{ desktop_xft.lcdfilter }}</const>
         </edit>
     </match>
 </fontconfig>

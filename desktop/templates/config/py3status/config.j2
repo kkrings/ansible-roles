@@ -8,9 +8,9 @@ order += "time"
 order += "static_string exit"
 
 general {
-    color_bad = "{{ numix.error_bg }}"
-    color_degraded = "{{ numix.warning_bg }}"
-    color_good = "{{ numix.dark_fg }}"
+    color_bad = "{{ desktop_numix.error_bg }}"
+    color_degraded = "{{ desktop_numix.warning_bg }}"
+    color_good = "{{ desktop_numix.dark_fg }}"
 }
 
 backlight {
@@ -22,7 +22,7 @@ backlight {
 battery_level {
     blocks = ""
     charging_character = ""
-    color_charging = "{{ numix.dark_fg }}"
+    color_charging = "{{ desktop_numix.dark_fg }}"
     format = "{percent}% {icon}"
 }
 
@@ -31,7 +31,7 @@ diskdata {
 }
 
 online_status {
-    color_off = "{{ numix.dark_fg_darker }}"
+    color_off = "{{ desktop_numix.dark_fg_darker }}"
     icon_off = ""
     icon_on = ""
     url = "https://www.startpage.com/"
@@ -39,7 +39,7 @@ online_status {
 
 volume_status {
     command = "pactl"
-    color_muted = "{{ numix.dark_fg }}"
+    color_muted = "{{ desktop_numix.dark_fg }}"
     device = 0
     format = "{percentage}% "
     format_muted = ""
