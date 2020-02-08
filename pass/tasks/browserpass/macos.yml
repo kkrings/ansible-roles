@@ -12,5 +12,3 @@
 
 - name: "pass : browserpass : macOS : Include config tasks"
   include_tasks: config.yml
-  vars:
-      pass_browserpass_os: macOS

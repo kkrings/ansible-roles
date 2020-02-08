@@ -1,10 +1,10 @@
 ---
-- name: "pass : browserpass : {{ pass_browserpass_os }} : Check for existing configuration"
+- name: "pass : browserpass : Check for existing configuration"
   stat:
       path: "{{ pass_browserpass_dest }}/com.github.browserpass.native.json"
   register: config
 
-- name: "pass : browserpass : {{ pass_browserpass_os }} : Configure browserpass"
+- name: "pass : browserpass : Configure browserpass"
   make:
       chdir: "{{ pass_browserpass_prefix }}/lib/browserpass"
       target: hosts-chrome-user

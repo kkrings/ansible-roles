@@ -36,5 +36,3 @@
 
 - name: "pass : browserpass : Ubuntu : Include config tasks"
   include_tasks: config.yml
-  vars:
-      os: Ubuntu
