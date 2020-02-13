@@ -5,11 +5,15 @@
       virtualenv: ~/.virtualenvs/{{ node_env.name }}
       virtualenv_python: "{{ node_py_path }}"
 
+- name: "node : {{ node_env.name }} : Replace nodeenv script"
+  template:
+      src: nodeenv.j2
+      dest: ~/.virtualenvs/{{ node_env.name }}/bin/nodeenv
+      mode: 0775
+
 - name: "node : {{ node_env.name }} : Install Node.js {{ node_env.version }}"
   shell: |
-      . ~/.virtualenvs/{{ node_env.name }}/bin/activate
-      nodeenv -p -n {{ node_env.version }}
-      deactivate
+      ~/.virtualenvs/{{ node_env.name }}/bin/nodeenv -p -n {{ node_env.version }}
   args:
       creates: ~/.virtualenvs/{{ node_env.name }}/bin/node
 
