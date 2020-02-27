@@ -1,0 +1,27 @@
+---
+- name: "weltenbummlerpaar : Add NodeSource key"
+  apt_key:
+      url: https://deb.nodesource.com/gpgkey/nodesource.gpg.key
+      state: present
+  become: yes
+  tags: sudo
+
+- name: "weltenbummlerpaar : Add NodeSource repository"
+  apt_repository:
+      repo: "{{ item }} https://deb.nodesource.com/node_12.x bionic main"
+      filename: nodesource
+      state: present
+      update_cache: yes
+  loop:
+      - deb
+      - deb-src
+  become: yes
+  tags: sudo
+
+- name: "weltenbummlerpaar : Install Node.js"
+  apt:
+      name: nodejs
+      update_cache: yes
+      state: latest
+  become: yes
+  tags: sudo
