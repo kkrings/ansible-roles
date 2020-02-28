@@ -1,0 +1,17 @@
+---
+- name: "weltenbummlerpaar : Add certbot repository"
+  apt_repository:
+      repo: ppa:certbot/certbot
+      state: present
+  become: yes
+  tags: sudo
+
+- name: "weltenbummlerpaar : Install certbot with nginx support"
+  apt:
+      name:
+          - certbot
+          - python3-certbot-nginx
+      update_cache: yes
+      state: latest
+  become: yes
+  tags: sudo

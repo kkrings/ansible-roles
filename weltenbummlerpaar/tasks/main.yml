@@ -7,3 +7,6 @@
 
 - name: "Include nginx tasks"
   include_tasks: nginx.yml
+
+- name: "Include certbox tasks"
+  include_tasks: certbot.yml
