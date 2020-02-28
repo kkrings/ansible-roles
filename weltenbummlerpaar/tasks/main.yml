@@ -1,6 +1,9 @@
 ---
-- name: "Include Node.js tasks"
+- name: "Include nodejs tasks"
   include_tasks: nodejs.yml
 
-- name: "Include MongoDB tasks"
+- name: "Include mongodb tasks"
   include_tasks: mongodb.yml
+
+- name: "Include nginx tasks"
+  include_tasks: nginx.yml

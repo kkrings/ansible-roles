@@ -1,0 +1,31 @@
+---
+- name: "weltenbummlerpaar : Add nginx key"
+  apt_key:
+      url: https://nginx.org/keys/nginx_signing.key
+      state: present
+  become: yes
+  tags: sudo
+
+- name: "weltenbummlerpaar : Add nginx repository"
+  apt_repository:
+      repo: deb https://nginx.org/packages/ubuntu/ bionic nginx
+      filename: nginx
+      state: present
+  become: yes
+  tags: sudo
+
+- name: "weltenbummlerpaar : Add nginx source repository"
+  apt_repository:
+      repo: deb-src https://nginx.org/packages/ubuntu/ bionic nginx
+      filename: nginx
+      state: present
+  become: yes
+  tags: sudo
+
+- name: "weltenbummlerpaar : Install nginx"
+  apt:
+      name: nginx
+      update_cache: yes
+      state: latest
+  become: yes
+  tags: sudo
