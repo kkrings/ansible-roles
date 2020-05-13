@@ -11,7 +11,7 @@
       state: latest
       executable: /usr/local/bin/pip3
 
-- name: "python : macOS: Install virtual Python environments"
+- name: "python : macOS : Install virtual Python environments"
   include_tasks: pyenv.yml
   loop: "{{ python_envs }}"
   loop_control:
