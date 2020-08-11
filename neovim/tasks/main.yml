@@ -39,6 +39,12 @@
       dest: "{{ neovim_plugin_directory }}/{{ item.split('/')[1] }}"
   loop: "{{ neovim_plugins }}"
 
+- name: Install vimtex plugin
+  git:
+      repo: https://github.com/lervag/vimtex.git
+      dest: "{{ neovim_plugin_directory }}/vimtex"
+  when: neovim_vimtex_support
+
 - name: Create config directory
   file:
       path: ~/.config/nvim

@@ -1,2 +1,3 @@
 ---
+neovim_vimtex_support: true
 neovim_vimtex_view_method: zathura

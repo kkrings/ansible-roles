@@ -6,10 +6,11 @@
       update_cache: yes
   become: yes
   tags: sudo
+  when: ansible_distribution_version != "20.04"
 
 - name: "neovim : Ubuntu : Install neovim and additional packages"
   apt:
-      name: "{{ apt_packages }}"
+      name: "{{ neovim_deb_packages }}"
       state: latest
   become: yes
   tags: sudo
@@ -17,5 +18,5 @@
 - name: "neovim : Ubuntu : Include client tasks"
   include_tasks: client.yml
   vars:
-      py2_path: "{{ py2_path_ubuntu }}"
-      py3_path: "{{ py3_path_ubuntu }}"
+      neovim_py2_path: "{{ neovim_py2_path_ubuntu }}"
+      neovim_py3_path: "{{ neovim_py3_path_ubuntu }}"

@@ -44,8 +44,6 @@ neovim_plugins:
     - ncm2/ncm2-vim-lsp
     # Syntax checker
     - w0rp/ale
-    # LaTex
-    - lervag/vimtex
     # Git
     - tpope/vim-fugitive
     # Typescipt syntax highlighting

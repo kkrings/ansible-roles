@@ -30,6 +30,9 @@ call plug#begin('{{ neovim_plugin_directory }}')
 {% for plugin in neovim_plugins %}
 Plug '{{ plugin }}'
 {% endfor %}
+{% if neovim_vimtex_support %}
+Plug 'lervag/vimtex'
+{% endif %}
 call plug#end()
 
 " Enable the gruvbox color scheme.
@@ -97,6 +100,7 @@ if executable('typescript-language-server')
     \ })
 endif
 
+{% if neovim_vimtex_support %}
 let g:tex_flavor='latex'
 
 " Workaround for the missing `--remote` option.
@@ -110,6 +114,7 @@ let g:vimtex_view_general_viewer='open'
 let g:vimtex_view_general_options='-a Preview'
 {% else %}
 let g:vimtex_view_method='{{ neovim_vimtex_view_method }}'
+{% endif %}
 {% endif %}
 {% endif %}
 
