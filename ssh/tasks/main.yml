@@ -9,4 +9,5 @@
   template:
       dest: ~/.ssh/config
       src: config.j2
+      mode: 0644
   when: ssh_config is defined
