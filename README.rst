@@ -29,11 +29,11 @@ like::
     ---
     - name: Install my custom desktop environment
       hosts: `put a hostname here`
-       roles:
-           - desktop
-           - prezto
-           - neovim
-           - pass
+      roles:
+          - desktop
+          - prezto
+          - neovim
+          - pass
 
 The environment is installed and configured from inside the ``py3-ansible``
 environment via::
