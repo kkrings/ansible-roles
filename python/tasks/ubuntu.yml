@@ -1,0 +1,15 @@
+---
+- name: "python : Ubuntu : Install Python and additional packages"
+  apt:
+      name: "{{ python_deb_packages }}"
+      state: latest
+  become: yes
+  tags: sudo
+
+- name: "python : Ubuntu : Install virtual Python environments"
+  include_tasks: pyenv.yml
+  loop: "{{ python_envs }}"
+  loop_control:
+      loop_var: python_env
+  vars:
+      python_path_jupyter_kernels: "{{ python_path_jupyter_kernels_ubuntu }}"

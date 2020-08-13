@@ -1,4 +1,8 @@
 ---
+- name: Include Ubuntu tasks
+  include_tasks: ubuntu.yml
+  when: ansible_distribution == "Ubuntu"
+
 - name: Include macOS tasks
   include_tasks: macos.yml
   when: ansible_distribution == "MacOSX"

@@ -7,7 +7,7 @@
 
 - name: "python : macOS : Install Python packages"
   pip:
-      name: "{{ python_packages }}"
+      name: "{{ python_packages_macos }}"
       state: latest
       executable: /usr/local/bin/pip3
 

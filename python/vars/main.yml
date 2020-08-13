@@ -2,8 +2,16 @@
 python_homebrew_packages:
     - python
 
-python_packages:
+python_packages_macos:
     - jupyter
     - virtualenvwrapper
 
 python_path_jupyter_kernels_macos: ~/Library/Jupyter/kernels
+
+python_deb_packages:
+    - jupyter
+    - python
+    - python3
+    - virtualenvwrapper
+
+python_path_jupyter_kernels_ubuntu: ~/.local/share/jupyter/kernels
