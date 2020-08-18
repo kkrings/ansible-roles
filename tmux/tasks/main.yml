@@ -18,6 +18,6 @@
       dest: ~/.tmux/plugins/tmux-sensible
 
 - name: Configure tmux
-  copy:
-      src: tmux.conf
+  template:
+      src: tmux.conf.j2
       dest: ~/.tmux.conf
