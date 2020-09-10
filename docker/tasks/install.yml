@@ -1,0 +1,32 @@
+---
+- name: "docker : Install dependencies"
+  apt:
+      name: "{{ docker_dependencies }}"
+      update_cache: yes
+      state: latest
+  become: yes
+  tags: sudo
+
+- name: "docker : Add apt key"
+  apt_key:
+      url: "{{ docker_key_url }}"
+      id: "{{ docker_key_id }}"
+      state: present
+  become: yes
+  tags: sudo
+
+- name: "docker : Add apt repository"
+  apt_repository:
+      repo: "deb [arch=amd64] {{ docker_repo_url }} {{ ansible_distribution_release }} {{ docker_repo }}"
+      filename: "docker_{{ docker_repo }}"
+      state: present
+  become: yes
+  tags: sudo
+
+- name: "docker : Install packages"
+  apt:
+      name: "{{ docker_packages }}"
+      update_cache: yes
+      state: latest
+  become: yes
+  tags: sudo

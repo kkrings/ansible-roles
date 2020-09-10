@@ -1,0 +1,16 @@
+---
+docker_dependencies:
+    - apt-transport-https
+    - ca-certificates
+    - gnupg-agent
+    - software-properties-common
+
+docker_key_url: https://download.docker.com/linux/ubuntu/gpg
+docker_key_id: 9DC858229FC7DD38854AE2D88D81803C0EBFCD88
+
+docker_repo_url: https://download.docker.com/linux/ubuntu
+
+docker_packages:
+    - docker-ce
+    - docker-ce-cli
+    - containerd.io
