@@ -16,7 +16,7 @@
 
 - name: "weltenbummlerpaar : Install mongodb"
   apt:
-      name: mongodb-org
+      name: "{{ weltenbummlerpaar_mongodb_deb_packages }}"
       state: latest
       update_cache: yes
   become: yes

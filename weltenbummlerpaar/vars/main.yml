@@ -1,0 +1,7 @@
+---
+weltenbummlerpaar_mongodb_deb_packages:
+    - mongodb-org
+    - mongodb-org-shell
+    - mongodb-org-server
+    - mongodb-org-mongos
+    - mongodb-org-tools
