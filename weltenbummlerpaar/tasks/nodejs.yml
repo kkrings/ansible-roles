@@ -8,7 +8,7 @@
 
 - name: "weltenbummlerpaar : Add nodejs repository"
   apt_repository:
-      repo: deb https://deb.nodesource.com/node_12.x/ bionic main
+      repo: deb https://deb.nodesource.com/node_14.x/ bionic main
       filename: nodesource
       state: present
   become: yes
@@ -16,7 +16,7 @@
 
 - name: "weltenbummlerpaar : Add nodejs source repository"
   apt_repository:
-      repo: deb-src https://deb.nodesource.com/node_12.x/ bionic main
+      repo: deb-src https://deb.nodesource.com/node_14.x/ bionic main
       filename: nodesource
       state: present
   become: yes
