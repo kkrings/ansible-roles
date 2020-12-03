@@ -1,0 +1,24 @@
+---
+- name: Add google key
+  apt_key:
+      url: https://dl-ssl.google.com/linux/linux_signing_key.pub
+      state: present
+  become: yes
+  tags: sudo
+
+- name: Add google repository
+  apt_repository:
+      repo: deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main
+      filename: google
+      state: present
+      update_cache: yes
+  become: yes
+  tags: sudo
+
+- name: Install google chrome
+  apt:
+      name: google-chrome-stable
+      update_cache: yes
+      state: latest
+  become: yes
+  tags: sudo
