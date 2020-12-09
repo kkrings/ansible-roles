@@ -1,0 +1,23 @@
+---
+- name: "mongodb : Add mongodb key"
+  apt_key:
+      url: https://www.mongodb.org/static/pgp/server-{{ mongodb_version }}.asc
+      state: present
+  become: yes
+  tags: sudo
+
+- name: "mongodb : Add mongodb repository"
+  apt_repository:
+      repo: deb [arch=amd64] https://repo.mongodb.org/apt/ubuntu {{ ansible_distribution_release }}/mongodb-org/{{ mongodb_version}} multiverse
+      filename: mongodb-org-{{ mongodb_version }}
+      state: present
+  become: yes
+  tags: sudo
+
+- name: "mongodb : Install mongodb"
+  apt:
+      name: "{{ mongodb_deb_packages }}"
+      state: latest
+      update_cache: yes
+  become: yes
+  tags: sudo
