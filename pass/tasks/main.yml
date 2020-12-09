@@ -1,5 +1,5 @@
 ---
-- name: "Ubuntu : Install pass"
+- name: "pass : Ubuntu : Install pass"
   apt:
       name: pass
       state: latest
@@ -8,33 +8,33 @@
   become: yes
   tags: sudo
 
-- name: "macOS : Install pass and pinentry-mac"
+- name: "pass : macOS : Install pass and pinentry-mac"
   homebrew:
       name: ["pass", "pinentry-mac"]
       state: latest
       update_homebrew: yes
   when: ansible_distribution == "MacOSX"
 
-- name: "macOS : Configure gpg to use pinentry-mac"
+- name: "pass : macOS : Configure gpg to use pinentry-mac"
   copy:
       src: gpg-agent.conf
       dest: ~/.gnupg/gpg-agent.conf
   when: ansible_distribution == "MacOSX"
 
-- name: Checkout existing password store (optional)
+- name: "pass : Checkout existing password store (optional)"
   git:
       repo: "{{ pass_password_store }}"
       dest: ~/.password-store
       accept_hostkey: yes
   when: pass_password_store is defined
 
-- name: Fix permissions of (empty) password store
+- name: "pass : Fix permissions of (empty) password store"
   file:
       path: ~/.password-store
       state: directory
       mode: 0700
 
-- name: "Ubuntu : Include browserpass tasks"
+- name: "pass : Ubuntu : Include browserpass tasks"
   include_tasks: browserpass/ubuntu.yml
   vars:
       pass_browserpass_dest: "{{ pass_browserpass.dest.ubuntu }}"
@@ -44,7 +44,7 @@
   when: ansible_distribution == "Ubuntu"
   tags: browserpass
 
-- name: "macOS : Include browserpass tasks"
+- name: "pass : macOS : Include browserpass tasks"
   include_tasks: browserpass/macos.yml
   vars:
       pass_browserpass_dest: "{{ pass_browserpass.dest.macos }}"
