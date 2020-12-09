@@ -3,7 +3,7 @@
       name: nodeenv
       state: latest
       virtualenv: ~/.virtualenvs/{{ node_env.name }}
-      virtualenv_python: "{{ node_py_path }}"
+      virtualenv_python: "{{ node_env.python }}"
 
 - name: "node : {{ node_env.name }} : Replace nodeenv script"
   template:

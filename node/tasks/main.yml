@@ -1,4 +1,6 @@
 ---
-- name: "Include macOS tasks"
-  include_tasks: macos.yml
-  when: ansible_distribution == "MacOSX"
+- name: "node : Install virtual Node.js environments"
+  include_tasks: nodeenv.yml
+  loop: "{{ node_envs }}"
+  loop_control:
+      loop_var: node_env
