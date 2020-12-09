@@ -1,5 +1,5 @@
 ---
-- name: Install sudo and zsh
+- name: "users : Install sudo and zsh"
   apt:
       name: ["sudo", "zsh"]
       update_cache: yes
@@ -7,10 +7,10 @@
   become: yes
   tags: sudo
 
-- name: Include group tasks (optional)
+- name: "users : Include group tasks (optional)"
   include_tasks: groups.yml
   when: create_groups | length > 0
 
-- name: Include user tasks (optional)
+- name: "users : Include user tasks (optional)"
   include_tasks: users.yml
   when: create_users | length > 0

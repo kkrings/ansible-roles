@@ -1,5 +1,5 @@
 ---
-- name: Create users
+- name: "users : Create users"
   user:
       name: "{{ item.name }}"
       append: "{{ item.append | default('yes') }}"
@@ -13,7 +13,7 @@
   become: yes
   tags: sudo
 
-- name: Add SSH keys for users
+- name: "users : Add SSH keys for users"
   authorized_key:
       user: "{{ item.name }}"
       key: "{{ item.key }}"
