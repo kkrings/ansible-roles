@@ -1,56 +1,56 @@
 ---
-- name: "Ubuntu : Include install tasks"
+- name: "neovim : Ubuntu : Include install tasks"
   include_tasks: ubuntu.yml
   when: ansible_distribution == "Ubuntu"
 
-- name: "macOS : Include install tasks"
+- name: "neovim : macOS : Include install tasks"
   include_tasks: macos.yml
   when: ansible_distribution == "MacOSX"
 
-- name: Create directory for nvr executable
+- name: "neovim : Create directory for nvr executable"
   file:
       path: ~/.local/bin
       state: directory
 
-- name: Link nvr executable
+- name: "neovim : Link nvr executable"
   file:
       path: ~/.local/bin/nvr
       src: "{{ neovim_py3_env }}/bin/nvr"
       state: link
 
-- name: Create directory for runtime files
+- name: "neovim : Create directory for runtime files"
   file:
       path: ~/.local/share/nvim/site
       state: directory
 
-- name: Install plugin manager
+- name: "neovim : Install plugin manager"
   git:
       repo: https://github.com/junegunn/vim-plug.git
       dest: ~/.local/share/nvim/site/autoload
 
-- name: Create directory for plugins
+- name: "neovim : Create directory for plugins"
   file:
       path: "{{ neovim_plugin_directory }}"
       state: directory
 
-- name: Install plugins
+- name: "neovim : Install plugins"
   git:
       repo: https://github.com/{{ item }}.git
       dest: "{{ neovim_plugin_directory }}/{{ item.split('/')[1] }}"
   loop: "{{ neovim_plugins }}"
 
-- name: Install vimtex plugin
+- name: "neovim : Install vimtex plugin"
   git:
       repo: https://github.com/lervag/vimtex.git
       dest: "{{ neovim_plugin_directory }}/vimtex"
   when: neovim_vimtex_support
 
-- name: Create config directory
+- name: "neovim : Create config directory"
   file:
       path: ~/.config/nvim
       state: directory
 
-- name: Configure neovim
+- name: "neovim : Configure neovim"
   template:
       src: init.vim.j2
       dest: ~/.config/nvim/init.vim
