@@ -1,5 +1,5 @@
 ---
-- name: "Ubuntu : Install git and git-lfs"
+- name: "git : Ubuntu : Install git and git-lfs"
   apt:
       name: ["git", "git-lfs"]
       state: latest
@@ -8,14 +8,14 @@
   become: yes
   tags: sudo
 
-- name: "macOS : Install git and git-lfs"
+- name: "git : macOS : Install git and git-lfs"
   homebrew:
       name: ["git", "git-lfs"]
       state: latest
       update_homebrew: yes
   when: ansible_distribution == "MacOSX"
 
-- name: Configure git (optional)
+- name: "git : Configure git (optional)"
   git_config:
       name: "{{ item.key }}"
       value: "{{ item.value }}"
