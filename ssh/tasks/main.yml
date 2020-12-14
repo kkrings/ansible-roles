@@ -1,11 +1,11 @@
 ---
-- name: Create config directory
+- name: "ssh : Create config directory"
   file:
       path: ~/.ssh
       state: directory
       mode: 0700
 
-- name: Configure ssh (optional)
+- name: "ssh : Configure ssh (optional)"
   template:
       dest: ~/.ssh/config
       src: config.j2
