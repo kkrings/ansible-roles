@@ -1,3 +1,5 @@
 ---
-neovim_vimtex_support: true
+neovim_coc_support: false
+neovim_coc_extensions: []
+neovim_vimtex_support: false
 neovim_vimtex_view_method: zathura

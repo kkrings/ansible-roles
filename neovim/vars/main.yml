@@ -33,18 +33,5 @@ neovim_plugins:
     - scrooloose/nerdtree
     # Status line
     - vim-airline/vim-airline
-    # Completion manager
-    - ncm2/ncm2
-    - roxma/nvim-yarp
-    - ncm2/ncm2-bufword
-    - ncm2/ncm2-path
-    # Language server protocol
-    - prabirshrestha/async.vim
-    - prabirshrestha/vim-lsp
-    - ncm2/ncm2-vim-lsp
-    # Syntax checker
-    - w0rp/ale
     # Git
     - tpope/vim-fugitive
-    # Typescipt syntax highlighting
-    - HerringtonDarkholme/yats.vim

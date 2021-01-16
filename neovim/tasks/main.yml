@@ -50,6 +50,19 @@
       path: ~/.config/nvim
       state: directory
 
+- name: "neovim : Install coc.nvim plugin"
+  git:
+      repo: https://github.com/neoclide/coc.nvim.git
+      dest: "{{ neovim_plugin_directory }}/coc.nvim"
+      version: release
+  when: neovim_coc_support
+
+- name: "neovim : Copy config for coc.nvim into config directory"
+  copy:
+      src: coc.vim
+      dest: ~/.config/nvim/coc.vim
+  when: neovim_coc_support
+
 - name: "neovim : Configure neovim"
   template:
       src: init.vim.j2

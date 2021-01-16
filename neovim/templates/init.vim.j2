@@ -22,7 +22,8 @@ augroup makefiles
 augroup END
 
 augroup webdevelopment
-  autocmd FileType html,javascript,typescript setlocal shiftwidth=2 tabstop=2
+  autocmd FileType html,css,scss setlocal shiftwidth=2 tabstop=2
+  autocmd FileType javascript,typescript setlocal shiftwidth=2 tabstop=2
 augroup END
 
 " Manage plugins.
@@ -33,6 +34,9 @@ Plug '{{ plugin }}'
 {% if neovim_vimtex_support %}
 Plug 'lervag/vimtex'
 {% endif %}
+{% if neovim_coc_support %}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+{% endif %}
 call plug#end()
 
 " Enable the gruvbox color scheme.
@@ -42,71 +46,24 @@ colorscheme gruvbox
 " The color scheme supports powerline symbols.
 let g:airline_powerline_fonts=1
 
-" Enable completion for all buffers.
-autocmd BufEnter * call ncm2#enable_for_buffer()
-set completeopt=noinsert,menuone,noselect
+" Code completion
+{% if neovim_coc_support %}
+source ~/.config/nvim/coc.vim
 
-" Language server: c/c++
-if executable('clangd')
-  au User lsp_setup call lsp#register_server({
-    \ 'name': 'clangd',
-    \ 'cmd': {server_info->['clangd']},
-    \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
-    \ })
-endif
+{% if neovim_coc_extensions %}
+let g:coc_global_extensions = [
+{% for extension in neovim_coc_extensions %}
+  \ '{{ extension }}',
+{% endfor %}
+  \ ]
+{% endif %}
+{% endif %}
 
-" Language server: python
-if executable('pyls')
-  au User lsp_setup call lsp#register_server({
-    \ 'name': 'pyls',
-    \ 'cmd': {server_info->['pyls']},
-    \ 'whitelist': ['python'],
-    \ })
-endif
-
-" Language server: javascript
-if executable('typescript-language-server')
-  au User lsp_setup call lsp#register_server({
-    \ 'name': 'javascript support using typescript-language-server',
-    \ 'cmd': {
-        \ server_info->[
-            \ &shell, &shellcmdflag, 'typescript-language-server --stdio'
-            \ ]
-        \ },
-    \ 'root_uri': {
-        \ server_info->lsp#utils#path_to_uri(
-            \ lsp#utils#find_nearest_parent_file_directory(
-                \ lsp#utils#get_buffer_path(), 'package.json'))
-        \ },
-    \ 'whitelist': ['javascript', 'javascript.jsx'],
-    \ })
-endif
-
-" Languare server: typescript
-if executable('typescript-language-server')
-  au User lsp_setup call lsp#register_server({
-    \ 'name': 'typescript support using typescript-language-server',
-    \ 'cmd': {
-        \ server_info->[
-            \ &shell, &shellcmdflag, 'typescript-language-server --stdio'
-            \ ]
-        \ },
-    \ 'root_uri': {
-        \ server_info->lsp#utils#path_to_uri(
-            \ lsp#utils#find_nearest_parent_file_directory(
-                \ lsp#utils#get_buffer_path(), 'tsconfig.json'))
-        \ },
-    \ 'whitelist': ['typescript', 'typescript.tsx'],
-    \ })
-endif
-
+" LaTeX support
 {% if neovim_vimtex_support %}
 let g:tex_flavor='latex'
-
 " Workaround for the missing `--remote` option.
 let g:vimtex_compiler_progname='nvr'
-
-" PDF viewer
 {% if neovim_vimtex_view_method is defined %}
 {% if neovim_vimtex_view_method == "Preview" %}
 let g:vimtex_view_method='general'
@@ -117,8 +74,3 @@ let g:vimtex_view_method='{{ neovim_vimtex_view_method }}'
 {% endif %}
 {% endif %}
 {% endif %}
-
-" Disable some ALE linters.
-let g:ale_linters = {
-  \ 'cpp': ['clangd'],
-  \ }
