@@ -35,3 +35,5 @@ neovim_plugins:
     - vim-airline/vim-airline
     # Git
     - tpope/vim-fugitive
+    # JSX/TSX syntax highlighting
+    - peitalin/vim-jsx-typescript
