@@ -1,0 +1,24 @@
+---
+- name: "azurecli : Add azure-cli key"
+  apt_key:
+      url: https://packages.microsoft.com/
+      id: BC528686B50D79E339D3721CEB3E94ADBE1229CF
+      state: present
+  become: yes
+  tags: sudo
+
+- name: "azurecli : Add azure-cli repository"
+  apt_repository:
+      repo: deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ {{ ansible_distribution_release }} main
+      filename: azure-cli
+      state: present
+  become: yes
+  tags: sudo
+
+- name: "azurecli : Install azure-cli"
+  apt:
+      name: azure-cli
+      update_cache: yes
+      state: latest
+  become: yes
+  tags: sudo
