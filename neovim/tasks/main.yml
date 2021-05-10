@@ -63,6 +63,12 @@
       dest: ~/.config/nvim/coc.vim
   when: neovim_coc_support
 
+- name: "neovim : Copy settings for coc.nvim into config directory"
+  copy:
+      src: coc.json
+      dest: ~/.config/nvim/coc-settings.json
+  when: neovim_coc_support
+
 - name: "neovim : Configure neovim"
   template:
       src: init.vim.j2

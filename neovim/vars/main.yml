@@ -37,3 +37,5 @@ neovim_plugins:
     - tpope/vim-fugitive
     # JSX/TSX syntax highlighting
     - peitalin/vim-jsx-typescript
+    # Code linting
+    - dense-analysis/ale
