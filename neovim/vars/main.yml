@@ -38,4 +38,4 @@ neovim_plugins:
     # JSX/TSX syntax highlighting
     - peitalin/vim-jsx-typescript
     # Code linting
-    - dense-analysis/ale
+    - kkrings/ale
