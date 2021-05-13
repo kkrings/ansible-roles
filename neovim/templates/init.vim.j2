@@ -19,6 +19,8 @@ set listchars=tab:>.,trail:_,extends:>,precedes:<
 " Configure ALE.
 {% if neovim_coc_support %}
 let g:ale_disable_lsp = 1 " LSP is handled by coc.nvim.
+{% else %}
+let g:ale_completion_enabled = 1
 {% endif %}
 
 " Manage plugins.
