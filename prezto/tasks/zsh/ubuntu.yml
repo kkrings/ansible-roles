@@ -12,7 +12,7 @@
       name: ["keychain", "socat"]
       state: latest
       update_cache: yes
-  when: '{{ prezto_keychain }}'
+  when: prezto_keychain
   become: yes
   tags: sudo
 
