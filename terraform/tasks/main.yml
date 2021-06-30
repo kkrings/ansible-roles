@@ -1,0 +1,23 @@
+---
+- name: "terraform : Add HashiCorp key"
+  apt_key:
+      url: https://apt.releases.hashicorp.com/gpg
+      state: present
+  become: yes
+  tags: sudo
+
+- name: "terraform : Add HashiCorp repository"
+  apt_repository:
+      repo: deb [arch=amd64] https://apt.releases.hashicorp.com/ {{ ansible_distribution_release }} main
+      filename: hashicorp
+      state: present
+  become: yes
+  tags: sudo
+
+- name: "terraform : Install terraform"
+  apt:
+      name: terraform
+      update_cache: yes
+      state: latest
+  become: yes
+  tags: sudo
