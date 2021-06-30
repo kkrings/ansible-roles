@@ -27,3 +27,5 @@ prezto_ssh:
     - id_rsa
     - id_rsa2
     - id_github
+
+prezto_keychain: false

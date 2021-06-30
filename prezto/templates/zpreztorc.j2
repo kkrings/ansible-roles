@@ -35,7 +35,9 @@ zstyle ':prezto:load' pmodule \
   'git' \
   'python' \
   'rsync' \
+{% if not prezto_keychain %}
   'ssh' \
+{% endif %}
 {% if ansible_distribution == "MacOSX" %}
   'gpg' \
   'osx'
@@ -77,7 +79,8 @@ zstyle ':prezto:module:python:virtualenv' initialize 'yes'
 # SSH
 #
 
-# Set the SSH identities to load into the agent.
+# Set the SSH identities to load into the agent (optional).
+{% if not prezto_keychain %}
 zstyle ':prezto:module:ssh:load' identities \
 {% for key in prezto_ssh %}
 {% if loop.last %}
@@ -86,6 +89,7 @@ zstyle ':prezto:module:ssh:load' identities \
   '{{ key }}' \
 {% endif %}
 {% endfor %}
+{% endif %}
 
 #
 # Syntax Highlighting
