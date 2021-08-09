@@ -3,7 +3,7 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/runcoms/zprofile" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/runcoms/zprofile"
 fi
 
- # Load SSH identities into the agent (optional).
+# Load SSH identities into the agent (optional).
 {% if prezto_keychain %}
 eval $(keychain --eval --agents ssh{% for key in prezto_ssh %} {{ key }}{% endfor %})
 {% endif %}
