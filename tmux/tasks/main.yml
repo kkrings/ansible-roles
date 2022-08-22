@@ -12,10 +12,10 @@
       path: ~/.tmux/plugins
       state: directory
 
-- name: "tmux : Install tmux-sensible plugin"
+- name: "tmux : Install tpm"
   git:
-      repo: https://github.com/tmux-plugins/tmux-sensible.git
-      dest: ~/.tmux/plugins/tmux-sensible
+      repo: https://github.com/tmux-plugins/tpm.git
+      dest: ~/.tmux/plugins/tpm
 
 - name: "tmux : Configure tmux"
   template:

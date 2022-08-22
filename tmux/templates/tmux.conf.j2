@@ -7,15 +7,12 @@ set-option -g default-terminal 'screen-256color'
 set-option -ag terminal-overrides ',{{ tmux_terminal }}:RGB'
 set-option -sg escape-time 10
 
-# Set colors.
-set-option -g status-bg colour237
-set-option -g status-fg colour250
-set-option -g pane-active-border-style fg=colour237
-set-option -g pane-border-style fg=colour237
-set-option -g display-panes-colour colour250
-set-option -g display-panes-active-colour colour250
-set-option -g message-style fg=colour250,bg=colour237
-set-option -g message-command-style fg=colour250,bg=colour237
+# List of plugins
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'tmux-plugins/tmux-sensible'
+set -g @plugin 'dracula/tmux'
 
-# Load tmux-sensible settings.
-run-shell ~/.tmux/tmux-sensible/sensible.tmux
+set -g @dracula-plugins 'time'
+
+# Initialize plugin manager.
+run '~/.tmux/plugins/tpm/tpm'
