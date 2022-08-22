@@ -2,38 +2,25 @@
 neovim_deb_packages:
     - build-essential
     - neovim
-    - fonts-powerline
     - git
-    - python-dev
     - python3-dev
     - virtualenvwrapper
-    - zathura
-    - xdotool
 
 neovim_homebrew_packages:
     - neovim
     - git
     - python
 
-neovim_py2_path_ubuntu: /usr/bin/python
 neovim_py3_path_ubuntu: /usr/bin/python3
-
-neovim_py2_path_macos: /usr/bin/python
 neovim_py3_path_macos: /usr/local/bin/python3
-
-neovim_py2_env: ~/.virtualenvs/py2-neovim
 neovim_py3_env: ~/.virtualenvs/py3-neovim
 
 neovim_plugin_directory: ~/.local/share/nvim/plugged
 
 neovim_plugins:
-    # Color scheme
-    - morhetz/gruvbox
     # File browser
     - scrooloose/nerdtree
     # Status line
     - vim-airline/vim-airline
     # Git
     - tpope/vim-fugitive
-    # JSX/TSX syntax highlighting
-    - peitalin/vim-jsx-typescript

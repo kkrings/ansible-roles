@@ -18,5 +18,4 @@
 - name: "neovim : Ubuntu : Include client tasks"
   include_tasks: client.yml
   vars:
-      neovim_py2_path: "{{ neovim_py2_path_ubuntu }}"
       neovim_py3_path: "{{ neovim_py3_path_ubuntu }}"

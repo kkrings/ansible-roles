@@ -14,5 +14,4 @@
 - name: "neovim : macOS : Include client tasks"
   include_tasks: client.yml
   vars:
-      neovim_py2_path: "{{ neovim_py2_path_macos }}"
       neovim_py3_path: "{{ neovim_py3_path_macos }}"
