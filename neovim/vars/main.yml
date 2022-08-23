@@ -18,9 +18,12 @@ neovim_py3_env: ~/.virtualenvs/py3-neovim
 neovim_plugin_directory: ~/.local/share/nvim/plugged
 
 neovim_plugins:
+    # Color scheme
+    - repo: dracula/vim
+      alias: dracula
     # File browser
-    - scrooloose/nerdtree
+    - repo: scrooloose/nerdtree
     # Status line
-    - vim-airline/vim-airline
+    - repo: vim-airline/vim-airline
     # Git
-    - tpope/vim-fugitive
+    - repo: tpope/vim-fugitive

@@ -17,9 +17,12 @@ set listchars=tab:>.,trail:_,extends:>,precedes:<
 
 " Manage plugins.
 call plug#begin('{{ neovim_plugin_directory }}')
-Plug 'dracula/vim', {'as': 'dracula'}
 {% for plugin in neovim_plugins %}
-Plug '{{ plugin }}'
+{% if 'alias' in plugin %}
+Plug '{{ plugin.repo }}', {'as': '{{ plugin.alias }}'}
+{% else %}
+Plug '{{ plugin.repo }}'
+{% endif %}
 {% endfor %}
 {% if neovim_vimtex_support %}
 Plug 'lervag/vimtex'

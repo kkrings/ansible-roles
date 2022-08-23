@@ -35,8 +35,8 @@
 
 - name: "neovim : Install plugins"
   git:
-      repo: https://github.com/{{ item }}.git
-      dest: "{{ neovim_plugin_directory }}/{{ item.split('/')[1] }}"
+      repo: https://github.com/{{ item.repo }}.git
+      dest: "{{ neovim_plugin_directory }}/{{ item.alias | default(item.repo.split('/')[1]) }}"
   loop: "{{ neovim_plugins }}"
 
 - name: "neovim : Install vimtex plugin"
