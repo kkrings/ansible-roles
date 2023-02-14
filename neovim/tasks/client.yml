@@ -1,7 +1,7 @@
 ---
 - name: "neovim : Install Python3 client"
   pip:
-      name: ["pynvim", "neovim-remote"]
+      name: ["pynvim", "neovim-remote", "virtualenvwrapper"]
       state: latest
       virtualenv: "{{ neovim_py3_env }}"
       virtualenv_python: "{{ neovim_py3_path }}"
