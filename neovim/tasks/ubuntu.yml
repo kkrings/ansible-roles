@@ -6,7 +6,7 @@
       update_cache: yes
   become: yes
   tags: sudo
-  when: ansible_distribution_version != "20.04"
+  when: ansible_distribution_version == "18.04"
 
 - name: "neovim : Ubuntu : Install neovim and additional packages"
   apt:
