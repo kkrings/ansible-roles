@@ -1,7 +1,7 @@
 ---
-- name: "prezto : Ubuntu : Include z-shell tasks"
-  include_tasks: zsh/ubuntu.yml
-  when: ansible_distribution == "Ubuntu"
+- name: "prezto : Linux : Include z-shell tasks"
+  include_tasks: zsh/linux.yml
+  when: ansible_distribution != "MacOSX"
 
 - name: "prezto : macOS : Include z-shell tasks"
   include_tasks: zsh/macos.yml

@@ -1,5 +1,5 @@
 ---
-- name: "prezto : Ubuntu : Install z-shell and git"
+- name: "prezto : Linux : Install z-shell and git"
   apt:
       name: ["zsh", "git"]
       state: latest
@@ -7,7 +7,7 @@
   become: yes
   tags: sudo
 
-- name: "prezto : Ubuntu : Install keychain and socat"
+- name: "prezto : Linux : Install keychain and socat"
   apt:
       name: ["keychain", "socat"]
       state: latest
@@ -16,7 +16,7 @@
   become: yes
   tags: sudo
 
-- name: "prezto : Ubuntu : Change user's shell to z-shell"
+- name: "prezto : Linux : Change user's shell to z-shell"
   user:
       name: "{{ ansible_user_id }}"
       shell: /bin/zsh
